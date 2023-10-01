@@ -1,5 +1,10 @@
 # Registro de Cambios
 
+## [1.0.3] - 30/09/2023 (srodriguez)
+
+- Eliminacion del archivo general Empleado.
+- Inicio del archivo Desarrollador Narrativa.
+
 ## [1.0.2] - 30/09/2023 (srodriguez)
 
 - Creacion de archivos de interfaces.
