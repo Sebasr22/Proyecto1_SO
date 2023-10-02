@@ -1,4 +1,9 @@
 # Registro de Cambios
+## [1.0.4] - 02/10/2023 (Juandb1507)
+
+-Creación de las clases de desarrolladores 
+-Creación de la clase Director, Project , Studio, Funciones e Integrador
+- Inicio del Main Dashboard
 
 ## [1.0.3] - 30/09/2023 (srodriguez)
 
