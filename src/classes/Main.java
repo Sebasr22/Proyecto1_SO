@@ -22,12 +22,14 @@ import java.util.concurrent.Semaphore;
 public class Main {
 
     public static void main(String[] args) {
-        int capacidadDrive = 25;
-        Semaphore drive = new Semaphore(capacidadDrive);
+        Semaphore driveGuiones = new Semaphore(11);
 
         // Pasamos los parametros necesarios para el desarrollador de narrativa.
-        DesarrolladorNarrativa empleado = new DesarrolladorNarrativa(0, 0, capacidadDrive, 0, 10, drive, 0, true);
+        DesarrolladorNarrativa empleado = new DesarrolladorNarrativa(0, 0, /**capacidadDrive,*/ 0, 10, driveGuiones, 0, true);
         empleado.start();
+        
+        DesarrolladorNarrativa empleado2 = new DesarrolladorNarrativa(0, 0, /**capacidadDrive,*/ 0, 10, driveGuiones, 0, true);
+        empleado2.start();
         // FUNCIONAAA SUUU
 //        }
     }
