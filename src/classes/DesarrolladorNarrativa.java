@@ -20,8 +20,9 @@ public class DesarrolladorNarrativa extends Thread {
     Semaphore driveGuion;
     boolean activo;
     int totalPay;
+    char diasParaGenerar;
 
-    public DesarrolladorNarrativa(int guionesGenerados, int diasTrabajados, int capacidadDrive, int guinesEnDrive, int sueldoPorHora, Semaphore semaforoDrive, int totalPay, boolean activo) {
+    public DesarrolladorNarrativa(int guionesGenerados, int diasTrabajados, int capacidadDrive, int guinesEnDrive, int sueldoPorHora, Semaphore semaforoDrive, int totalPay, boolean activo, char diasParaGenerar) {
 
         this.guionesGenerados = guionesGenerados;
         this.diasTrabajados = diasTrabajados;
@@ -31,6 +32,7 @@ public class DesarrolladorNarrativa extends Thread {
         this.driveGuion = new Semaphore(5);
         this.totalPay = 0;
         this.activo = activo;
+        this.diasParaGenerar = diasParaGenerar;
     }
 
     public void payDayDesarrolladorNarrativa() {
@@ -45,8 +47,7 @@ public class DesarrolladorNarrativa extends Thread {
     public void run() {
         while (this.activo) {
             try {
-                int tiempoGeneracion = 1;
-                Thread.sleep(tiempoGeneracion * 1000); // Simular días de trabajo
+                Thread.sleep(diasParaGenerar * 1000); // Simular días de trabajo
                 generarGuion();
             } catch (InterruptedException ex) {
                 System.out.println("TESTTT2");
