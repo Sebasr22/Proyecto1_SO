@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaces;
+import interfaces.Bethesda;
+import interfaces.Nintendo;
+import interfaces.Dashboard;
+
 
 /**
  *
@@ -26,45 +30,51 @@ public class MainInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        dashboard3 = new interfaces.Dashboard();
+        tabbedPane = new javax.swing.JTabbedPane();
+        dashboard1 = new interfaces.Dashboard();
+        bethesda1 = new interfaces.Bethesda();
+        nintendo1 = new interfaces.Nintendo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        tabbedPane.setName("tabbedPane"); // NOI18N
+        tabbedPane.addTab("Dashboard", dashboard1);
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
-        jLabel1.setText("Nintendo");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 320, 110, -1));
+        javax.swing.GroupLayout bethesda1Layout = new javax.swing.GroupLayout(bethesda1);
+        bethesda1.setLayout(bethesda1Layout);
+        bethesda1Layout.setHorizontalGroup(
+            bethesda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 720, Short.MAX_VALUE)
+        );
+        bethesda1Layout.setVerticalGroup(
+            bethesda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 603, Short.MAX_VALUE)
+        );
 
-        jLabel3.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
-        jLabel3.setText("MAIN DASHBOARD");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 340, -1));
+        tabbedPane.addTab("Bethesda", bethesda1);
 
-        jLabel4.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
-        jLabel4.setText("General");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 140, -1));
+        javax.swing.GroupLayout nintendo1Layout = new javax.swing.GroupLayout(nintendo1);
+        nintendo1.setLayout(nintendo1Layout);
+        nintendo1Layout.setHorizontalGroup(
+            nintendo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 720, Short.MAX_VALUE)
+        );
+        nintendo1Layout.setVerticalGroup(
+            nintendo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 603, Short.MAX_VALUE)
+        );
 
-        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
-        jLabel5.setText("Bethesda");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 110, -1));
+        tabbedPane.addTab("Nintendo", nintendo1);
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Broadway", 1, 24)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dashboard_background.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 600));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 600));
+        getContentPane().add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+
+// Agrega los paneles como pestañas al JTabbedPane
 
     /**
      * @param args the command line arguments
@@ -92,7 +102,7 @@ public class MainInterface extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+       
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -101,12 +111,12 @@ public class MainInterface extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
+    private interfaces.Bethesda bethesda1;
+    private interfaces.Dashboard dashboard1;
+    private interfaces.Dashboard dashboard3;
+    private interfaces.Nintendo nintendo1;
+    private javax.swing.JTabbedPane tabbedPane;
     // End of variables declaration//GEN-END:variables
 }

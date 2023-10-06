@@ -23,11 +23,11 @@ public class Main {
 
     public static void main(String[] args) {
         int capacidadDrive = 25;
-        Semaphore drive = new Semaphore(capacidadDrive);
+        Semaphore driveN = new Semaphore(capacidadDrive);
 
         // Pasamos los parametros necesarios para el desarrollador de narrativa.
-        DesarrolladorNarrativa empleado = new DesarrolladorNarrativa(0, 0, capacidadDrive, 0, 10, drive, 0, true);
-        empleado.start();
+        DesarrolladorNarrativa empleadoN = new DesarrolladorNarrativa(0, 0, 0, 10, driveN, 0, true,6);
+        empleadoN.start();
         // FUNCIONAAA SUUU
 //        }
     }

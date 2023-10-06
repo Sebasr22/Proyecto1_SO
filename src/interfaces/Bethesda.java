@@ -11,7 +11,7 @@ package interfaces;
 public class Bethesda extends javax.swing.JPanel {
 
     /**
-     * Creates new form Bethesda
+     * Creates new form Nintendo
      */
     public Bethesda() {
         initComponents();
