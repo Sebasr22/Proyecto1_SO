@@ -12,38 +12,20 @@ import java.util.concurrent.Semaphore;
  */
 public class DesarrolladorNarrativa extends Thread {
 
-    int guionesGenerados;
-    int diasTrabajados;
-
-    Semaphore capacidadDrive;
-
-    int guionesEnDrive;
     int sueldoPorHora;
     Semaphore driveGuion;
-    boolean activo;
-    int totalPay;
+    boolean activo; // No creo que haga falta????
     int diasParaGenerar;
+    int totalPay;
 
+    public DesarrolladorNarrativa(Semaphore driveGuion, int totalPay, boolean activo, int diasParaGenerar) {
 
-    public DesarrolladorNarrativa(int guionesGenerados, int diasTrabajados, int guinesEnDrive, int sueldoPorHora, Semaphore semaforoDrive, int totalPay, boolean activo, int diasParaGenerar) {
-
-        this.guionesGenerados = guionesGenerados;
-        this.diasTrabajados = diasTrabajados; // No hace falta por la manera en la que se esta realizando el pago.
-        this.capacidadDrive = capacidadDrive;
-
- 
-        this.guionesEnDrive = guionesEnDrive;
         this.sueldoPorHora = 10;
         this.driveGuion = driveGuion;
         this.totalPay = 0;
         this.activo = activo;
-
         this.diasParaGenerar = diasParaGenerar;
 
-    }
-
-    public void guionesFinalizados() {
-        this.guionesEnDrive += guionesGenerados;
     }
 
     public void payDayDesarrolladorNarrativa() {
@@ -57,16 +39,12 @@ public class DesarrolladorNarrativa extends Thread {
     public void run() {
         while (activo) {
             try {
-//                int tiempoGeneracion = 4;
-//                Thread.sleep(tiempoGeneracion * 1000); // Simular días de trabajo
                 int count = 0;
 
                 while (count < diasParaGenerar) { // Para poder hacer los pagos por cada dia de trabajo que pasa.
                     Thread.sleep(1000);
                     payDayDesarrolladorNarrativa();
                     count++;
-                    System.out.println(totalPay);
-
                 }
                 generarGuion();
             } catch (InterruptedException ex) {
@@ -76,8 +54,6 @@ public class DesarrolladorNarrativa extends Thread {
     }
 
     private void generarGuion() throws InterruptedException {
-        // Simulación de generación de guión
-//        Thread.sleep(1000); // Tiempo de generación (NO HACE FALTA, la generacion del guion es automatica despues de finalizar los 4 dias de trabajo que se hacen en el run.
         // Intento agregar el guion al drive
         if (driveGuion.availablePermits() > 0) {
             driveGuion.acquire(1);

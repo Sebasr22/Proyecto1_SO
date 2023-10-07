@@ -1,10 +1,22 @@
 # Registro de Cambios
-## [1.0.7] - 06/10/2023 (Juandb1507)
+
+## [1.0.10] - 07/10/2023 (Sebasr22)
+
+- Se hicieron cambios en Desarrollador de narrativa (Elimine parametros innecesarios)
+- Ya el main tiene una base de:
+    - Se crea una lista de desarrolladores de narrativa, donde se va guardando cada nuevo hilo de Desarrollador
+      de narrativa, con el nombre del hilo, aparecen mas datos que supongo que es:
+      (Numero del hilo, nombre del hilo, un numero que no se que es, archivo desde donde se crea)
+      De esta manera podemos manejar cuando se quiera agregar y eliminar trabajadores. 
+    - Es la base estructurada que se trabajara no desde el main, si no desde el archivo donde queramos
+      realizar esas operaciones. 
+
+## [1.0.9] - 06/10/2023 (Juandb1507)
 
 - Cambios interfaz Bethesda y TabbedPane del Dashboard principal.
 - Lógica de creación de hilos.
 
-## [1.0.6] - 05/10/2023 (Sebasr22)
+## [1.0.8] - 05/10/2023 (Sebasr22)
 
 - Se agregaron los pagos a los desarrolladores de narrativa.
 
