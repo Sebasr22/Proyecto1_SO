@@ -28,7 +28,7 @@ public class MainInterface extends javax.swing.JFrame {
 
         tabbedPane = new javax.swing.JTabbedPane();
         nintendo1 = new interfaces.Nintendo();
-        bethesda2 = new interfaces.Bethesda();
+        bethesda1 = new interfaces.Bethesda();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -47,7 +47,7 @@ public class MainInterface extends javax.swing.JFrame {
         );
 
         tabbedPane.addTab("Nintendo", nintendo1);
-        tabbedPane.addTab("Bethesda", bethesda2);
+        tabbedPane.addTab("tab2", bethesda1);
 
         getContentPane().add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 610));
 
@@ -73,7 +73,7 @@ public class MainInterface extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private interfaces.Bethesda bethesda2;
+    private interfaces.Bethesda bethesda1;
     private interfaces.Nintendo nintendo1;
     private javax.swing.JTabbedPane tabbedPane;
     // End of variables declaration//GEN-END:variables

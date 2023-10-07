@@ -59,11 +59,11 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Component class="interfaces.Bethesda" name="bethesda2">
+        <Component class="interfaces.Bethesda" name="bethesda1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Bethesda">
-                <Property name="tabTitle" type="java.lang.String" value="Bethesda"/>
+              <JTabbedPaneConstraints tabName="tab2">
+                <Property name="tabTitle" type="java.lang.String" value="tab2"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>

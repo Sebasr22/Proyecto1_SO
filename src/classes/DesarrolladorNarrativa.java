@@ -3,21 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package classes;
-
 import java.util.concurrent.Semaphore;
-
+import interfaces.Bethesda;
 /**
  *
  * @author Sebastian Rodriguez
  */
 public class DesarrolladorNarrativa extends Thread {
-
+public static int guionesSubidosDrive = 0;
     int sueldoPorHora;
     Semaphore driveGuion;
     boolean activo; // No creo que haga falta????
     int diasParaGenerar;
     int totalPay;
-
+    
     public DesarrolladorNarrativa(Semaphore driveGuion, int totalPay, boolean activo, int diasParaGenerar) {
 
         this.sueldoPorHora = 10;
@@ -58,11 +57,16 @@ public class DesarrolladorNarrativa extends Thread {
         if (driveGuion.availablePermits() > 0) {
             driveGuion.acquire(1);
             System.out.println("Guion agregado al Drive por Desarrollador ");
-        } else {
+            guionesSubidosDrive++; // Incrementa el contador  
+            Bethesda.actualizarGuionesEnDrive(guionesSubidosDrive);
+            System.out.println("Guiones subidos al Drive "+ guionesSubidosDrive);
+        } 
+        else {
             System.out.println("Drive lleno. Esperando a que se libere espacio.");
-            driveGuion.release(1);
-            System.out.println("Se libero un guion del drive SUUUUU");
+//            driveGuion.release(1);
+//            System.out.println("Se libero un guion del drive SUUUUU");  //LIBERAR ESPACIO DEL DRIVE PRUEBA
         }
     }
 
+   
 }

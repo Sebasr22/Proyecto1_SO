@@ -1,4 +1,11 @@
 # Registro de Cambios
+## [1.0.11] - 07/10/2023 (Juandb1507)
+
+- Se hicieron cambios en Desarrollador Narrativa agregando contador de guiones en drive.
+- Se almacenan en un array los desarrolladores creados.
+- Lógica para eliminar a un desarrollador del array reducir la cantidad en el spinner
+- Se vizualiza en UI de Bethesda el espaciio ocupado en Drive
+- Creación de Desarrollador Narrativa segun el parametro inicial del spinner. 
 
 ## [1.0.10] - 07/10/2023 (Sebasr22)
 
