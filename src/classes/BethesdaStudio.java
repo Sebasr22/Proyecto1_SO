@@ -27,8 +27,8 @@ public class BethesdaStudio {
     public BethesdaStudio(int dayDuration, int daysUntilLaunch) {
         this.dayDuration = dayDuration;
     }
-    private static DesarrolladorNarrativa[] desarrolladoresNarrativa = new DesarrolladorNarrativa[capacidadDriveNB];    //CREACION ARREGLOS
-    private static DesarrolladorNiveles[] desarrolladoresNivel = new DesarrolladorNiveles[capacidadDriveNivelB];
+    private static DesarrolladorNarrativa[] desarrolladoresNarrativa = new DesarrolladorNarrativa[15];    //CREACION ARREGLOS
+    private static DesarrolladorNiveles[] desarrolladoresNivel = new DesarrolladorNiveles[15];
 
     public static void crearDesarrolladorNarrativa(Semaphore driveN, int totalPay, int diasParaGenerar, String studio, boolean activo) {
         DesarrolladorNarrativa desarrolladorNarrativa = new DesarrolladorNarrativa(driveN, totalPay, diasParaGenerar, studio, activo);
@@ -45,17 +45,21 @@ public class BethesdaStudio {
 
     public static void stopDesarrolladorNarrativaAleatorio() {
     if (desarrolladorNarrativaCount > 0) {
-        // Genera un índice aleatorio para detener un desarrollador de narrativa
         Random rand = new Random();
-        int randomIndex = rand.nextInt(capacidadDriveNB);
+        int randomIndex;
 
-        if (desarrolladoresNarrativa[randomIndex] != null) {
-            desarrolladoresNarrativa[randomIndex].interrupt(); // Detener el hilo
-            desarrolladorNarrativaCount--; // Decrementar el contador
-            desarrolladoresNarrativa[randomIndex] = null; // Liberar la posición en el arreglo
-        }
+        // Bucle para encontrar un índice no nulo
+        do {
+            randomIndex = rand.nextInt(capacidadDriveNB);
+        } while (desarrolladoresNarrativa[randomIndex] == null);
+
+        // Detiene el hilo en el índice seleccionado
+        desarrolladoresNarrativa[randomIndex].detener();
+        desarrolladorNarrativaCount--; // Decrementar el contador
+        desarrolladoresNarrativa[randomIndex] = null; // Liberar la posición en el arreglo
     }
 }
+
 
     //NIVELES
     public static void crearDesarrolladorNivel(Semaphore driveNivelB, int totalPay, int diasParaGenerar, String studio, boolean activo) {
@@ -83,5 +87,6 @@ public class BethesdaStudio {
             desarrolladoresNivel[randomIndex2] = null; // Liberar la posición en el arreglo
         }
     }
+            
 }
 }

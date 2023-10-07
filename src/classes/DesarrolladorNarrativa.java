@@ -48,6 +48,10 @@ public class DesarrolladorNarrativa extends Thread {
     @Override
     public void run() {
         while (activo) {
+            if (Thread.interrupted()) {
+                activo = false; // Marcar el hilo como inactivo
+                break; // Salir del bucle de manera limpia
+            }
             try {
                 int count = 0;
 
@@ -86,6 +90,9 @@ public class DesarrolladorNarrativa extends Thread {
         else{
             
         }
+    }
+    public void detener() {
+        activo = false;
     }
 
 }
