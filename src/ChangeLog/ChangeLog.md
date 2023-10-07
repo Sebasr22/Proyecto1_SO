@@ -1,5 +1,11 @@
 # Registro de Cambios
 
+## [1.0.15] - 07/10/2023 (Juandb1507)
+
+- Desarrollador Nivel
+- Desarrollador Naarrativa
+- Bethesda UI
+
 ## [1.0.14] - 07/10/2023 (Sebasr22)
 
 - Desarrollador Sprites (Falta agregar la logica de los estudios)
