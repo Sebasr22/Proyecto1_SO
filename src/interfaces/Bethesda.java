@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package interfaces;
-
+import classes.BethesdaStudio;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
@@ -20,7 +20,11 @@ public class Bethesda extends javax.swing.JPanel {
     
         // Obtén el valor inicial del JSpinner
         valorSpinner = (int) spinnnerNarrativaB.getValue();
-    
+        if (valorSpinner == 1){
+            // Llama a la función para crear un desarrollador de narrativa
+                    BethesdaStudio.crearDesarrolladorNarrativa(BethesdaStudio.driveN, 0, 4);
+        }
+            
         // Agrega un ChangeListener al JSpinner
         spinnnerNarrativaB.addChangeListener(new ChangeListener() {
             @Override
@@ -30,12 +34,16 @@ public class Bethesda extends javax.swing.JPanel {
                 
                 // Compara el nuevo valor del JSpinner con valorSpinner
                 if (nuevoValorSpinner > valorSpinner) {
-                    //FUNCION CREAR DESARROLLADOR NARRATIVA (SEMAFORO NARRATIVA)
+                    //FUNCION CREAR DESARROLLADOR NARRATIVA
+                    // Llama a la función para crear un desarrollador de narrativa
+                    BethesdaStudio.crearDesarrolladorNarrativa(BethesdaStudio.driveN, 0, 4);
                     // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
                     int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
                     valorActual--;
                     desarrolladoresRestantesB.setText(Integer.toString(valorActual));
                 } else if (nuevoValorSpinner < valorSpinner) {
+                    //FUNCION STOP DESARROLLADOR NARRATIVA
+                    BethesdaStudio.stopDesarrolladorNarrativaAleatorio();
                     // Suma 1 a desarrolladoresRestantesB si el nuevo valor es menor
                     int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
                     valorActual++;
@@ -68,13 +76,16 @@ public class Bethesda extends javax.swing.JPanel {
         desarrolladoresRestantesB = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         spinnnerNarrativaB = new javax.swing.JSpinner();
+        jLabel4 = new javax.swing.JLabel();
+        guionesEnDriveB = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(720, 603));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel1.setText("Bethesda");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 170, 68));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 170, 68));
 
         jLabel2.setText("Desarrolladores restantes = ");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
@@ -101,6 +112,15 @@ public class Bethesda extends javax.swing.JPanel {
         spinnnerNarrativaB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
         spinnnerNarrativaB.setValue(1);
         add(spinnnerNarrativaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
+
+        jLabel4.setText("Capacidad Drive");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, -1, -1));
+
+        guionesEnDriveB.setText("0");
+        add(guionesEnDriveB, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 30, -1));
+
+        jLabel6.setText("de 25");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     public JLabel getDesarrolladoresRestantesB() {
@@ -111,11 +131,25 @@ public class Bethesda extends javax.swing.JPanel {
         this.desarrolladoresRestantesB = desarrolladoresRestantesB;
     }
 
+    public static JLabel getGuionesEnDriveB() {
+        return guionesEnDriveB;
+    }
+
+    public void setGuionesEnDriveB(JLabel guionesEnDriveB) {
+        this.guionesEnDriveB = guionesEnDriveB;
+    }
+    public static void actualizarGuionesEnDrive(int nuevoValor) {
+    guionesEnDriveB.setText(Integer.toString(nuevoValor));
+}
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel desarrolladoresRestantesB;
+    public static javax.swing.JLabel guionesEnDriveB;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSpinner spinnnerNarrativaB;
     // End of variables declaration//GEN-END:variables
