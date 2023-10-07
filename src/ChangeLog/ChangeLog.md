@@ -1,6 +1,15 @@
 # Registro de Cambios
 ## [1.0.11] - 07/10/2023 (Juandb1507)
 
+- Se corrigió la lógica para almacenar el totalPay de los trabajadores.
+
+## [1.0.12] - 07/10/2023 (Sebasr22)
+
+- Se finalizo la clase integrador, falta agregarle los drives de los otros desarrolladores
+  y agregarlo tambien al metodo de generar juego. (Falta la logica de los DLC)
+
+## [1.0.11] - 07/10/2023 (Juandb1507)
+
 - Se hicieron cambios en Desarrollador Narrativa agregando contador de guiones en drive.
 - Se almacenan en un array los desarrolladores creados.
 - Lógica para eliminar a un desarrollador del array reducir la cantidad en el spinner
