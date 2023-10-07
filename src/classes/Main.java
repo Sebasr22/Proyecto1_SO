@@ -22,6 +22,7 @@ import java.util.concurrent.Semaphore;
 public class Main {
 
     public static void main(String[] args) {
+
         int capacidadDrive = 25;
         Semaphore driveN = new Semaphore(capacidadDrive);
 
@@ -33,6 +34,7 @@ public class Main {
             empleadoN.setName(nombreHilo);
             empleadoN.start();
         }
+
     }
 }
 

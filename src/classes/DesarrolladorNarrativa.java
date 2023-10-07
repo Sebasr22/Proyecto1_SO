@@ -14,7 +14,9 @@ public class DesarrolladorNarrativa extends Thread {
 
     int guionesGenerados;
     int diasTrabajados;
+
     Semaphore capacidadDrive;
+
     int guionesEnDrive;
     int sueldoPorHora;
     Semaphore driveGuion;
@@ -22,17 +24,22 @@ public class DesarrolladorNarrativa extends Thread {
     int totalPay;
     int diasParaGenerar;
 
+
     public DesarrolladorNarrativa(int guionesGenerados, int diasTrabajados, int guinesEnDrive, int sueldoPorHora, Semaphore semaforoDrive, int totalPay, boolean activo, int diasParaGenerar) {
 
         this.guionesGenerados = guionesGenerados;
         this.diasTrabajados = diasTrabajados; // No hace falta por la manera en la que se esta realizando el pago.
         this.capacidadDrive = capacidadDrive;
+
+ 
         this.guionesEnDrive = guionesEnDrive;
         this.sueldoPorHora = 10;
-        this.driveGuion = new Semaphore(5);
+        this.driveGuion = driveGuion;
         this.totalPay = 0;
         this.activo = activo;
+
         this.diasParaGenerar = diasParaGenerar;
+
     }
 
     public void guionesFinalizados() {
@@ -53,11 +60,13 @@ public class DesarrolladorNarrativa extends Thread {
 //                int tiempoGeneracion = 4;
 //                Thread.sleep(tiempoGeneracion * 1000); // Simular días de trabajo
                 int count = 0;
+
                 while (count < diasParaGenerar) { // Para poder hacer los pagos por cada dia de trabajo que pasa.
                     Thread.sleep(1000);
                     payDayDesarrolladorNarrativa();
                     count++;
                     System.out.println(totalPay);
+
                 }
                 generarGuion();
             } catch (InterruptedException ex) {

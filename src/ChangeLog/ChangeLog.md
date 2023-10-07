@@ -8,6 +8,14 @@
 
 - Se agregaron los pagos a los desarrolladores de narrativa.
 
+## [1.0.7] - 05/10/2023 (Sebasr22)
+
+- Ya el drive es general no importa el numero de desarrolladores. 
+
+## [1.0.6] - 05/10/2023 (Sebasr22)
+
+- Se agregaron los pagos a los desarrolladores de narrativa.
+
 ## [1.0.5] - 05/10/2023 (Sebasr22)
 
 - Ya funciona desarrollador de narrativa, falta agregar los pagos, pero ya funciona
