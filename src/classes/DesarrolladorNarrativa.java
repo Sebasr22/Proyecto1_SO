@@ -14,23 +14,32 @@ public class DesarrolladorNarrativa extends Thread {
 
     int guionesGenerados;
     int diasTrabajados;
-//    int capacidadDrive;
+
+    Semaphore capacidadDrive;
+
     int guionesEnDrive;
     int sueldoPorHora;
     Semaphore driveGuion;
     boolean activo;
     int totalPay;
+    int diasParaGenerar;
 
-    public DesarrolladorNarrativa(int guionesGenerados, int diasTrabajados, /** int capacidadDrive, */ int guinesEnDrive, int sueldoPorHora, Semaphore driveGuion, int totalPay, boolean activo) {
+
+    public DesarrolladorNarrativa(int guionesGenerados, int diasTrabajados, int guinesEnDrive, int sueldoPorHora, Semaphore semaforoDrive, int totalPay, boolean activo, int diasParaGenerar) {
 
         this.guionesGenerados = guionesGenerados;
         this.diasTrabajados = diasTrabajados; // No hace falta por la manera en la que se esta realizando el pago.
-//        this.capacidadDrive = 25;
+        this.capacidadDrive = capacidadDrive;
+
+ 
         this.guionesEnDrive = guionesEnDrive;
         this.sueldoPorHora = 10;
         this.driveGuion = driveGuion;
         this.totalPay = 0;
         this.activo = activo;
+
+        this.diasParaGenerar = diasParaGenerar;
+
     }
 
     public void guionesFinalizados() {
@@ -51,11 +60,13 @@ public class DesarrolladorNarrativa extends Thread {
 //                int tiempoGeneracion = 4;
 //                Thread.sleep(tiempoGeneracion * 1000); // Simular días de trabajo
                 int count = 0;
-                while (count < 4) { // Para poder hacer los pagos por cada dia de trabajo que pasa.
+
+                while (count < diasParaGenerar) { // Para poder hacer los pagos por cada dia de trabajo que pasa.
                     Thread.sleep(1000);
                     payDayDesarrolladorNarrativa();
                     count++;
-//                    System.out.println(totalPay); // Para ver que si se esta realizando el pago bien.
+                    System.out.println(totalPay);
+
                 }
                 generarGuion();
             } catch (InterruptedException ex) {

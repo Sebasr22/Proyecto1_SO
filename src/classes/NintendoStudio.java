@@ -9,6 +9,6 @@ package classes;
  *
  * @author juand
  */
-public class Studio {
+public class NintendoStudio {
     
 }
