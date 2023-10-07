@@ -25,10 +25,19 @@ public class Main {
         int capacidadDrive = 25;
         Semaphore driveN = new Semaphore(capacidadDrive);
 
-        // Pasamos los parametros necesarios para el desarrollador de narrativa.
-        DesarrolladorNarrativa empleadoN = new DesarrolladorNarrativa(0, 0, 0, 10, driveN, 0, true,6);
-        empleadoN.start();
-        // FUNCIONAAA SUUU
-//        }
+        int numeroDeEmpleados = 5; 
+
+        for (int i = 1; i <= numeroDeEmpleados; i++) {
+            String nombreHilo = "empleadoN" + i;
+            DesarrolladorNarrativa empleadoN = new DesarrolladorNarrativa(0, 0, 0, 10, driveN, 0, true, 6);
+            empleadoN.setName(nombreHilo);
+            empleadoN.start();
+        }
     }
 }
+
+        
+        // FUNCIONAAA SUUU
+//        }
+    
+

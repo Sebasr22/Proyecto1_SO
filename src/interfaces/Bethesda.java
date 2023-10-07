@@ -4,18 +4,54 @@
  */
 package interfaces;
 
+import javax.swing.JLabel;
+import javax.swing.JSpinner;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 /**
  *
  * @author Sebastian Rodriguez
  */
 public class Bethesda extends javax.swing.JPanel {
+    private int valorSpinner; // Declarar como miembro de la clase
 
-    /**
-     * Creates new form Nintendo
-     */
     public Bethesda() {
         initComponents();
+    
+        // Obtén el valor inicial del JSpinner
+        valorSpinner = (int) spinnnerNarrativaB.getValue();
+    
+        // Agrega un ChangeListener al JSpinner
+        spinnnerNarrativaB.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                // Obtén el nuevo valor del JSpinner
+                int nuevoValorSpinner = (int) spinnnerNarrativaB.getValue();
+                
+                // Compara el nuevo valor del JSpinner con valorSpinner
+                if (nuevoValorSpinner > valorSpinner) {
+                    //FUNCION CREAR DESARROLLADOR NARRATIVA (SEMAFORO NARRATIVA)
+                    // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
+                    int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
+                    valorActual--;
+                    desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                } else if (nuevoValorSpinner < valorSpinner) {
+                    // Suma 1 a desarrolladoresRestantesB si el nuevo valor es menor
+                    int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
+                    valorActual++;
+                    desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                }
+                
+                // Actualiza valorSpinner con el nuevo valor del JSpinner
+                valorSpinner = nuevoValorSpinner;
+            }
+        });
     }
+
+
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,19 +62,61 @@ public class Bethesda extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        desarrolladoresRestantesB = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        spinnnerNarrativaB = new javax.swing.JSpinner();
+
+        setPreferredSize(new java.awt.Dimension(720, 603));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel1.setText("Bethesda");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 170, 68));
+
+        jLabel2.setText("Desarrolladores restantes = ");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
+
+        desarrolladoresRestantesB.setText("14");
+        add(desarrolladoresRestantesB, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, -1, -1));
+
+        jLabel3.setText("Narrativa = ");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 70, -1));
+
+        spinnnerNarrativaB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
+        spinnnerNarrativaB.setValue(1);
+        add(spinnnerNarrativaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    public JLabel getDesarrolladoresRestantesB() {
+        return desarrolladoresRestantesB;
+    }
+
+    public void setDesarrolladoresRestantesB(JLabel desarrolladoresRestantesB) {
+        this.desarrolladoresRestantesB = desarrolladoresRestantesB;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel desarrolladoresRestantesB;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSpinner spinnnerNarrativaB;
     // End of variables declaration//GEN-END:variables
 }

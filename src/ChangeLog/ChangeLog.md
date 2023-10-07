@@ -1,4 +1,8 @@
 # Registro de Cambios
+## [1.0.7] - 06/10/2023 (Juandb1507)
+
+- Cambios interfaz Bethesda y TabbedPane del Dashboard principal.
+- Lógica de creación de hilos.
 
 ## [1.0.6] - 05/10/2023 (Sebasr22)
 

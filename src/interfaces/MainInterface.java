@@ -3,10 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaces;
-import interfaces.Bethesda;
-import interfaces.Nintendo;
-import interfaces.Dashboard;
-
 
 /**
  *
@@ -30,43 +26,28 @@ public class MainInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dashboard3 = new interfaces.Dashboard();
         tabbedPane = new javax.swing.JTabbedPane();
-        dashboard1 = new interfaces.Dashboard();
-        bethesda1 = new interfaces.Bethesda();
         nintendo1 = new interfaces.Nintendo();
+        bethesda2 = new interfaces.Bethesda();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabbedPane.setName("tabbedPane"); // NOI18N
-        tabbedPane.addTab("Dashboard", dashboard1);
-
-        javax.swing.GroupLayout bethesda1Layout = new javax.swing.GroupLayout(bethesda1);
-        bethesda1.setLayout(bethesda1Layout);
-        bethesda1Layout.setHorizontalGroup(
-            bethesda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
-        bethesda1Layout.setVerticalGroup(
-            bethesda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 603, Short.MAX_VALUE)
-        );
-
-        tabbedPane.addTab("Bethesda", bethesda1);
 
         javax.swing.GroupLayout nintendo1Layout = new javax.swing.GroupLayout(nintendo1);
         nintendo1.setLayout(nintendo1Layout);
         nintendo1Layout.setHorizontalGroup(
             nintendo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGap(0, 725, Short.MAX_VALUE)
         );
         nintendo1Layout.setVerticalGroup(
             nintendo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 603, Short.MAX_VALUE)
+            .addGap(0, 583, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab("Nintendo", nintendo1);
+        tabbedPane.addTab("Bethesda", bethesda2);
 
         getContentPane().add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 610));
 
@@ -80,28 +61,7 @@ public class MainInterface extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+       
        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -113,9 +73,7 @@ public class MainInterface extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private interfaces.Bethesda bethesda1;
-    private interfaces.Dashboard dashboard1;
-    private interfaces.Dashboard dashboard3;
+    private interfaces.Bethesda bethesda2;
     private interfaces.Nintendo nintendo1;
     private javax.swing.JTabbedPane tabbedPane;
     // End of variables declaration//GEN-END:variables
