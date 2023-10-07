@@ -10,7 +10,8 @@ import interfaces.Bethesda;
  * @author Sebastian Rodriguez
  */
 public class DesarrolladorNarrativa extends Thread {
-public static int guionesSubidosDrive = 0;
+    
+    public static int guionesSubidosDrive = 0;
     int sueldoPorHora;
     Semaphore driveGuion;
     boolean activo; // No creo que haga falta????
