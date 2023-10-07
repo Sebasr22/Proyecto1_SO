@@ -7,8 +7,8 @@ import java.util.Random;
 
 public class BethesdaStudio {
     
-    static int capacidadDriveN = 25;
-    public static Semaphore driveN = new Semaphore(capacidadDriveN);
+    static int capacidadDriveNB = 25;
+    public static Semaphore driveNB = new Semaphore(capacidadDriveNB);
     final private boolean active = true;
     private int videojuegosContador;
     private int dayDuration;
