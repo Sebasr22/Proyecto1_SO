@@ -10,7 +10,8 @@ import interfaces.Bethesda;
  * @author Sebastian Rodriguez
  */
 public class DesarrolladorNarrativa extends Thread {
-public static int guionesSubidosDrive = 0;
+    
+    public static int guionesSubidosDrive = 0;
     int sueldoPorHora;
     Semaphore driveGuion;
     boolean activo; // No creo que haga falta????
@@ -21,7 +22,7 @@ public static int guionesSubidosDrive = 0;
 
         this.sueldoPorHora = 10;
         this.driveGuion = driveGuion;
-        this.totalPay = 0;
+        this.totalPay = totalPay;
         this.activo = activo;
         this.diasParaGenerar = diasParaGenerar;
 
@@ -31,7 +32,8 @@ public static int guionesSubidosDrive = 0;
         // Calcular el salario basado en las horas trabajadas y agregarlo al total de pago
         int horasTrabajadas = 24;
         int salario = sueldoPorHora * horasTrabajadas;
-        totalPay += salario;
+        BethesdaStudio.totalPay += salario;
+        
     }
 
     @Override
@@ -59,6 +61,7 @@ public static int guionesSubidosDrive = 0;
             System.out.println("Guion agregado al Drive por Desarrollador ");
             guionesSubidosDrive++; // Incrementa el contador  
             Bethesda.actualizarGuionesEnDrive(guionesSubidosDrive);
+            System.out.println("Pago total:" + BethesdaStudio.totalPay);
             System.out.println("Guiones subidos al Drive "+ guionesSubidosDrive);
         } 
         else {
