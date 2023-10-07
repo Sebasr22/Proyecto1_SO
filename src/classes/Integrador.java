@@ -5,10 +5,16 @@
  */
 package classes;
 
+import java.util.concurrent.Semaphore;
+
 /**
  *
- * @author juand
+ * @author Sebastian Rodriguez
  */
-public class Integrador {
+public class Integrador extends Thread{
+    
+    // Drive del desarrollador de Narrativa
+    Semaphore driveN;
+    
     
 }
