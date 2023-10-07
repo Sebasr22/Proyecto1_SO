@@ -12,29 +12,38 @@ import java.util.concurrent.Semaphore;
  *
  * @author juand
  */
-public class DesarrolladorNiveles extends Thread{
-public static int guionesSubidosDrive = 0;
+public class DesarrolladorNiveles extends Thread {
+
+    public static int nivelesSubidosDriveB = 0;
+    public static int nivelesSubidosDriveN = 0;
     int sueldoPorHora;
     Semaphore driveNivel;
-    boolean activo; // No creo que haga falta????
+    boolean activo;
     int diasParaGenerar;
     int totalPay;
-    
-    public DesarrolladorNiveles(Semaphore driveNivel, int totalPay, boolean activo, int diasParaGenerar) {
+    String studio;
 
-        this.sueldoPorHora = 10;
+    public DesarrolladorNiveles(Semaphore driveNivel, int totalPay, int diasParaGenerar, String studio, boolean activo) {
+
+        this.sueldoPorHora = 13;
         this.driveNivel = driveNivel;
-        this.totalPay = 0;
+        this.totalPay = totalPay;
         this.activo = activo;
         this.diasParaGenerar = diasParaGenerar;
+        this.studio = studio;
 
     }
 
-    public void payDayDesarrolladorNarrativa() {
+    public void payDayDesarrolladorNiveles() {
         // Calcular el salario basado en las horas trabajadas y agregarlo al total de pago
         int horasTrabajadas = 24;
         int salario = sueldoPorHora * horasTrabajadas;
-        totalPay += salario;
+        if (studio == "B") {
+            BethesdaStudio.totalPay += salario;
+        } else {
+            //sE LE PAGA A NINTENDO 
+        }
+
     }
 
     @Override
@@ -45,30 +54,36 @@ public static int guionesSubidosDrive = 0;
 
                 while (count < diasParaGenerar) { // Para poder hacer los pagos por cada dia de trabajo que pasa.
                     Thread.sleep(1000);
-                    payDayDesarrolladorNarrativa();
+                    payDayDesarrolladorNiveles();
                     count++;
                 }
-                generarGuion();
+                generarNivel();
             } catch (InterruptedException ex) {
                 System.out.println("TESTTT2");
             }
         }
     }
 
-    private void generarGuion() throws InterruptedException {
-        // Intento agregar el guion al drive
-        if (driveNivel.availablePermits() > 0) {
-            driveNivel.acquire(1);
-            System.out.println("Nivel agregado al Drive por Desarrollador ");
-            guionesSubidosDrive++; // Incrementa el contador  
-            Bethesda.actualizarGuionesEnDrive(nivelesSubidosDrive);
-            System.out.println("Niveles subidos al Drive "+ nivelesSubidosDrive);
-        } 
-        else {
-            System.out.println("Drive lleno. Esperando a que se libere espacio.");
+    private void generarNivel() throws InterruptedException {
+        // Intento agregar el nuvel al drive
+        if ("B".equals(studio)) {
+            if (driveNivel.availablePermits() > 0) {
+                driveNivel.acquire(1);
+                System.out.println("Nivel agregado al Drive por Desarrollador ");
+
+                nivelesSubidosDriveB++; // Incrementa el contador 
+                Bethesda.actualizarNivelesEnDrive(nivelesSubidosDriveB);
+                System.out.println("Pago total:" + BethesdaStudio.totalPay);
+                System.out.println("Niveles subidos al Drive " + nivelesSubidosDriveB);
+            } else {
+                System.out.println("Drive lleno. Esperando a que se libere espacio.");
 //            driveGuion.release(1);
 //            System.out.println("Se libero un guion del drive SUUUUU");  //LIBERAR ESPACIO DEL DRIVE PRUEBA
-        }
-    }
-    }
+            }
+        } else {
+            // NINTENDO
 
+        }
+
+    }
+}

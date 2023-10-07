@@ -3,28 +3,33 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package classes;
+
 import java.util.concurrent.Semaphore;
 import interfaces.Bethesda;
+
 /**
  *
  * @author Sebastian Rodriguez
  */
 public class DesarrolladorNarrativa extends Thread {
-    
-    public static int guionesSubidosDrive = 0;
+
+    public static int guionesSubidosDriveB = 0;
+    public static int guionesSubidosDriveN = 0;
     int sueldoPorHora;
-    Semaphore driveGuion;
-    boolean activo; // No creo que haga falta????
+    Semaphore driveGuionB;
+    boolean activo; 
     int diasParaGenerar;
     int totalPay;
-    
-    public DesarrolladorNarrativa(Semaphore driveGuion, int totalPay, boolean activo, int diasParaGenerar) {
+    String studio;
+
+    public DesarrolladorNarrativa(Semaphore driveGuion, int totalPay, int diasParaGenerar, String studio, boolean activo) {
 
         this.sueldoPorHora = 10;
-        this.driveGuion = driveGuion;
+        this.driveGuionB = driveGuion;
         this.totalPay = totalPay;
         this.activo = activo;
         this.diasParaGenerar = diasParaGenerar;
+        this.studio = studio;
 
     }
 
@@ -32,8 +37,12 @@ public class DesarrolladorNarrativa extends Thread {
         // Calcular el salario basado en las horas trabajadas y agregarlo al total de pago
         int horasTrabajadas = 24;
         int salario = sueldoPorHora * horasTrabajadas;
-        BethesdaStudio.totalPay += salario;
-        
+        if (studio == "B") {
+            BethesdaStudio.totalPay += salario;
+        } else {
+            //sE LE PAGA A NINTENDO 
+        }
+
     }
 
     @Override
@@ -56,20 +65,27 @@ public class DesarrolladorNarrativa extends Thread {
 
     private void generarGuion() throws InterruptedException {
         // Intento agregar el guion al drive
-        if (driveGuion.availablePermits() > 0) {
-            driveGuion.acquire(1);
-            System.out.println("Guion agregado al Drive por Desarrollador ");
-            guionesSubidosDrive++; // Incrementa el contador  
-            Bethesda.actualizarGuionesEnDrive(guionesSubidosDrive);
-            System.out.println("Pago total:" + BethesdaStudio.totalPay);
-            System.out.println("Guiones subidos al Drive "+ guionesSubidosDrive);
-        } 
-        else {
-            System.out.println("Drive lleno. Esperando a que se libere espacio.");
+        if (studio == "B") {
+            if (driveGuionB.availablePermits() > 0) {
+                driveGuionB.acquire(1);
+                System.out.println("Guion agregado al Drive por Desarrollador ");
+
+                guionesSubidosDriveB++; // Incrementa el contador 
+                Bethesda.actualizarGuionesEnDrive(guionesSubidosDriveB);
+                System.out.println("Pago total:" + BethesdaStudio.totalPay);
+                System.out.println("Guiones subidos al Drive " + guionesSubidosDriveB);
+            } else {
+                System.out.println("Drive lleno. Esperando a que se libere espacio.");
+
+            }
+           
+
 //            driveGuion.release(1);
 //            System.out.println("Se libero un guion del drive SUUUUU");  //LIBERAR ESPACIO DEL DRIVE PRUEBA
         }
+        else{
+            
+        }
     }
 
-   
 }
