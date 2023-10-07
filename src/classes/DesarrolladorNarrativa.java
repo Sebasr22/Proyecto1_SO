@@ -22,7 +22,7 @@ public class DesarrolladorNarrativa extends Thread {
 
         this.sueldoPorHora = 10;
         this.driveGuion = driveGuion;
-        this.totalPay = 0;
+        this.totalPay = totalPay;
         this.activo = activo;
         this.diasParaGenerar = diasParaGenerar;
 
@@ -32,7 +32,8 @@ public class DesarrolladorNarrativa extends Thread {
         // Calcular el salario basado en las horas trabajadas y agregarlo al total de pago
         int horasTrabajadas = 24;
         int salario = sueldoPorHora * horasTrabajadas;
-        totalPay += salario;
+        BethesdaStudio.totalPay += salario;
+        
     }
 
     @Override
@@ -60,6 +61,7 @@ public class DesarrolladorNarrativa extends Thread {
             System.out.println("Guion agregado al Drive por Desarrollador ");
             guionesSubidosDrive++; // Incrementa el contador  
             Bethesda.actualizarGuionesEnDrive(guionesSubidosDrive);
+            System.out.println("Pago total:" + BethesdaStudio.totalPay);
             System.out.println("Guiones subidos al Drive "+ guionesSubidosDrive);
         } 
         else {

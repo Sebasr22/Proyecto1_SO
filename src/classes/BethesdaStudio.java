@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 public class BethesdaStudio {
-    
+    public static int totalPay = 0;
     static int capacidadDriveNB = 25;
     public static Semaphore driveNB = new Semaphore(capacidadDriveNB);
     final private boolean active = true;

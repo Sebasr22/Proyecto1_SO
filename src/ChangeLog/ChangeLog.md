@@ -1,4 +1,7 @@
 # Registro de Cambios
+## [1.0.11] - 07/10/2023 (Juandb1507)
+
+- Se corrigió la lógica para almacenar el totalPay de los trabajadores.
 
 ## [1.0.12] - 07/10/2023 (Sebasr22)
 
