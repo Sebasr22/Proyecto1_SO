@@ -1,5 +1,11 @@
 # Registro de Cambios
-## [1.0.11] - 07/10/2023 (Juandb1507)
+
+## [1.0.14] - 07/10/2023 (Sebasr22)
+
+- Desarrollador Sprites (Falta agregar la logica de los estudios)
+- Desarrollador Logica (Falta agregar la logica de los estudios)
+
+## [1.0.13] - 07/10/2023 (Juandb1507)
 
 - Se corrigió la lógica para almacenar el totalPay de los trabajadores.
 

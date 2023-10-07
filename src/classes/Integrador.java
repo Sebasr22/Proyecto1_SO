@@ -13,6 +13,9 @@ import java.util.concurrent.Semaphore;
  */
 public class Integrador extends Thread {
 
+    // Estudios para el cual trabaja
+    String estudio;
+
     // Drive del desarrollador de Narrativa
     Semaphore driveN;
 
@@ -30,7 +33,9 @@ public class Integrador extends Thread {
 
     // Parametros para videojuego con DLC
     //LOS DLC es un semaforo, ya que cuando se crean 5 juegos se agarran 2 DLC del drive donde se almacenan.
-    public Integrador(Semaphore driveN, int diasParaEnsamblar, int guionesNecesarios, int nivelesNecesarios, int spritesNecesarios, int sistemasJuegos) {
+    public Integrador(Semaphore driveN, int diasParaEnsamblar, int guionesNecesarios, int nivelesNecesarios, int spritesNecesarios, int sistemasJuegos, String estudio) {
+
+        this.estudio = estudio;
 
         this.driveN = driveN;
 
@@ -48,7 +53,11 @@ public class Integrador extends Thread {
     public void payDayEnsamblador() {
         int horasTrabajadas = 24;
         int salario = sueldoPorHora * horasTrabajadas;
-        totalPay += salario;
+        if (estudio == "B") {
+            BethesdaStudio.totalPay += salario;
+        } else if (estudio == "N") {
+            // Agregar la logica del pago del estudio de Nintendo.
+        }
     }
 
     public void generarVideoJuego() {
