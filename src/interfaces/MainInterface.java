@@ -39,7 +39,7 @@ public class MainInterface extends javax.swing.JFrame {
         nintendo1.setLayout(nintendo1Layout);
         nintendo1Layout.setHorizontalGroup(
             nintendo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 725, Short.MAX_VALUE)
+            .addGap(0, 765, Short.MAX_VALUE)
         );
         nintendo1Layout.setVerticalGroup(
             nintendo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -47,9 +47,9 @@ public class MainInterface extends javax.swing.JFrame {
         );
 
         tabbedPane.addTab("Nintendo", nintendo1);
-        tabbedPane.addTab("tab2", bethesda1);
+        tabbedPane.addTab("Bethesda", bethesda1);
 
-        getContentPane().add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 610));
+        getContentPane().add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -67,6 +67,7 @@ public class MainInterface extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainInterface().setVisible(true);
+                
             }
         });
     }

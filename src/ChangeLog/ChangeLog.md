@@ -1,4 +1,10 @@
 # Registro de Cambios
+## [1.0.17] - 08/10/2023 (Juandb1507)
+
+- Desarrollo completo de la clase DesarrolladoresDLC.
+- Link de DesarrolladoresDLC con BethesdaStudio y Bethesda(UI).
+- Se añadió el fondo y logotipo a la UI de Bethesda.
+
 ## [1.0.16] - 07/10/2023 (Juandb1507)
 
 - Desarrollo de la lógica del método Stop para los hilos Desarrolladores
