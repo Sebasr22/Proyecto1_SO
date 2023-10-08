@@ -69,12 +69,12 @@ public class DesarrolladorNiveles extends Thread {
         if ("B".equals(studio)) {
             if (driveNivel.availablePermits() > 0) {
                 driveNivel.acquire(1);
-                System.out.println("Nivel agregado al Drive por Desarrollador ");
+                //System.out.println("Nivel agregado al Drive por Desarrollador ");
 
                 nivelesSubidosDriveB++; // Incrementa el contador 
                 Bethesda.actualizarNivelesEnDrive(nivelesSubidosDriveB);
-                System.out.println("Pago total:" + BethesdaStudio.totalPay);
-                System.out.println("Niveles subidos al Drive " + nivelesSubidosDriveB);
+                //System.out.println("Pago total:" + BethesdaStudio.totalPay);
+                //System.out.println("Niveles subidos al Drive " + nivelesSubidosDriveB);
             } else {
                 System.out.println("Drive NIVELES lleno. Esperando a que se libere espacio.");
 //            driveGuion.release(1);
