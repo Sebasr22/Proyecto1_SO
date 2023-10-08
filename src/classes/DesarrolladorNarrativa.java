@@ -55,6 +55,7 @@ public class DesarrolladorNarrativa extends Thread {
                     Thread.sleep(1000);
                     payDayDesarrolladorNarrativa();
                     count++;
+                    
                 }
                 generarGuion();
             } catch (InterruptedException ex) {
