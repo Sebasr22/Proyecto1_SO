@@ -3,40 +3,44 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package interfaces;
+
 import classes.BethesdaStudio;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
 /**
  *
  * @author Sebastian Rodriguez
  */
 public class Bethesda extends javax.swing.JPanel {
+
     private int valorSpinnerN; // Declarar como miembro de la clase
     private int valorSpinnerLvl;
+
     public Bethesda() {
         initComponents();
-    //SPINNER NARRATIVA-----------------------------------------------
+        //SPINNER NARRATIVA-----------------------------------------------
         // Obtén el valor inicial del JSpinner
         valorSpinnerN = (int) spinnnerNarrativaB.getValue();
-        if (valorSpinnerN == 1){
+        if (valorSpinnerN == 1) {
             // Llama a la función para crear un desarrollador de narrativa
-                    BethesdaStudio.crearDesarrolladorNarrativa(BethesdaStudio.driveNB, 0, 4, "B",true);
+            BethesdaStudio.crearDesarrolladorNarrativa(BethesdaStudio.driveNB, 0, 4, "B", true);
         }
-            
+
         // Agrega un ChangeListener al JSpinner
         spinnnerNarrativaB.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
                 // Obtén el nuevo valor del JSpinner
                 int nuevoValorSpinner = (int) spinnnerNarrativaB.getValue();
-                
+
                 // Compara el nuevo valor del JSpinner con valorSpinner
                 if (nuevoValorSpinner > valorSpinnerN) {
                     //FUNCION CREAR DESARROLLADOR NARRATIVA
                     // Llama a la función para crear un desarrollador de narrativa
-                    BethesdaStudio.crearDesarrolladorNarrativa(BethesdaStudio.driveNB, 0, 4, "B",true);
+                    BethesdaStudio.crearDesarrolladorNarrativa(BethesdaStudio.driveNB, 0, 4, "B", true);
                     // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
                     int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
                     valorActual--;
@@ -49,37 +53,37 @@ public class Bethesda extends javax.swing.JPanel {
                     valorActual++;
                     desarrolladoresRestantesB.setText(Integer.toString(valorActual));
                 }
-                
+
                 // Actualiza valorSpinner con el nuevo valor del JSpinner
                 valorSpinnerN = nuevoValorSpinner;
             }
         });
-            //SPINNER NIVELES-----------------------------------------------
+        //SPINNER NIVELES-----------------------------------------------
         // Obtén el valor inicial del JSpinner
         valorSpinnerLvl = (int) spinnnerNivelB.getValue();
-        if (valorSpinnerLvl == 1){
+        if (valorSpinnerLvl == 1) {
             // Llama a la función para crear un desarrollador de narrativa
-                    BethesdaStudio.crearDesarrolladorNivel(BethesdaStudio.driveNivelB, 0, 4, "B",true);
+            BethesdaStudio.crearDesarrolladorNivel(BethesdaStudio.driveNivelB, 0, 3, "B", true);
         }
-            
+
         // Agrega un ChangeListener al JSpinner
         spinnnerNivelB.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
                 // Obtén el nuevo valor del JSpinner
                 int nuevoValorSpinnerLvl = (int) spinnnerNivelB.getValue();
-                
+
                 // Compara el nuevo valor del JSpinner con valorSpinner
                 if (nuevoValorSpinnerLvl > valorSpinnerLvl) {
                     //FUNCION CREAR DESARROLLADOR NARRATIVA
                     // Llama a la función para crear un desarrollador de nivel
-                    BethesdaStudio.crearDesarrolladorNivel(BethesdaStudio.driveNivelB, 0, 4, "B",true);
+                    BethesdaStudio.crearDesarrolladorNivel(BethesdaStudio.driveNivelB, 0, 3, "B", true);
                     // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
                     int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
                     valorActual--;
                     desarrolladoresRestantesB.setText(Integer.toString(valorActual));
                 } else if (nuevoValorSpinnerLvl < valorSpinnerLvl) {
-                    
+
                     //FUNCION STOP DESARROLLADOR NARRATIVA
                     BethesdaStudio.stopDesarrolladorNivelAleatorio();
                     // Suma 1 a desarrolladoresRestantesB si el nuevo valor es menor
@@ -87,17 +91,12 @@ public class Bethesda extends javax.swing.JPanel {
                     valorActual++;
                     desarrolladoresRestantesB.setText(Integer.toString(valorActual));
                 }
-                
+
                 // Actualiza valorSpinner con el nuevo valor del JSpinner
                 valorSpinnerLvl = nuevoValorSpinnerLvl;
             }
         });
     }
-
-
-
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -179,12 +178,14 @@ public class Bethesda extends javax.swing.JPanel {
     public void setGuionesEnDriveB(JLabel guionesEnDriveB) {
         this.guionesEnDriveB = guionesEnDriveB;
     }
+
     public static void actualizarGuionesEnDrive(int nuevoValor) {
-    guionesEnDriveB.setText(Integer.toString(nuevoValor));
-}
+        guionesEnDriveB.setText(Integer.toString(nuevoValor));
+    }
+
     public static void actualizarNivelesEnDrive(int nuevoValor) {
-    nivelesEnDriveB.setText(Integer.toString(nuevoValor));
-}
+        nivelesEnDriveB.setText(Integer.toString(nuevoValor));
+    }
 
     public static JLabel getNivelesEnDriveB() {
         return nivelesEnDriveB;

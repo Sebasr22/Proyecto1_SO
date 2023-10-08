@@ -76,7 +76,7 @@ public class DesarrolladorNiveles extends Thread {
                 System.out.println("Pago total:" + BethesdaStudio.totalPay);
                 System.out.println("Niveles subidos al Drive " + nivelesSubidosDriveB);
             } else {
-                System.out.println("Drive lleno. Esperando a que se libere espacio.");
+                System.out.println("Drive NIVELES lleno. Esperando a que se libere espacio.");
 //            driveGuion.release(1);
 //            System.out.println("Se libero un guion del drive SUUUUU");  //LIBERAR ESPACIO DEL DRIVE PRUEBA
             }
@@ -86,4 +86,13 @@ public class DesarrolladorNiveles extends Thread {
         }
 
     }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
 }
