@@ -1,4 +1,8 @@
 # Registro de Cambios
+## [1.0.16] - 07/10/2023 (Juandb1507)
+
+- Desarrollo de la lógica del método Stop para los hilos Desarrolladores
+
 
 ## [1.0.15] - 07/10/2023 (Juandb1507)
 

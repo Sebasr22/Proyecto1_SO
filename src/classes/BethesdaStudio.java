@@ -44,23 +44,26 @@ public class BethesdaStudio {
     }
 
     public static void stopDesarrolladorNarrativaAleatorio() {
-        if (desarrolladorNarrativaCount == 0) {
-            return; // No hay hilos para detener
-        }
-
-        Random random = new Random();
-        int indiceAleatorio;
-
-        do {
-            indiceAleatorio = random.nextInt(11); // Obtener un índice aleatorio
-        } while (desarrolladoresNarrativa[indiceAleatorio] == null);
-
-        DesarrolladorNarrativa hilo = desarrolladoresNarrativa[indiceAleatorio];
-
-        if (hilo != null) {
-            hilo.setActivo(false); // Establecer el estado del hilo como inactivo
-        }
+    if (desarrolladorNarrativaCount == 0) {
+        return; // No hay hilos para detener
     }
+
+    Random random = new Random();
+    int indiceAleatorio;
+
+    do {
+        indiceAleatorio = random.nextInt(11); // Obtener un índice aleatorio
+    } while (desarrolladoresNarrativa[indiceAleatorio] == null);
+
+    DesarrolladorNarrativa hilo = desarrolladoresNarrativa[indiceAleatorio];
+
+    if (hilo != null) {
+        System.out.println("Cantidad de hilos antes de eliminar: " + desarrolladorNarrativaCount);
+        hilo.setActivo(false); // Establecer el estado del hilo como inactivo
+        desarrolladoresNarrativa[indiceAleatorio] = null; // Eliminar el hilo de la lista
+        desarrolladorNarrativaCount--; // Decrementar el contador
+    }
+}
 
     //NIVELES
     public static void crearDesarrolladorNivel(Semaphore driveNivelB, int totalPay, int diasParaGenerar, String studio, boolean activo) {
@@ -77,22 +80,26 @@ public class BethesdaStudio {
     }
 
     public static void stopDesarrolladorNivelAleatorio() {
-        if (desarrolladorNivelesCount == 0) {
-            return; // No hay hilos para detener
-        }
-
-        Random random = new Random();
-        int indiceAleatorio;
-
-        do {
-            indiceAleatorio = random.nextInt(11); // Obtener un índice aleatorio
-        } while (desarrolladoresNivel[indiceAleatorio] == null);
-
-        DesarrolladorNiveles hilo = desarrolladoresNivel[indiceAleatorio];
-
-        if (hilo != null) {
-            hilo.setActivo(false); // Establecer el estado del hilo como inactivo
-        }
+    if (desarrolladorNivelesCount == 0) {
+        return; // No hay hilos para detener
     }
+
+    Random random = new Random();
+    int indiceAleatorio;
+
+    do {
+        indiceAleatorio = random.nextInt(11); // Obtener un índice aleatorio
+    } while (desarrolladoresNivel[indiceAleatorio] == null);
+
+    DesarrolladorNiveles hilo = desarrolladoresNivel[indiceAleatorio];
+
+    if (hilo != null) {
+        System.out.println("Cantidad de hilos de nivel antes de eliminar: " + desarrolladorNivelesCount);
+        hilo.setActivo(false); // Establecer el estado del hilo como inactivo
+        desarrolladoresNivel[indiceAleatorio] = null; // Eliminar el hilo de la lista
+        desarrolladorNivelesCount--; // Decrementar el contador
+    }
+}
+
 
 }

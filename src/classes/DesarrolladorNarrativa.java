@@ -69,11 +69,11 @@ public class DesarrolladorNarrativa extends Thread {
         if (studio == "B") {
             if (driveGuionB.availablePermits() > 0) {
                 driveGuionB.acquire(1);
-                System.out.println("Guion agregado al Drive por Desarrollador ");
+                //System.out.println("Guion agregado al Drive por Desarrollador ");
 
                 guionesSubidosDriveB++; // Incrementa el contador 
                 Bethesda.actualizarGuionesEnDrive(guionesSubidosDriveB);
-                System.out.println("Pago total:" + BethesdaStudio.totalPay);
+                //System.out.println("Pago total:" + BethesdaStudio.totalPay);
              
             } else {
                 System.out.println("Drive GUIONES Lleno esperando libere espacio.");
