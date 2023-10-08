@@ -17,7 +17,7 @@ public class DesarrolladorNarrativa extends Thread {
     public static int guionesSubidosDriveN = 0;
     int sueldoPorHora;
     Semaphore driveGuionB;
-    boolean activo; 
+    boolean activo;
     int diasParaGenerar;
     int totalPay;
     String studio;
@@ -48,10 +48,6 @@ public class DesarrolladorNarrativa extends Thread {
     @Override
     public void run() {
         while (activo) {
-            if (Thread.interrupted()) {
-                activo = false; // Marcar el hilo como inactivo
-                break; // Salir del bucle de manera limpia
-            }
             try {
                 int count = 0;
 
@@ -63,6 +59,7 @@ public class DesarrolladorNarrativa extends Thread {
                 generarGuion();
             } catch (InterruptedException ex) {
                 System.out.println("TESTTT2");
+
             }
         }
     }
@@ -77,22 +74,25 @@ public class DesarrolladorNarrativa extends Thread {
                 guionesSubidosDriveB++; // Incrementa el contador 
                 Bethesda.actualizarGuionesEnDrive(guionesSubidosDriveB);
                 System.out.println("Pago total:" + BethesdaStudio.totalPay);
-                System.out.println("Guiones subidos al Drive " + guionesSubidosDriveB);
+             
             } else {
-                System.out.println("Drive lleno. Esperando a que se libere espacio.");
+                System.out.println("Drive GUIONES Lleno esperando libere espacio.");
 
             }
-           
 
 //            driveGuion.release(1);
 //            System.out.println("Se libero un guion del drive SUUUUU");  //LIBERAR ESPACIO DEL DRIVE PRUEBA
-        }
-        else{
-            
+        } else {
+
         }
     }
-    public void detener() {
-        activo = false;
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
 }

@@ -33,7 +33,7 @@ public class BethesdaStudio {
     public static void crearDesarrolladorNarrativa(Semaphore driveN, int totalPay, int diasParaGenerar, String studio, boolean activo) {
         DesarrolladorNarrativa desarrolladorNarrativa = new DesarrolladorNarrativa(driveN, totalPay, diasParaGenerar, studio, activo);
         // Encuentra la primera posición libre en el arreglo
-        for (int i = 0; i < capacidadDriveNB; i++) {
+        for (int i = 0; i < 11; i++) {
             if (desarrolladoresNarrativa[i] == null) {
                 desarrolladoresNarrativa[i] = desarrolladorNarrativa;
                 desarrolladorNarrativaCount++; // Incrementar el contador
@@ -44,22 +44,23 @@ public class BethesdaStudio {
     }
 
     public static void stopDesarrolladorNarrativaAleatorio() {
-    if (desarrolladorNarrativaCount > 0) {
-        Random rand = new Random();
-        int randomIndex;
+        if (desarrolladorNarrativaCount == 0) {
+            return; // No hay hilos para detener
+        }
 
-        // Bucle para encontrar un índice no nulo
+        Random random = new Random();
+        int indiceAleatorio;
+
         do {
-            randomIndex = rand.nextInt(capacidadDriveNB);
-        } while (desarrolladoresNarrativa[randomIndex] == null);
+            indiceAleatorio = random.nextInt(11); // Obtener un índice aleatorio
+        } while (desarrolladoresNarrativa[indiceAleatorio] == null);
 
-        // Detiene el hilo en el índice seleccionado
-        desarrolladoresNarrativa[randomIndex].detener();
-        desarrolladorNarrativaCount--; // Decrementar el contador
-        desarrolladoresNarrativa[randomIndex] = null; // Liberar la posición en el arreglo
+        DesarrolladorNarrativa hilo = desarrolladoresNarrativa[indiceAleatorio];
+
+        if (hilo != null) {
+            hilo.setActivo(false); // Establecer el estado del hilo como inactivo
+        }
     }
-}
-
 
     //NIVELES
     public static void crearDesarrolladorNivel(Semaphore driveNivelB, int totalPay, int diasParaGenerar, String studio, boolean activo) {
@@ -76,17 +77,22 @@ public class BethesdaStudio {
     }
 
     public static void stopDesarrolladorNivelAleatorio() {
-    if (desarrolladorNivelesCount > 0) {
-        // Genera un índice aleatorio para detener un desarrollador de nivel
-        Random rand = new Random();
-        int randomIndex2 = rand.nextInt(capacidadDriveNivelB);
+        if (desarrolladorNivelesCount == 0) {
+            return; // No hay hilos para detener
+        }
 
-        if (desarrolladoresNivel[randomIndex2] != null) {
-            desarrolladoresNivel[randomIndex2].interrupt(); // Detener el hilo
-            desarrolladorNivelesCount--; // Decrementar el contador
-            desarrolladoresNivel[randomIndex2] = null; // Liberar la posición en el arreglo
+        Random random = new Random();
+        int indiceAleatorio;
+
+        do {
+            indiceAleatorio = random.nextInt(11); // Obtener un índice aleatorio
+        } while (desarrolladoresNivel[indiceAleatorio] == null);
+
+        DesarrolladorNiveles hilo = desarrolladoresNivel[indiceAleatorio];
+
+        if (hilo != null) {
+            hilo.setActivo(false); // Establecer el estado del hilo como inactivo
         }
     }
-            
-}
+
 }
