@@ -1,4 +1,5 @@
 # Registro de Cambios
+
 ## [1.0.17] - 08/10/2023 (Juandb1507)
 
 - Desarrollo completo de la clase DesarrolladoresDLC.
