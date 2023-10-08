@@ -5,10 +5,29 @@
  */
 package classes;
 
+import interfaces.Bethesda;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author juand
  */
-public class Funciones {
-    
+public class Funciones extends Thread {
+    boolean activo;
+  
+    public Funciones(){
+        this.activo = true;
+        
+    }
+    @Override
+    public void run() {
+        while (activo) 
+        try {
+            Thread.sleep(1005);
+            Bethesda.costosOperativosB.setText(Integer.toString(BethesdaStudio.totalPay));
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
 }
+    }

@@ -40,6 +40,7 @@ public class DesarrolladorNiveles extends Thread {
         int salario = sueldoPorHora * horasTrabajadas;
         if (studio == "B") {
             BethesdaStudio.totalPay += salario;
+            
         } else {
             //sE LE PAGA A NINTENDO 
         }

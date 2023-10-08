@@ -5,6 +5,7 @@
 package interfaces;
 
 import classes.BethesdaStudio;
+import classes.Funciones;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
@@ -19,7 +20,8 @@ public class Bethesda extends javax.swing.JPanel {
 
     public Bethesda() {
         initComponents();
-   
+        Funciones dia = new Funciones();
+       dia.start();
         //SPINNER NARRATIVA-----------------------------------------------
         // Obtén el valor inicial del JSpinner
         valorSpinnerN = (int) spinnnerNarrativaB.getValue();
@@ -145,6 +147,8 @@ spinnerDLCB.addChangeListener(new ChangeListener() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        costosOperativosB = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         desarrolladoresRestantesB = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -165,6 +169,16 @@ spinnerDLCB.addChangeListener(new ChangeListener() {
 
         setPreferredSize(new java.awt.Dimension(720, 603));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        costosOperativosB.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        costosOperativosB.setForeground(new java.awt.Color(0, 0, 0));
+        costosOperativosB.setText("0");
+        add(costosOperativosB, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 80, -1));
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Costos Operativos = ");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -188,7 +202,7 @@ spinnerDLCB.addChangeListener(new ChangeListener() {
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Capacidad Drive");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, -1, -1));
 
         guionesEnDriveB.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         guionesEnDriveB.setForeground(new java.awt.Color(0, 0, 0));
@@ -290,8 +304,10 @@ spinnerDLCB.addChangeListener(new ChangeListener() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel DLCEnDriveB;
     private javax.swing.JLabel FondoBethesda;
+    public static javax.swing.JLabel costosOperativosB;
     private javax.swing.JLabel desarrolladoresRestantesB;
     public static javax.swing.JLabel guionesEnDriveB;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
