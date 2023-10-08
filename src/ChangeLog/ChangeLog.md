@@ -1,5 +1,9 @@
 # Registro de Cambios
 
+## [1.0.18] - 08/10/2023 (Juandb1507)
+
+- Creación de un hilo "Funciones" para registrar el paso de cada día y actualizar valores en UI.
+
 ## [1.0.17] - 08/10/2023 (Juandb1507)
 
 - Desarrollo completo de la clase DesarrolladoresDLC.
