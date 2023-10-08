@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package classes;
-
+import interfaces.Bethesda;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -14,7 +14,7 @@ import java.util.concurrent.Semaphore;
 public class DesarrolladorLogica extends Thread {
 
     public static int sistemasSubidosDriveN = 0;
-    public static int spritesSubidosDriveB = 0;
+    public static int sistemasSubidosDriveB = 0;
 
     int sueldoPorHora; // 8
     int totalPay;
@@ -26,7 +26,7 @@ public class DesarrolladorLogica extends Thread {
     
     String estudio;
 
-    public DesarrolladorLogica(Semaphore driveSistemas, int diasParaGenerar, int totalPay, String estudio) {
+    public DesarrolladorLogica(Semaphore driveSistemas, int diasParaGenerar, int totalPay, String estudio, boolean activo) {
 
         this.sueldoPorHora = 8;
         this.totalPay = totalPay;
@@ -53,8 +53,8 @@ public class DesarrolladorLogica extends Thread {
             if (driveSistemasB.availablePermits() > 0) {
                 driveSistemasB.acquire(5);// Puse directo 5 ya que el ultimo dijito del carnet de Juan y mio coincide con el numero de sistemas que se generan.
                 System.out.println("Se agregaron 5 Sistemas al drive");
-                spritesSubidosDriveB++;
-                // Aqui seria actualizar los sistemas en bethesda como esta en Desarrollador Sprites.
+                sistemasSubidosDriveB++;
+                Bethesda.
             } else {
                 System.out.println("Drive lleno");
             }

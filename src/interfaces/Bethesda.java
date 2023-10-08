@@ -13,15 +13,16 @@ import javax.swing.event.ChangeListener;
 
 public class Bethesda extends javax.swing.JPanel {
 
-    private int valorSpinnerN; 
+    private int valorSpinnerN;
     private int valorSpinnerLvl;
     private int valorSpinnerDLCB;
 
-
     public Bethesda() {
         initComponents();
+
         Funciones dia = new Funciones();
-       dia.start();
+        dia.start();
+
         //SPINNER NARRATIVA-----------------------------------------------
         // Obtén el valor inicial del JSpinner
         valorSpinnerN = (int) spinnnerNarrativaB.getValue();
@@ -97,44 +98,44 @@ public class Bethesda extends javax.swing.JPanel {
                 valorSpinnerLvl = nuevoValorSpinnerLvl;
             }
         });
-        
+
         //SPINNER DLC-----------------------------------------------
 // Obtén el valor inicial del JSpinner
-valorSpinnerDLCB = (int) spinnerDLCB.getValue();
-if (valorSpinnerDLCB == 1) {
-    // Llama a la función para crear un desarrollador de DLC
-    BethesdaStudio.crearDesarrolladorDLC(BethesdaStudio.driveDLCB, 0, 2, "B", true);
-}
-
-// Agrega un ChangeListener al JSpinner
-spinnerDLCB.addChangeListener(new ChangeListener() {
-    @Override
-    public void stateChanged(ChangeEvent e) {
-        // Obtén el nuevo valor del JSpinner
-        int nuevoValorSpinnerDLCB = (int) spinnerDLCB.getValue();
-
-        // Compara el nuevo valor del JSpinner con valorSpinnerDLCB
-        if (nuevoValorSpinnerDLCB > valorSpinnerDLCB) {
-            //FUNCION CREAR DESARROLLADOR DLC
+        valorSpinnerDLCB = (int) spinnerDLCB.getValue();
+        if (valorSpinnerDLCB == 1) {
             // Llama a la función para crear un desarrollador de DLC
             BethesdaStudio.crearDesarrolladorDLC(BethesdaStudio.driveDLCB, 0, 2, "B", true);
-            // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
-            int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
-            valorActual--;
-            desarrolladoresRestantesB.setText(Integer.toString(valorActual));
-        } else if (nuevoValorSpinnerDLCB < valorSpinnerDLCB) {
-            //FUNCION STOP DESARROLLADOR DLC
-            BethesdaStudio.stopDesarrolladorDLCAleatorio();
-            // Suma 1 a desarrolladoresRestantesB si el nuevo valor es menor
-            int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
-            valorActual++;
-            desarrolladoresRestantesB.setText(Integer.toString(valorActual));
         }
 
-        // Actualiza valorSpinnerDLCB con el nuevo valor del JSpinner
-        valorSpinnerDLCB = nuevoValorSpinnerDLCB;
-    }
-});
+// Agrega un ChangeListener al JSpinner
+        spinnerDLCB.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                // Obtén el nuevo valor del JSpinner
+                int nuevoValorSpinnerDLCB = (int) spinnerDLCB.getValue();
+
+                // Compara el nuevo valor del JSpinner con valorSpinnerDLCB
+                if (nuevoValorSpinnerDLCB > valorSpinnerDLCB) {
+                    //FUNCION CREAR DESARROLLADOR DLC
+                    // Llama a la función para crear un desarrollador de DLC
+                    BethesdaStudio.crearDesarrolladorDLC(BethesdaStudio.driveDLCB, 0, 2, "B", true);
+                    // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
+                    int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
+                    valorActual--;
+                    desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                } else if (nuevoValorSpinnerDLCB < valorSpinnerDLCB) {
+                    //FUNCION STOP DESARROLLADOR DLC
+                    BethesdaStudio.stopDesarrolladorDLCAleatorio();
+                    // Suma 1 a desarrolladoresRestantesB si el nuevo valor es menor
+                    int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
+                    valorActual++;
+                    desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                }
+
+                // Actualiza valorSpinnerDLCB con el nuevo valor del JSpinner
+                valorSpinnerDLCB = nuevoValorSpinnerDLCB;
+            }
+        });
 
     }
 
@@ -281,7 +282,12 @@ spinnerDLCB.addChangeListener(new ChangeListener() {
     public static void actualizarNivelesEnDrive(int nuevoValor) {
         nivelesEnDriveB.setText(Integer.toString(nuevoValor));
     }
+
     public static void actualizarDLCsEnDrive(int nuevoValor) {
+        DLCEnDriveB.setText(Integer.toString(nuevoValor));
+    }
+
+    public static void actualizarSistemasEnDrive(int nuevoValor) {
         DLCEnDriveB.setText(Integer.toString(nuevoValor));
     }
 
