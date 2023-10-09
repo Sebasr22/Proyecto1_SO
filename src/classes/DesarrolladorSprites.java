@@ -6,6 +6,7 @@
 package classes;
 
 import interfaces.Bethesda;
+import interfaces.Nintendo;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -49,36 +50,44 @@ public class DesarrolladorSprites extends Thread {
         int horasTrabajadas = 24;
         int salario = sueldoPorHora * horasTrabajadas;
         if (studio == "B") {
-            BethesdaStudio.totalPay += salario;
+            BethesdaStudio.totalPayB += salario;
         } else {
-            // La clase de nintendo
+            // Pago de nintendo
+            NintendoStudio.totalPayN += salario;
         }
     }
 
     public void generarSprite() throws InterruptedException {
 
         if (studio == "B") {
+            //BETHESDA
             if (driveSprites.availablePermits() > 1) {
                 driveSprites.acquire(2);
                 System.out.println("Se agrego un Sprite al drive");
                 spritesSubidosDriveB += 2;
                 Bethesda.actualizarSpritesEnDrive(spritesSubidosDriveB);
-            } 
-            else if(driveSprites.availablePermits() == 1){
+            } else if (driveSprites.availablePermits() == 1) {
                 driveSprites.acquire(1);
                 System.out.println("Se agrego un Sprite al drive");
                 spritesSubidosDriveB += 1;
                 Bethesda.actualizarSpritesEnDrive(spritesSubidosDriveB);
-            }
-            else {
+            } else {
                 System.out.println("Drive lleno");
             }
         } else {
-            if (driveSprites.availablePermits() > 0) {
+            //NINTENDO
+            if (driveSprites.availablePermits() > 1) {
+                driveSprites.acquire(2);
+                System.out.println("Se agrego un Sprite al drive");
+                spritesSubidosDriveN += 2;
+                Nintendo.actualizarSpritesEnDrive(spritesSubidosDriveN);
+            } else if (driveSprites.availablePermits() == 1) {
                 driveSprites.acquire(1);
                 System.out.println("Se agrego un Sprite al drive");
-                spritesSubidosDriveN++;
-                // El actualizar guiones drive 
+                spritesSubidosDriveN += 1;
+                Nintendo.actualizarSpritesEnDrive(spritesSubidosDriveN);
+            } else {
+                System.out.println("Drive lleno");
             }
         }
     }

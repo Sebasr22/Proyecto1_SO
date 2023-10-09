@@ -54,9 +54,9 @@ public class Integrador extends Thread {
         int horasTrabajadas = 24;
         int salario = sueldoPorHora * horasTrabajadas;
         if (estudio == "B") {
-            BethesdaStudio.totalPay += salario;
-        } else if (estudio == "N") {
-            // Agregar la logica del pago del estudio de Nintendo.
+            BethesdaStudio.totalPayB += salario;
+        } else{
+            NintendoStudio.totalPayN += salario;
         }
     }
 

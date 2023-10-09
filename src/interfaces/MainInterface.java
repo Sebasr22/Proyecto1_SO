@@ -28,46 +28,31 @@ public class MainInterface extends javax.swing.JFrame {
 
         tabbedPane = new javax.swing.JTabbedPane();
         bethesda1 = new interfaces.Bethesda();
-        nintendo1 = new interfaces.Nintendo();
+        nintendo2 = new interfaces.Nintendo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabbedPane.setName("tabbedPane"); // NOI18N
         tabbedPane.addTab("Bethesda", bethesda1);
-
-        javax.swing.GroupLayout nintendo1Layout = new javax.swing.GroupLayout(nintendo1);
-        nintendo1.setLayout(nintendo1Layout);
-        nintendo1Layout.setHorizontalGroup(
-            nintendo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 770, Short.MAX_VALUE)
-        );
-        nintendo1Layout.setVerticalGroup(
-            nintendo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
-        );
-
-        tabbedPane.addTab("Nintendo", nintendo1);
+        tabbedPane.addTab("Nintendo", nintendo2);
 
         getContentPane().add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
 // Agrega los paneles como pestañas al JTabbedPane
-
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-       
-       
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainInterface().setVisible(true);
-                
+
             }
         });
     }
@@ -75,7 +60,7 @@ public class MainInterface extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private interfaces.Bethesda bethesda1;
-    private interfaces.Nintendo nintendo1;
+    private interfaces.Nintendo nintendo2;
     private javax.swing.JTabbedPane tabbedPane;
     // End of variables declaration//GEN-END:variables
 }

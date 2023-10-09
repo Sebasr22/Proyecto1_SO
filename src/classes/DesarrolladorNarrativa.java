@@ -6,6 +6,7 @@ package classes;
 
 import java.util.concurrent.Semaphore;
 import interfaces.Bethesda;
+import interfaces.Nintendo;
 
 /**
  *
@@ -16,7 +17,7 @@ public class DesarrolladorNarrativa extends Thread {
     public static int guionesSubidosDriveB = 0;
     public static int guionesSubidosDriveN = 0;
     int sueldoPorHora;
-    Semaphore driveGuionB;
+    Semaphore driveGuion;
     boolean activo;
     int diasParaGenerar;
     int totalPay;
@@ -25,7 +26,7 @@ public class DesarrolladorNarrativa extends Thread {
     public DesarrolladorNarrativa(Semaphore driveGuion, int totalPay, int diasParaGenerar, String studio, boolean activo) {
 
         this.sueldoPorHora = 10;
-        this.driveGuionB = driveGuion;
+        this.driveGuion = driveGuion;
         this.totalPay = totalPay;
         this.activo = activo;
         this.diasParaGenerar = diasParaGenerar;
@@ -38,9 +39,10 @@ public class DesarrolladorNarrativa extends Thread {
         int horasTrabajadas = 24;
         int salario = sueldoPorHora * horasTrabajadas;
         if (studio == "B") {
-            BethesdaStudio.totalPay += salario;
+            BethesdaStudio.totalPayB += salario;
         } else {
-            //sE LE PAGA A NINTENDO 
+            // Pago de nintendo
+            NintendoStudio.totalPayN += salario;
         }
 
     }
@@ -55,7 +57,7 @@ public class DesarrolladorNarrativa extends Thread {
                     Thread.sleep(1000);
                     payDayDesarrolladorNarrativa();
                     count++;
-                    
+
                 }
                 generarGuion();
             } catch (InterruptedException ex) {
@@ -68,14 +70,14 @@ public class DesarrolladorNarrativa extends Thread {
     private void generarGuion() throws InterruptedException {
         // Intento agregar el guion al drive
         if (studio == "B") {
-            if (driveGuionB.availablePermits() > 0) {
-                driveGuionB.acquire(1);
+            if (driveGuion.availablePermits() > 0) {
+                driveGuion.acquire(1);
                 //System.out.println("Guion agregado al Drive por Desarrollador ");
 
                 guionesSubidosDriveB++; // Incrementa el contador 
                 Bethesda.actualizarGuionesEnDrive(guionesSubidosDriveB);
                 //System.out.println("Pago total:" + BethesdaStudio.totalPay);
-             
+
             } else {
                 System.out.println("Drive GUIONES Lleno esperando libere espacio.");
 
@@ -84,8 +86,16 @@ public class DesarrolladorNarrativa extends Thread {
 //            driveGuion.release(1);
 //            System.out.println("Se libero un guion del drive SUUUUU");  //LIBERAR ESPACIO DEL DRIVE PRUEBA
         } else {
-
+            // Generar Nintendo
+            if (driveGuion.availablePermits() > 0) {
+                driveGuion.acquire(1);
+                guionesSubidosDriveN++;
+                Nintendo.actualizarGuionesEnDrive(guionesSubidosDriveN);
+            } else {
+                System.out.println("Drive DLC lleno. Esperando a que se libere espacio.");
+            }
         }
+
     }
 
     public boolean isActivo() {

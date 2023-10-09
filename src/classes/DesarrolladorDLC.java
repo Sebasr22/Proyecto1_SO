@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package classes;
+
 import interfaces.Bethesda;
+import interfaces.Nintendo;
 import java.util.concurrent.Semaphore;
 
 public class DesarrolladorDLC extends Thread {
@@ -32,9 +34,10 @@ public class DesarrolladorDLC extends Thread {
         int horasTrabajadas = 24;
         int salario = sueldoPorHora * horasTrabajadas;
         if ("B".equals(studio)) {
-            BethesdaStudio.totalPay += salario;
+            BethesdaStudio.totalPayB += salario;
         } else {
-            // Pago a Nintendo u otro estudio
+            // Pago a Nintendo 
+            NintendoStudio.totalPayN += salario;
         }
     }
 
@@ -67,7 +70,14 @@ public class DesarrolladorDLC extends Thread {
                 System.out.println("Drive DLC lleno. Esperando a que se libere espacio.");
             }
         } else {
-            // Pago a Nintendo
+            // Generar Nintendo
+            if (driveDLC.availablePermits() > 0) {
+                driveDLC.acquire(1);
+                dlcsSubidosDriveN++;
+                Nintendo.actualizarDLCsEnDrive(dlcsSubidosDriveN);
+            } else {
+                System.out.println("Drive DLC lleno. Esperando a que se libere espacio.");
+            }
         }
     }
 

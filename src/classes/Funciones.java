@@ -6,6 +6,7 @@
 package classes;
 
 import interfaces.Bethesda;
+import interfaces.Nintendo;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,20 +15,23 @@ import java.util.logging.Logger;
  * @author juand
  */
 public class Funciones extends Thread {
+
     boolean activo;
-  
-    public Funciones(){
+
+    public Funciones() {
         this.activo = true;
-        
+
     }
+
     @Override
     public void run() {
         while (activo) 
         try {
             Thread.sleep(1005);
-            Bethesda.costosOperativosB.setText(Integer.toString(BethesdaStudio.totalPay));
+            Bethesda.costosOperativosB.setText(Integer.toString(BethesdaStudio.totalPayB));
+            Nintendo.costosOperativosN.setText(Integer.toString(BethesdaStudio.totalPayB));
         } catch (InterruptedException ex) {
             Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
         }
-}
     }
+}

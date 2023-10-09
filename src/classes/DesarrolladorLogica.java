@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package classes;
+
 import interfaces.Bethesda;
+import interfaces.Nintendo;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -22,7 +24,7 @@ public class DesarrolladorLogica extends Thread {
     boolean activo;
 
     Semaphore driveSistemas;
-    
+
     String studio;
 
     public DesarrolladorLogica(Semaphore driveSistemas, int diasParaGenerar, int totalPay, String studio, boolean activo) {
@@ -43,46 +45,49 @@ public class DesarrolladorLogica extends Thread {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
-    
+
     public void payDayDesarrolladorLogica() {
         int horasTrabajadas = 24;
         int salario = sueldoPorHora * horasTrabajadas;
         if (studio == "B") {
-            BethesdaStudio.totalPay += salario;
+            BethesdaStudio.totalPayB += salario;
         } else {
-            // La clase de nintendo
+            // Pago de nintendo
+            NintendoStudio.totalPayN += salario;
         }
     }
 
     public void generarSistema() throws InterruptedException {
         if (studio == "B") {
+            //BETHESDA
             if (driveSistemas.availablePermits() > 0) {
                 driveSistemas.acquire(5);// Puse directo 5 ya que el ultimo dijito del carnet de Juan y mio coincide con el numero de sistemas que se generan.
                 System.out.println("Se agregaron 5 Sistemas al drive");
-                sistemasSubidosDriveB +=5;
+                sistemasSubidosDriveB += 5;
                 Bethesda.actualizarSistemasEnDrive(sistemasSubidosDriveB);
             } else {
                 System.out.println("Drive lleno");
             }
         } else {
+            //NINTENDO
             if (driveSistemas.availablePermits() > 0) {
                 driveSistemas.acquire(5);
                 System.out.println("Se agregaron 5 sistemas al drive");
-                sistemasSubidosDriveN +=5;
-                // Aqui seria atualizar los sistemas en nintendo.
+                sistemasSubidosDriveN += 5;
+                Nintendo.actualizarSistemasEnDrive(sistemasSubidosDriveN);
             }
         }
     }
-    
+
     @Override
     public void run() {
         while (activo) {
             try {
 //                int count = 0;
-                
+
 //                while (count < diasParaGenerar) {
-                    Thread.sleep(1000);
-                    payDayDesarrolladorLogica();
+                Thread.sleep(1000);
+                payDayDesarrolladorLogica();
 //                    count++;
 //                }
                 generarSistema();
