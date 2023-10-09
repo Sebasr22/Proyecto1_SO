@@ -6,32 +6,48 @@ import java.util.Random;
 public class BethesdaStudio {
 
     public static int totalPay = 0;
+
+    // Capacidad de los drive de los desarrolladores
     static int capacidadDriveNB = 25;
     static int capacidadDriveNivelB = 20;
     static int capacidadDriveDLCB = 10;
+    static int capacidadDriveLogicaB = 35;
+    static int capacidadDriveSprites = 55;
+
+    // Semaforos de los drive de los desarrolladores
     public static Semaphore driveNB = new Semaphore(capacidadDriveNB);
     public static Semaphore driveNivelB = new Semaphore(capacidadDriveNivelB);
     public static Semaphore driveDLCB = new Semaphore(capacidadDriveDLCB);
+    public static Semaphore driveLogicB = new Semaphore(capacidadDriveLogicaB);
+    public static Semaphore driveSpritesB = new Semaphore(capacidadDriveSprites);
+
+    // No se estan usando
     final private boolean active = true;
     private int videojuegosContador;
     private int dayDuration;
     private final Semaphore counterMutex = new Semaphore(1);
 
-
     int totalDayCounter = 0;
-//CONTADORES DESARROLLADORES
+
+    //CONTADORES DESARROLLADORES
     private static int desarrolladorNarrativaCount = 0;
     private static int desarrolladorNivelesCount = 0;
     private static int desarrolladorDLCCount = 0;
+    private static int desarrolladorLogicCount = 0;
+    private static int desarrolladorSpritesCount = 0;
 
     public BethesdaStudio(int dayDuration, int daysUntilLaunch) {
         this.dayDuration = dayDuration;
     }
-    private static DesarrolladorNarrativa[] desarrolladoresNarrativa = new DesarrolladorNarrativa[11];  
+
+    // Lista de desarrolladores
+    private static DesarrolladorNarrativa[] desarrolladoresNarrativa = new DesarrolladorNarrativa[11];
     private static DesarrolladorNiveles[] desarrolladoresNivel = new DesarrolladorNiveles[11];
     private static DesarrolladorDLC[] desarrolladoresDLC = new DesarrolladorDLC[11];
-   
-//NARRATIVA 
+    private static DesarrolladorLogica[] desarrolladoresLogica = new DesarrolladorLogica[11];
+    private static DesarrolladorSprites[] desarrolladoresSprites = new DesarrolladorSprites[11];
+
+    //NARRATIVA 
     public static void crearDesarrolladorNarrativa(Semaphore driveN, int totalPay, int diasParaGenerar, String studio, boolean activo) {
         DesarrolladorNarrativa desarrolladorNarrativa = new DesarrolladorNarrativa(driveN, totalPay, diasParaGenerar, studio, activo);
         // Encuentra la primera posición libre en el arreglo
@@ -46,26 +62,26 @@ public class BethesdaStudio {
     }
 
     public static void stopDesarrolladorNarrativaAleatorio() {
-    if (desarrolladorNarrativaCount == 0) {
-        return; // No hay hilos para detener
+        if (desarrolladorNarrativaCount == 0) {
+            return; // No hay hilos para detener
+        }
+
+        Random random = new Random();
+        int indiceAleatorio;
+
+        do {
+            indiceAleatorio = random.nextInt(11); // Obtener un índice aleatorio
+        } while (desarrolladoresNarrativa[indiceAleatorio] == null);
+
+        DesarrolladorNarrativa hilo = desarrolladoresNarrativa[indiceAleatorio];
+
+        if (hilo != null) {
+            System.out.println("Cantidad de hilos antes de eliminar: " + desarrolladorNarrativaCount);
+            hilo.setActivo(false); // Establecer el estado del hilo como inactivo
+            desarrolladoresNarrativa[indiceAleatorio] = null; // Eliminar el hilo de la lista
+            desarrolladorNarrativaCount--; // Decrementar el contador
+        }
     }
-
-    Random random = new Random();
-    int indiceAleatorio;
-
-    do {
-        indiceAleatorio = random.nextInt(11); // Obtener un índice aleatorio
-    } while (desarrolladoresNarrativa[indiceAleatorio] == null);
-
-    DesarrolladorNarrativa hilo = desarrolladoresNarrativa[indiceAleatorio];
-
-    if (hilo != null) {
-        System.out.println("Cantidad de hilos antes de eliminar: " + desarrolladorNarrativaCount);
-        hilo.setActivo(false); // Establecer el estado del hilo como inactivo
-        desarrolladoresNarrativa[indiceAleatorio] = null; // Eliminar el hilo de la lista
-        desarrolladorNarrativaCount--; // Decrementar el contador
-    }
-}
 
     //NIVELES
     public static void crearDesarrolladorNivel(Semaphore driveNivelB, int totalPay, int diasParaGenerar, String studio, boolean activo) {
@@ -82,61 +98,133 @@ public class BethesdaStudio {
     }
 
     public static void stopDesarrolladorNivelAleatorio() {
-    if (desarrolladorNivelesCount == 0) {
-        return; // No hay hilos para detener
-    }
+        if (desarrolladorNivelesCount == 0) {
+            return; // No hay hilos para detener
+        }
 
-    Random random = new Random();
-    int indiceAleatorio;
+        Random random = new Random();
+        int indiceAleatorio;
 
-    do {
-        indiceAleatorio = random.nextInt(11); // Obtener un índice aleatorio
-    } while (desarrolladoresNivel[indiceAleatorio] == null);
+        do {
+            indiceAleatorio = random.nextInt(11); // Obtener un índice aleatorio
+        } while (desarrolladoresNivel[indiceAleatorio] == null);
 
-    DesarrolladorNiveles hilo = desarrolladoresNivel[indiceAleatorio];
+        DesarrolladorNiveles hilo = desarrolladoresNivel[indiceAleatorio];
 
-    if (hilo != null) {
-        System.out.println("Cantidad de hilos de nivel antes de eliminar: " + desarrolladorNivelesCount);
-        hilo.setActivo(false); // Establecer el estado del hilo como inactivo
-        desarrolladoresNivel[indiceAleatorio] = null; // Eliminar el hilo de la lista
-        desarrolladorNivelesCount--; // Decrementar el contador
-    }
-}
-//DLC
-    
-    public static void crearDesarrolladorDLC(Semaphore driveDLC, int totalPay, int diasParaGenerar, String studio, boolean activo) {
-    DesarrolladorDLC desarrolladorDLC = new DesarrolladorDLC(driveDLC, totalPay, diasParaGenerar, studio, activo);
-    // Encuentra la primera posición libre en el arreglo
-    for (int i = 0; i < 11; i++) {
-        if (desarrolladoresDLC[i] == null) {
-            desarrolladoresDLC[i] = desarrolladorDLC;
-            desarrolladorDLCCount++; // Incrementar el contador
-            desarrolladorDLC.start(); // Iniciar el hilo del desarrollador de DLC
-            break;
+        if (hilo != null) {
+            System.out.println("Cantidad de hilos de nivel antes de eliminar: " + desarrolladorNivelesCount);
+            hilo.setActivo(false); // Establecer el estado del hilo como inactivo
+            desarrolladoresNivel[indiceAleatorio] = null; // Eliminar el hilo de la lista
+            desarrolladorNivelesCount--; // Decrementar el contador
         }
     }
-}
-public static void stopDesarrolladorDLCAleatorio() {
-    if (desarrolladorDLCCount == 0) {
-        return; // No hay hilos para detener
+
+    //DLC
+    public static void crearDesarrolladorDLC(Semaphore driveDLC, int totalPay, int diasParaGenerar, String studio, boolean activo) {
+        DesarrolladorDLC desarrolladorDLC = new DesarrolladorDLC(driveDLC, totalPay, diasParaGenerar, studio, activo);
+        // Encuentra la primera posición libre en el arreglo
+        for (int i = 0; i < 11; i++) {
+            if (desarrolladoresDLC[i] == null) {
+                desarrolladoresDLC[i] = desarrolladorDLC;
+                desarrolladorDLCCount++; // Incrementar el contador
+                desarrolladorDLC.start(); // Iniciar el hilo del desarrollador de DLC
+                break;
+            }
+        }
     }
 
-    Random random = new Random();
-    int indiceAleatorio;
+    public static void stopDesarrolladorDLCAleatorio() {
+        if (desarrolladorDLCCount == 0) {
+            return; // No hay hilos para detener
+        }
 
-    do {
-        indiceAleatorio = random.nextInt(11); // Obtener un índice aleatorio
-    } while (desarrolladoresDLC[indiceAleatorio] == null);
+        Random random = new Random();
+        int indiceAleatorio;
 
-    DesarrolladorDLC hilo = desarrolladoresDLC[indiceAleatorio];
+        do {
+            indiceAleatorio = random.nextInt(11); // Obtener un índice aleatorio
+        } while (desarrolladoresDLC[indiceAleatorio] == null);
 
-    if (hilo != null) {
-        System.out.println("Cantidad de hilos de DLC antes de eliminar: " + desarrolladorDLCCount);
-        hilo.setActivo(false); // Establecer el estado del hilo como inactivo
-        desarrolladoresDLC[indiceAleatorio] = null; // Eliminar el hilo de la lista
-        desarrolladorDLCCount--; // Decrementar el contador
+        DesarrolladorDLC hilo = desarrolladoresDLC[indiceAleatorio];
+
+        if (hilo != null) {
+            System.out.println("Cantidad de hilos de DLC antes de eliminar: " + desarrolladorDLCCount);
+            hilo.setActivo(false); // Establecer el estado del hilo como inactivo
+            desarrolladoresDLC[indiceAleatorio] = null; // Eliminar el hilo de la lista
+            desarrolladorDLCCount--; // Decrementar el contador
+        }
     }
-}
 
+    // LOGICA 
+    public static void crearDesarrolladorLogic(Semaphore driveLogicB, int diasParaGenerar, int totalPay, String studio, boolean activo) {
+        DesarrolladorLogica desarrolladorLogica = new DesarrolladorLogica(driveLogicB, totalPay, diasParaGenerar, studio, activo);
+        // Encuentra la primera posicion libre en el arreglo
+        for (int i = 0; i < 11; i++) {
+            if (desarrolladoresLogica[i] == null) {
+                desarrolladoresLogica[i] = desarrolladorLogica;
+                desarrolladorLogicCount++;
+                desarrolladorLogica.start();
+                break;
+            }
+        }
+    }
 
+    public static void stopDesarrolladorLogicaAleatorio() {
+        if (desarrolladorLogicCount == 0) {
+            return;
+        }
+        
+        Random random = new Random();
+        int indiceAleatorio;
+        
+        do {
+            indiceAleatorio = random.nextInt(11);
+        } while (desarrolladoresLogica[indiceAleatorio] == null);
+        
+        DesarrolladorLogica hilo = desarrolladoresLogica[indiceAleatorio];
+        
+        if (hilo != null) {
+            System.out.println("Cantidad de hilos de DLC antes de eliminar: " + desarrolladorLogicCount);
+            hilo.setActivo(false);
+            desarrolladoresLogica[indiceAleatorio] = null;
+            desarrolladorLogicCount--;
+        }
+    }
+    
+    // Sprites
+    public static void crearDesarrolladorSprites(Semaphore driveSpritesB, int diasParaGenerar, int totalPay, String studio, boolean activo) {
+        DesarrolladorSprites desarrolladorSprite = new DesarrolladorSprites(driveSpritesB, totalPay, diasParaGenerar, studio, activo);
+        
+        for (int i = 0; i < 11; i++) {
+            if (desarrolladoresSprites[i] == null) {
+                desarrolladoresSprites[i] = desarrolladorSprite;
+                desarrolladorSpritesCount++;
+                desarrolladorSprite.start();
+                break;
+            }
+        }
+    }
+    
+    public static void stopDesarrolladorSpriteAleatorio() {
+        
+        if (desarrolladorSpritesCount == 0) {
+            return;
+        }
+        
+        Random random = new Random();
+        int indiceAleatorio;
+        
+        do {
+            indiceAleatorio = random.nextInt(11);
+        } while (desarrolladoresSprites[indiceAleatorio] == null);
+        
+        DesarrolladorSprites hilo = desarrolladoresSprites[indiceAleatorio];
+        
+        if (hilo != null) {
+            System.out.println("Cantidad de hilos de DLC antes de eliminar: " + desarrolladorSpritesCount);
+            hilo.setActivo(false);
+            desarrolladoresSprites[indiceAleatorio] = null;
+            desarrolladorSpritesCount--;
+        }
+    }
 }
