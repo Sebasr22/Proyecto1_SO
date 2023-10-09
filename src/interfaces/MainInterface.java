@@ -27,27 +27,27 @@ public class MainInterface extends javax.swing.JFrame {
     private void initComponents() {
 
         tabbedPane = new javax.swing.JTabbedPane();
-        nintendo1 = new interfaces.Nintendo();
         bethesda1 = new interfaces.Bethesda();
+        nintendo1 = new interfaces.Nintendo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabbedPane.setName("tabbedPane"); // NOI18N
+        tabbedPane.addTab("Bethesda", bethesda1);
 
         javax.swing.GroupLayout nintendo1Layout = new javax.swing.GroupLayout(nintendo1);
         nintendo1.setLayout(nintendo1Layout);
         nintendo1Layout.setHorizontalGroup(
             nintendo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 765, Short.MAX_VALUE)
+            .addGap(0, 770, Short.MAX_VALUE)
         );
         nintendo1Layout.setVerticalGroup(
             nintendo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 583, Short.MAX_VALUE)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab("Nintendo", nintendo1);
-        tabbedPane.addTab("Bethesda", bethesda1);
 
         getContentPane().add(tabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 610));
 

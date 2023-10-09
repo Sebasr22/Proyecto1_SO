@@ -1,4 +1,8 @@
 # Registro de Cambios
+## [1.0.20] - 08/10/2023 (Juandb1507)
+
+- Corrección lógica generarSprite en DesarrolladorSprites
+
 
 ## [1.0.19] - 08/10/2023 (Sebasr22)
 
