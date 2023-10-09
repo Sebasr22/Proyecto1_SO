@@ -1,5 +1,10 @@
 # Registro de Cambios
 
+## [1.0.19] - 08/10/2023 (Sebasr22)
+
+- Link de Desarrollador Logica con BethesdaStudio y Bethesda(UI)
+- Link de Desarrollador Sprites con BethesdaStudio y Bethesda(UI)
+
 ## [1.0.18] - 08/10/2023 (Juandb1507)
 
 - Creación de un hilo "Funciones" para registrar el paso de cada día y actualizar valores en UI.

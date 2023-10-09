@@ -16,6 +16,8 @@ public class Bethesda extends javax.swing.JPanel {
     private int valorSpinnerN;
     private int valorSpinnerLvl;
     private int valorSpinnerDLCB;
+    private int valorSpinnerSistemasB;
+    private int valorSpinnerSpritesB;
 
     public Bethesda() {
         initComponents();
@@ -137,6 +139,74 @@ public class Bethesda extends javax.swing.JPanel {
             }
         });
 
+        // SPINNER SISTEMAS
+        valorSpinnerSistemasB = (int) spinnerSistemasB.getValue();
+        if (valorSpinnerSistemasB == 1) {
+            // Llama a la funcion para crear un desarrollador de logica
+            BethesdaStudio.crearDesarrolladorLogic(BethesdaStudio.driveLogicB, 1, 0, "B", true);
+        }
+
+        spinnerSistemasB.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+
+                int nuevoValorSpinnerSistemasB = (int) spinnerSistemasB.getValue();
+
+                if (nuevoValorSpinnerSistemasB > valorSpinnerSistemasB) {
+
+                    BethesdaStudio.crearDesarrolladorLogic(BethesdaStudio.driveLogicB, 1, 0, "B", true);
+
+                    int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
+                    valorActual--;
+                    desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+
+                } else if (nuevoValorSpinnerSistemasB < valorSpinnerSistemasB) {
+
+                    BethesdaStudio.stopDesarrolladorLogicaAleatorio();
+
+                    int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
+                    valorActual++;
+                    desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                }
+
+                valorSpinnerSistemasB = nuevoValorSpinnerSistemasB;
+            }
+        });
+
+        // SPINNER SPRITES
+        valorSpinnerSpritesB = (int) spinnerSpritesB.getValue();
+        if (valorSpinnerSpritesB == 1) {
+            // Llama a la funcion para crear un desarrollador de logica
+            BethesdaStudio.crearDesarrolladorSprites(BethesdaStudio.driveSpritesB, 1, 0, "B", true);
+        }
+
+        spinnerSpritesB.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+
+                int nuevoValorSpinnerSpritesB = (int) spinnerSpritesB.getValue();
+
+                if (nuevoValorSpinnerSpritesB > valorSpinnerSpritesB) {
+
+                    BethesdaStudio.crearDesarrolladorSprites(BethesdaStudio.driveSpritesB, 1, 0, "B", true);
+
+                    int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
+                    valorActual--;
+                    desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+
+                } else if (nuevoValorSpinnerSpritesB < valorSpinnerSpritesB) {
+
+                    BethesdaStudio.stopDesarrolladorSpriteAleatorio();
+
+                    int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
+                    valorActual++;
+                    desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                }
+
+                valorSpinnerSpritesB = nuevoValorSpinnerSpritesB;
+            }
+        });
+
     }
 
     /**
@@ -166,6 +236,14 @@ public class Bethesda extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         DLCEnDriveB = new javax.swing.JLabel();
         logoBethesda = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        spinnerSistemasB = new javax.swing.JSpinner();
+        SistemasEnDriveB = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        spinnerSpritesB = new javax.swing.JSpinner();
+        SpritesEnDriveB = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         FondoBethesda = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(720, 603));
@@ -194,7 +272,7 @@ public class Bethesda extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Narrativa = ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 110, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 80, -1));
 
         spinnnerNarrativaB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
         spinnnerNarrativaB.setValue(1);
@@ -237,7 +315,7 @@ public class Bethesda extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("DLC's =");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 70, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 60, -1));
 
         spinnerDLCB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
         add(spinnerDLCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, -1));
@@ -255,8 +333,44 @@ public class Bethesda extends javax.swing.JPanel {
         logoBethesda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bethedaLogo.png"))); // NOI18N
         add(logoBethesda, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, -20, 380, 190));
 
+        jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setText("Sistemas =");
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+
+        spinnerSistemasB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
+        add(spinnerSistemasB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, -1, -1));
+
+        SistemasEnDriveB.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        SistemasEnDriveB.setForeground(new java.awt.Color(0, 0, 0));
+        SistemasEnDriveB.setText("0");
+        add(SistemasEnDriveB, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 30, -1));
+
+        jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("de 35");
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel16.setText("Sprites =");
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+
+        spinnerSpritesB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
+        add(spinnerSpritesB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, -1, -1));
+
+        SpritesEnDriveB.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        SpritesEnDriveB.setForeground(new java.awt.Color(0, 0, 0));
+        SpritesEnDriveB.setText("0");
+        add(SpritesEnDriveB, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 30, -1));
+
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("de 55");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, -1, -1));
+
         FondoBethesda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Fallout.png"))); // NOI18N
-        add(FondoBethesda, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -210, 970, 860));
+        add(FondoBethesda, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -210, 970, 830));
     }// </editor-fold>//GEN-END:initComponents
 
     public JLabel getDesarrolladoresRestantesB() {
@@ -287,8 +401,30 @@ public class Bethesda extends javax.swing.JPanel {
         DLCEnDriveB.setText(Integer.toString(nuevoValor));
     }
 
+    // Desarrollador Logica
     public static void actualizarSistemasEnDrive(int nuevoValor) {
-        DLCEnDriveB.setText(Integer.toString(nuevoValor));
+        SistemasEnDriveB.setText(Integer.toString(nuevoValor));
+    }
+
+    public static JLabel getSistemasEnDriveB() {
+        return SistemasEnDriveB;
+    }
+
+    public static void setSistemasEnDriveB(JLabel SistemasEnDriveB) {
+        Bethesda.SistemasEnDriveB = SistemasEnDriveB;
+    }
+
+    //Desarrollador Sprites
+    public static void actualizarSpritesEnDrive(int nuevoValor) {
+        SpritesEnDriveB.setText(Integer.toString(nuevoValor));
+    }
+
+    public static JLabel getSpritesEnDriveB() {
+        return SpritesEnDriveB;
+    }
+
+    public static void setSpritesEnDriveB(JLabel SpritesEnDriveB) {
+        Bethesda.SpritesEnDriveB = SpritesEnDriveB;
     }
 
     public static JLabel getNivelesEnDriveB() {
@@ -310,10 +446,16 @@ public class Bethesda extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel DLCEnDriveB;
     private javax.swing.JLabel FondoBethesda;
+    public static javax.swing.JLabel SistemasEnDriveB;
+    public static javax.swing.JLabel SpritesEnDriveB;
     public static javax.swing.JLabel costosOperativosB;
     private javax.swing.JLabel desarrolladoresRestantesB;
     public static javax.swing.JLabel guionesEnDriveB;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -325,6 +467,8 @@ public class Bethesda extends javax.swing.JPanel {
     private javax.swing.JLabel logoBethesda;
     public static javax.swing.JLabel nivelesEnDriveB;
     private javax.swing.JSpinner spinnerDLCB;
+    private javax.swing.JSpinner spinnerSistemasB;
+    private javax.swing.JSpinner spinnerSpritesB;
     private javax.swing.JSpinner spinnnerNarrativaB;
     private javax.swing.JSpinner spinnnerNivelB;
     // End of variables declaration//GEN-END:variables
