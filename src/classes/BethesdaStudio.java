@@ -5,8 +5,9 @@ import java.util.Random;
 
 public class BethesdaStudio {
 
-    public static int totalPay = 0;
-
+    public static int totalPayB = 0;
+    public static int ingreso = 0;
+    public static int utilidad = ingreso - totalPayB;
     // Capacidad de los drive de los desarrolladores
     static int capacidadDriveNB = 25;
     static int capacidadDriveNivelB = 20;
@@ -21,7 +22,6 @@ public class BethesdaStudio {
     public static Semaphore driveLogicB = new Semaphore(capacidadDriveLogicaB);
     public static Semaphore driveSpritesB = new Semaphore(capacidadDriveSprites);
 
-    // No se estan usando
     final private boolean active = true;
     private int videojuegosContador;
     private int dayDuration;
@@ -173,16 +173,16 @@ public class BethesdaStudio {
         if (desarrolladorLogicCount == 0) {
             return;
         }
-        
+
         Random random = new Random();
         int indiceAleatorio;
-        
+
         do {
             indiceAleatorio = random.nextInt(11);
         } while (desarrolladoresLogica[indiceAleatorio] == null);
-        
+
         DesarrolladorLogica hilo = desarrolladoresLogica[indiceAleatorio];
-        
+
         if (hilo != null) {
             System.out.println("Cantidad de hilos de DLC antes de eliminar: " + desarrolladorLogicCount);
             hilo.setActivo(false);
@@ -190,11 +190,11 @@ public class BethesdaStudio {
             desarrolladorLogicCount--;
         }
     }
-    
+
     // Sprites
     public static void crearDesarrolladorSprites(Semaphore driveSpritesB, int diasParaGenerar, int totalPay, String studio, boolean activo) {
         DesarrolladorSprites desarrolladorSprite = new DesarrolladorSprites(driveSpritesB, totalPay, diasParaGenerar, studio, activo);
-        
+
         for (int i = 0; i < 11; i++) {
             if (desarrolladoresSprites[i] == null) {
                 desarrolladoresSprites[i] = desarrolladorSprite;
@@ -204,22 +204,22 @@ public class BethesdaStudio {
             }
         }
     }
-    
+
     public static void stopDesarrolladorSpriteAleatorio() {
-        
+
         if (desarrolladorSpritesCount == 0) {
             return;
         }
-        
+
         Random random = new Random();
         int indiceAleatorio;
-        
+
         do {
             indiceAleatorio = random.nextInt(11);
         } while (desarrolladoresSprites[indiceAleatorio] == null);
-        
+
         DesarrolladorSprites hilo = desarrolladoresSprites[indiceAleatorio];
-        
+
         if (hilo != null) {
             System.out.println("Cantidad de hilos de DLC antes de eliminar: " + desarrolladorSpritesCount);
             hilo.setActivo(false);

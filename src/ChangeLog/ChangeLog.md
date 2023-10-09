@@ -1,4 +1,11 @@
 # Registro de Cambios
+## [1.0.21] - 09/10/2023 (Juandb1507)
+
+- Se realizó la clase Nintendo, NintendoStudio y se conectaron entre sí.
+- Se completó la lógica faltante en los distintos desarrolladores (Relacionada al estudio Nintendo).
+- Background, logos e iconos para los Dashboard de Nintendo y Bethesda.
+
+
 ## [1.0.20] - 08/10/2023 (Juandb1507)
 
 - Corrección lógica generarSprite en DesarrolladorSprites

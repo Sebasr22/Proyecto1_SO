@@ -6,6 +6,7 @@
 package classes;
 
 import interfaces.Bethesda;
+import interfaces.Nintendo;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -39,10 +40,11 @@ public class DesarrolladorNiveles extends Thread {
         int horasTrabajadas = 24;
         int salario = sueldoPorHora * horasTrabajadas;
         if (studio == "B") {
-            BethesdaStudio.totalPay += salario;
-            
+            BethesdaStudio.totalPayB += salario;
+
         } else {
-            //sE LE PAGA A NINTENDO 
+            // Pago de nintendo
+            NintendoStudio.totalPayN += salario;
         }
 
     }
@@ -83,7 +85,18 @@ public class DesarrolladorNiveles extends Thread {
             }
         } else {
             // NINTENDO
+            if (driveNivel.availablePermits() > 0) {
+                driveNivel.acquire(1);
+                //System.out.println("Nivel agregado al Drive por Desarrollador ");
 
+                nivelesSubidosDriveN++; // Incrementa el contador 
+                Nintendo.actualizarNivelesEnDrive(nivelesSubidosDriveN);
+
+            } else {
+                System.out.println("Drive NIVELES lleno. Esperando a que se libere espacio.");
+//            driveGuion.release(1);
+//            System.out.println("Se libero un guion del drive SUUUUU");  //LIBERAR ESPACIO DEL DRIVE PRUEBA
+            }
         }
 
     }
