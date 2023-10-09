@@ -331,7 +331,7 @@ public class Bethesda extends javax.swing.JPanel {
         add(DLCEnDriveB, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 30, -1));
 
         logoBethesda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bethedaLogo.png"))); // NOI18N
-        add(logoBethesda, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, -20, 380, 190));
+        add(logoBethesda, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, -10, 380, 190));
 
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
@@ -370,7 +370,7 @@ public class Bethesda extends javax.swing.JPanel {
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, -1, -1));
 
         FondoBethesda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Fallout.png"))); // NOI18N
-        add(FondoBethesda, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -210, 970, 830));
+        add(FondoBethesda, new org.netbeans.lib.awtextra.AbsoluteConstraints(-190, -180, 970, 830));
     }// </editor-fold>//GEN-END:initComponents
 
     public JLabel getDesarrolladoresRestantesB() {

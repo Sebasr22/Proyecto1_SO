@@ -58,12 +58,19 @@ public class DesarrolladorSprites extends Thread {
     public void generarSprite() throws InterruptedException {
 
         if (studio == "B") {
-            if (driveSprites.availablePermits() > 0) {
+            if (driveSprites.availablePermits() > 1) {
                 driveSprites.acquire(2);
                 System.out.println("Se agrego un Sprite al drive");
                 spritesSubidosDriveB += 2;
                 Bethesda.actualizarSpritesEnDrive(spritesSubidosDriveB);
-            } else {
+            } 
+            else if(driveSprites.availablePermits() == 1){
+                driveSprites.acquire(1);
+                System.out.println("Se agrego un Sprite al drive");
+                spritesSubidosDriveB += 1;
+                Bethesda.actualizarSpritesEnDrive(spritesSubidosDriveB);
+            }
+            else {
                 System.out.println("Drive lleno");
             }
         } else {
@@ -84,7 +91,7 @@ public class DesarrolladorSprites extends Thread {
                 Thread.sleep(1000);
                 payDayDesarrolladorSprites();
                 generarSprite();
-                
+
             } catch (InterruptedException ex) {
                 System.out.println("Metodo Run Desarrollador Sprites Catch");
             }
