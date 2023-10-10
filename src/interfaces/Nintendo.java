@@ -252,9 +252,27 @@ public class Nintendo extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         desarrolladoresRestantesN = new javax.swing.JLabel();
         costosOperativosN = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        faltasPM = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        estadoPM = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        descontadoPM = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         mario = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         logoNintendo = new javax.swing.JLabel();
+        diasParaEntrega = new javax.swing.JLabel();
+        estadoDirector = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        juegosDLCGenerados = new javax.swing.JLabel();
+        juegosGenerados = new javax.swing.JLabel();
+        ganancia = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         nintendoBackground = new javax.swing.JLabel();
@@ -263,9 +281,9 @@ public class Nintendo extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Costos Operativos = ");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Costos Operativos = $ ");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -370,9 +388,55 @@ public class Nintendo extends javax.swing.JPanel {
         add(desarrolladoresRestantesN, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 20, 20));
 
         costosOperativosN.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        costosOperativosN.setForeground(new java.awt.Color(0, 0, 0));
+        costosOperativosN.setForeground(new java.awt.Color(255, 255, 255));
         costosOperativosN.setText("0");
-        add(costosOperativosN, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 200, -1));
+        add(costosOperativosN, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 510, 310, -1));
+
+        jPanel2.setBackground(new java.awt.Color(255, 204, 102));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        faltasPM.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        faltasPM.setForeground(new java.awt.Color(0, 0, 0));
+        faltasPM.setText("0");
+        jPanel2.add(faltasPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 50, -1));
+
+        jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel22.setText("Project Manager");
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel23.setText("Estado = ");
+        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel24.setText("Descontado = $");
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+
+        estadoPM.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        estadoPM.setForeground(new java.awt.Color(0, 0, 0));
+        estadoPM.setText("Trabajando");
+        jPanel2.add(estadoPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel26.setText("Faltas =");
+        jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
+
+        descontadoPM.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        descontadoPM.setForeground(new java.awt.Color(0, 0, 0));
+        descontadoPM.setText("0");
+        jPanel2.add(descontadoPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 120, -1));
+
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 300, 80));
+
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Días para la entrega = ");
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
 
         mario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/mario.png"))); // NOI18N
         mario.setText("jLabel3");
@@ -383,6 +447,51 @@ public class Nintendo extends javax.swing.JPanel {
 
         logoNintendo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/nintendoLogo.png"))); // NOI18N
         add(logoNintendo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 480, 120));
+
+        diasParaEntrega.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        diasParaEntrega.setForeground(new java.awt.Color(255, 255, 255));
+        diasParaEntrega.setText("0");
+        add(diasParaEntrega, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 10, 40, -1));
+
+        estadoDirector.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        estadoDirector.setForeground(new java.awt.Color(0, 0, 0));
+        estadoDirector.setText("Trabajando");
+        add(estadoDirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, -1, -1));
+
+        jLabel19.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setText("Video Juegos Generados = ");
+        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 250, -1));
+
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setText("Estado Director = ");
+        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel17.setText("Video Juegos (Con DLC) Generados = ");
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, -1));
+
+        juegosDLCGenerados.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        juegosDLCGenerados.setForeground(new java.awt.Color(0, 0, 0));
+        juegosDLCGenerados.setText("0");
+        add(juegosDLCGenerados, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, 120, -1));
+
+        juegosGenerados.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        juegosGenerados.setForeground(new java.awt.Color(0, 0, 0));
+        juegosGenerados.setText("0");
+        add(juegosGenerados, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, 210, -1));
+
+        ganancia.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        ganancia.setForeground(new java.awt.Color(255, 255, 255));
+        ganancia.setText("0");
+        add(ganancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 530, 470, -1));
+
+        jLabel18.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Ganancia = $");
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 130, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -454,14 +563,29 @@ public class Nintendo extends javax.swing.JPanel {
     public static javax.swing.JLabel SpritesEnDriveN;
     public static javax.swing.JLabel costosOperativosN;
     private javax.swing.JLabel desarrolladoresRestantesN;
+    private javax.swing.JLabel descontadoPM;
+    public static javax.swing.JLabel diasParaEntrega;
+    private javax.swing.JLabel estadoDirector;
+    private javax.swing.JLabel estadoPM;
+    private javax.swing.JLabel faltasPM;
+    public static javax.swing.JLabel ganancia;
     public static javax.swing.JLabel guionesEnDriveN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -470,6 +594,9 @@ public class Nintendo extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    public static javax.swing.JLabel juegosDLCGenerados;
+    public static javax.swing.JLabel juegosGenerados;
     private javax.swing.JLabel logoNintendo;
     private javax.swing.JLabel mario;
     private javax.swing.JLabel nintendoBackground;

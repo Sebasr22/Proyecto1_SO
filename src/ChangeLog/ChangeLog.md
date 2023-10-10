@@ -1,4 +1,10 @@
 # Registro de Cambios
+## [1.0.22] - 10/10/2023 (Juandb1507)
+
+- Creación de las variables diasParaEntrega, ganancia, juegosGenerados, juegosDLCGenerados de Nintendo y Bethesda.
+- Creación estadoDirector, estadoPM, faltasPM, descontadoPM  (Nintendo y Bethesda)
+
+
 ## [1.0.21] - 09/10/2023 (Juandb1507)
 
 - Se realizó la clase Nintendo, NintendoStudio y se conectaron entre sí.
