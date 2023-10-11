@@ -1,22 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package classes;
 
 import java.util.Random;
 import java.util.concurrent.Semaphore;
 
-/**
- *
- * @author juand
- */
 public class NintendoStudio {
 
     public static int totalPayN = 0;
     public static int ingresoN = 0;
     public static int utilidadN = ingresoN - totalPayN;
+    public static int juegosGeneradosN = 0;
+    public static int juegosDLCGeneradosN = 0;
     // Capacidad de los drive de los desarrolladores
     static int capacidadDriveN = 25;
     static int capacidadDriveNivelN = 20;
@@ -30,6 +23,7 @@ public class NintendoStudio {
     public static Semaphore driveDLCN = new Semaphore(capacidadDriveDLCN);
     public static Semaphore driveLogicN = new Semaphore(capacidadDriveLogicaN);
     public static Semaphore driveSpritesN = new Semaphore(capacidadDriveSpritesN);
+    public static Semaphore driveJuegosN = new Semaphore(Integer.MAX_VALUE);
 
     final private boolean active = true;
     private int videojuegosContador;
@@ -44,6 +38,7 @@ public class NintendoStudio {
     private static int desarrolladorDLCCountN = 0;
     private static int desarrolladorLogicCountN = 0;
     private static int desarrolladorSpritesCountN = 0;
+    private static int integradoresCount = 0;
 
     public NintendoStudio(int dayDuration, int daysUntilLaunch) {
         this.dayDuration = dayDuration;
@@ -55,6 +50,7 @@ public class NintendoStudio {
     private static DesarrolladorDLC[] desarrolladoresDLC = new DesarrolladorDLC[11];
     private static DesarrolladorLogica[] desarrolladoresLogica = new DesarrolladorLogica[11];
     private static DesarrolladorSprites[] desarrolladoresSprites = new DesarrolladorSprites[11];
+    private static Integrador[] integradores = new Integrador[11];
 
     //NARRATIVA 
     public static void crearDesarrolladorNarrativa(Semaphore driveN, int totalPay, int diasParaGenerar, String studio, boolean activo) {
@@ -234,6 +230,43 @@ public class NintendoStudio {
             hilo.setActivo(false);
             desarrolladoresSprites[indiceAleatorio] = null;
             desarrolladorSpritesCountN--;
+        }
+    }
+    
+    // Integradores
+    public static void crearIntegrador(Semaphore driveJuegosN, Semaphore driveN, Semaphore driveNivelN, Semaphore driveDLCN, Semaphore driveLogicN, Semaphore driveSpritesN, int juegosGeneradosN, int juegosDLCGeneradosN, int diasParaGenerar, int guionesNecesarios, int nivelesNecesarios, int spritesNecesarios, int sistemasNecesarios, int DLCNecesarios, String studio, boolean activo) {
+        Integrador integrador = new Integrador(driveJuegosN, driveN, driveNivelN, driveDLCN, driveLogicN, driveSpritesN, juegosGeneradosN, juegosDLCGeneradosN, diasParaGenerar, guionesNecesarios, nivelesNecesarios, spritesNecesarios, sistemasNecesarios, DLCNecesarios, studio, activo);
+
+        for (int i = 0; i < 11; i++) {
+            if (integradores[i] == null) {
+                integradores[i] = integrador;
+                integradoresCount++;
+                integrador.start();
+                break;
+            }
+        }
+    }
+
+    public static void stopIntegradorAleatorio() {
+
+        if (integradoresCount == 0) {
+            return;
+        }
+
+        Random random = new Random();
+        int indiceAleatorio;
+
+        do {
+            indiceAleatorio = random.nextInt(11);
+        } while (integradores[indiceAleatorio] == null);
+
+        Integrador hilo = integradores[indiceAleatorio];
+
+        if (hilo != null) {
+            System.out.println("Cantidad de hilos de Integrador antes de eliminar: " + integradoresCount);
+            hilo.setActivo(false);
+            integradores[indiceAleatorio] = null;
+            integradoresCount--;
         }
     }
 

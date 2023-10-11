@@ -46,6 +46,22 @@ public class DesarrolladorSprites extends Thread {
         this.activo = activo;
     }
 
+    public static int getSpritesSubidosDriveN() {
+        return spritesSubidosDriveN;
+    }
+
+    public static void setSpritesSubidosDriveN(int spritesSubidosDriveN) {
+        DesarrolladorSprites.spritesSubidosDriveN -= spritesSubidosDriveN;
+    }
+
+    public static int getSpritesSubidosDriveB() {
+        return spritesSubidosDriveB;
+    }
+
+    public static void setSpritesSubidosDriveB(int spritesSubidosDriveB) {
+        DesarrolladorSprites.spritesSubidosDriveB -= spritesSubidosDriveB;
+    }
+
     public void payDayDesarrolladorSprites() {
         int horasTrabajadas = 24;
         int salario = sueldoPorHora * horasTrabajadas;
@@ -63,12 +79,10 @@ public class DesarrolladorSprites extends Thread {
             //BETHESDA
             if (driveSprites.availablePermits() > 1) {
                 driveSprites.acquire(2);
-                System.out.println("Se agrego un Sprite al drive");
                 spritesSubidosDriveB += 2;
                 Bethesda.actualizarSpritesEnDrive(spritesSubidosDriveB);
             } else if (driveSprites.availablePermits() == 1) {
                 driveSprites.acquire(1);
-                System.out.println("Se agrego un Sprite al drive");
                 spritesSubidosDriveB += 1;
                 Bethesda.actualizarSpritesEnDrive(spritesSubidosDriveB);
             } else {
@@ -77,13 +91,7 @@ public class DesarrolladorSprites extends Thread {
         } else {
             //NINTENDO
             if (driveSprites.availablePermits() > 1) {
-                driveSprites.acquire(2);
-                System.out.println("Se agrego un Sprite al drive");
-                spritesSubidosDriveN += 2;
-                Nintendo.actualizarSpritesEnDrive(spritesSubidosDriveN);
-            } else if (driveSprites.availablePermits() == 1) {
                 driveSprites.acquire(1);
-                System.out.println("Se agrego un Sprite al drive");
                 spritesSubidosDriveN += 1;
                 Nintendo.actualizarSpritesEnDrive(spritesSubidosDriveN);
             } else {

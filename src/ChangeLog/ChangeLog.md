@@ -1,4 +1,18 @@
 # Registro de Cambios
+
+## [1.0.25] - 11/10/2023 (Sebasr22)
+
+- Se agrego integreador a Nintendo. 
+
+## [1.0.24] - 11/10/2023 (Sebasr22)
+
+- Cambios en los desarrolladores y ajustes de valores segun mi carnet a la clase nintendo.
+
+## [1.0.23] - 11/10/2023 (Sebasr22)
+
+- Finalizacion de la clase de integrador y se vinculo con la interfaz Bethesda.
+- Cambios en todos los desarrolladores para actualizar los valores de las cantidades desarrolladas en la interfaz.
+
 ## [1.0.22] - 10/10/2023 (Juandb1507)
 
 - Creación de las variables diasParaEntrega, ganancia, juegosGenerados, juegosDLCGenerados de Nintendo y Bethesda.
