@@ -1,9 +1,5 @@
 # Registro de Cambios
 
-## [1.0.27] - 11/10/2023 (Sebasr22)
-
-- Se realizo la clase de Proyect Manager
-
 ## [1.0.26] - 11/10/2023 (Sebasr22)
 
 - Fix error en el integrador, listo en ambas interfaz. 
