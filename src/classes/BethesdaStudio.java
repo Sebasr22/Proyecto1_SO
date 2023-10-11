@@ -8,8 +8,8 @@ public class BethesdaStudio {
     public static int totalPayB = 0;
     public static int ingreso = 0;
     public static int utilidad = ingreso - totalPayB;
-    public static int juegosGenerados = 0;
-    public static int juegosDLCGenerados = 0;
+    public static int juegosGeneradosB = 0;
+    public static int juegosDLCGeneradosB = 0;
     
     // Capacidad de los drive de los desarrolladores
     static int capacidadDriveNB = 25;
@@ -235,8 +235,8 @@ public class BethesdaStudio {
     }
 
     // Integradores
-    public static void crearIntegrador(Semaphore driveJuegosB, Semaphore driveNB, Semaphore driveNivelB, Semaphore driveDLCB, Semaphore driveLogicB, Semaphore driveSpritesB, int juegosGenerados, int juegosDLCGenerados, int diasParaGenerar, int guionesNecesarios, int nivelesNecesarios, int spritesNecesarios, int sistemasNecesarios, int DLCNecesarios, String studio, boolean activo) {
-        Integrador integrador = new Integrador(driveJuegosB, driveNB, driveNivelB, driveDLCB, driveLogicB, driveSpritesB, juegosGenerados, juegosDLCGenerados, diasParaGenerar, guionesNecesarios, nivelesNecesarios, spritesNecesarios, sistemasNecesarios, DLCNecesarios, studio, activo);
+    public static void crearIntegrador(Semaphore driveJuegosB, Semaphore driveNB, Semaphore driveNivelB, Semaphore driveDLCB, Semaphore driveLogicB, Semaphore driveSpritesB, int juegosGeneradosB, int juegosDLCGeneradosB, int diasParaGenerar, int guionesNecesarios, int nivelesNecesarios, int spritesNecesarios, int sistemasNecesarios, int DLCNecesarios, String studio, boolean activo) {
+        Integrador integrador = new Integrador(driveJuegosB, driveNB, driveNivelB, driveDLCB, driveLogicB, driveSpritesB, juegosGeneradosB, juegosDLCGeneradosB, diasParaGenerar, guionesNecesarios, nivelesNecesarios, spritesNecesarios, sistemasNecesarios, DLCNecesarios, studio, activo);
 
         for (int i = 0; i < 11; i++) {
             if (integradores[i] == null) {

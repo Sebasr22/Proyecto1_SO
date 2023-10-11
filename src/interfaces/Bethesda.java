@@ -103,14 +103,14 @@ public class Bethesda extends javax.swing.JPanel {
         });
 
         //SPINNER DLC-----------------------------------------------
-// Obtén el valor inicial del JSpinner
+        // Obtén el valor inicial del JSpinner
         valorSpinnerDLCB = (int) spinnerDLCB.getValue();
         if (valorSpinnerDLCB == 1) {
             // Llama a la función para crear un desarrollador de DLC
             BethesdaStudio.crearDesarrolladorDLC(BethesdaStudio.driveDLCB, 0, 2, "B", true);
         }
 
-// Agrega un ChangeListener al JSpinner
+        // Agrega un ChangeListener al JSpinner
         spinnerDLCB.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
@@ -211,7 +211,7 @@ public class Bethesda extends javax.swing.JPanel {
         // SPINNER INTEGRADORES
         valorSpinnerIntegradoresB = (int) spinnerIntegradoresB.getValue();
         if (valorSpinnerIntegradoresB == 1) {
-            BethesdaStudio.crearIntegrador(BethesdaStudio.driveJuegosB, BethesdaStudio.driveNB, BethesdaStudio.driveNivelB, BethesdaStudio.driveDLCB, BethesdaStudio.driveLogicB, BethesdaStudio.driveSpritesB, BethesdaStudio.juegosGenerados, BethesdaStudio.juegosDLCGenerados, 2, 2, 3, 4, 6, 6, "B", true);
+            BethesdaStudio.crearIntegrador(BethesdaStudio.driveJuegosB, BethesdaStudio.driveNB, BethesdaStudio.driveNivelB, BethesdaStudio.driveDLCB, BethesdaStudio.driveLogicB, BethesdaStudio.driveSpritesB, BethesdaStudio.juegosGeneradosB, BethesdaStudio.juegosDLCGeneradosB, 2, 2, 3, 4, 6, 5, "B", true);
         }
 
         spinnerIntegradoresB.addChangeListener(new ChangeListener() {
@@ -222,7 +222,7 @@ public class Bethesda extends javax.swing.JPanel {
 
                 if (nuevoValorSpinnerIntegradoresB > valorSpinnerIntegradoresB) {
 
-                    BethesdaStudio.crearIntegrador(BethesdaStudio.driveJuegosB, BethesdaStudio.driveNB, BethesdaStudio.driveNivelB, BethesdaStudio.driveDLCB, BethesdaStudio.driveLogicB, BethesdaStudio.driveSpritesB, BethesdaStudio.juegosGenerados, BethesdaStudio.juegosDLCGenerados, 2, 2, 3, 4, 6, 6, "B", true);
+                    BethesdaStudio.crearIntegrador(BethesdaStudio.driveJuegosB, BethesdaStudio.driveNB, BethesdaStudio.driveNivelB, BethesdaStudio.driveDLCB, BethesdaStudio.driveLogicB, BethesdaStudio.driveSpritesB, BethesdaStudio.juegosGeneradosB, BethesdaStudio.juegosDLCGeneradosB, 2, 2, 3, 4, 6, 5, "B", true);
 
                     int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
                     valorActual--;
@@ -237,7 +237,7 @@ public class Bethesda extends javax.swing.JPanel {
                     desarrolladoresRestantesB.setText(Integer.toString(valorActual));
                 }
 
-                valorSpinnerSpritesB = nuevoValorSpinnerIntegradoresB;
+                valorSpinnerIntegradoresB = nuevoValorSpinnerIntegradoresB;
             }
         });
     }
@@ -298,7 +298,6 @@ public class Bethesda extends javax.swing.JPanel {
         descontadoPM = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         SpritesEnDriveB = new javax.swing.JLabel();
-        JuegosTotalesGeneradosB = new javax.swing.JLabel();
         FondoBethesda = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(720, 603));
@@ -447,7 +446,7 @@ public class Bethesda extends javax.swing.JPanel {
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Ganancia = $");
-        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 130, -1));
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 130, -1));
 
         ganancia.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         ganancia.setForeground(new java.awt.Color(255, 255, 255));
@@ -516,7 +515,7 @@ public class Bethesda extends javax.swing.JPanel {
         descontadoPM.setText("0");
         jPanel2.add(descontadoPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 120, -1));
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 300, 80));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 300, 80));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -527,12 +526,7 @@ public class Bethesda extends javax.swing.JPanel {
         SpritesEnDriveB.setText("0");
         jPanel1.add(SpritesEnDriveB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 30, -1));
 
-        JuegosTotalesGeneradosB.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        JuegosTotalesGeneradosB.setForeground(new java.awt.Color(255, 255, 255));
-        JuegosTotalesGeneradosB.setText("0");
-        jPanel1.add(JuegosTotalesGeneradosB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 30, -1));
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 130, 210));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 130, 180));
 
         FondoBethesda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/BethesdaBackgroundDoom.jpg"))); // NOI18N
         add(FondoBethesda, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, -130, 820, 830));
@@ -635,7 +629,6 @@ public class Bethesda extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel DLCEnDriveB;
     private javax.swing.JLabel FondoBethesda;
-    public static javax.swing.JLabel JuegosTotalesGeneradosB;
     private javax.swing.JLabel LogoBethesda;
     public static javax.swing.JLabel SistemasEnDriveB;
     public static javax.swing.JLabel SpritesEnDriveB;

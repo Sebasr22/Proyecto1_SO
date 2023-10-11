@@ -1,5 +1,9 @@
 # Registro de Cambios
 
+## [1.0.25] - 11/10/2023 (Sebasr22)
+
+- Se agrego integreador a Nintendo. 
+
 ## [1.0.24] - 11/10/2023 (Sebasr22)
 
 - Cambios en los desarrolladores y ajustes de valores segun mi carnet a la clase nintendo.

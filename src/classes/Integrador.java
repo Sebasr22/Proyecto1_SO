@@ -97,7 +97,7 @@ public class Integrador extends Thread {
 
     public void generarVideoJuego() {
         if ("B".equals(studio)) {
-            if (countJuegos == 5) {
+            if (countJuegos == 7) {
                 if (DesarrolladorNarrativa.getGuionesSubidosDriveB() >= guionesNecesarios && DesarrolladorNiveles.getNivelesSubidosDriveB() >= nivelesNecesarios && DesarrolladorDLC.getDlcsSubidosDriveB() >= DLCNecesarios && DesarrolladorLogica.getSistemasSubidosDriveB() >= sistemasNecesarios) {
                     try {
                         // Tiempo de armado (2 dias)
@@ -135,7 +135,7 @@ public class Integrador extends Thread {
                     System.out.println("No hay recursos suficientes para generar el juego");
                 }
             } else {
-                if (DesarrolladorNarrativa.getGuionesSubidosDriveB() >= guionesNecesarios && DesarrolladorNiveles.getNivelesSubidosDriveB() >= nivelesNecesarios && DesarrolladorLogica.getSistemasSubidosDriveB() >= sistemasNecesarios) {
+                if (DesarrolladorNarrativa.getGuionesSubidosDriveB() >= guionesNecesarios && DesarrolladorNiveles.getNivelesSubidosDriveB() >= nivelesNecesarios && DesarrolladorLogica.getSistemasSubidosDriveB() >= sistemasNecesarios && DesarrolladorSprites.getSpritesSubidosDriveB() >= spritesNecesarios) {
                     try {
                         // Tiempo de armado (2 dias)
                         Thread.sleep(2000);
@@ -170,6 +170,77 @@ public class Integrador extends Thread {
             }
         } else {
             // NINTENDO
+            if (countJuegos == 5) {
+                if (DesarrolladorNarrativa.getGuionesSubidosDriveN() >= guionesNecesarios && DesarrolladorNiveles.getNivelesSubidosDriveN() >= nivelesNecesarios && DesarrolladorDLC.getDlcsSubidosDriveN() >= DLCNecesarios && DesarrolladorLogica.getSistemasSubidosDriveN() >= sistemasNecesarios) {
+                    try {
+                        // Tiempo de armado (2 dias)
+                        Thread.sleep(2000);
+
+                        // LIBERAR Y ACTUALIZAR VALORES EN LA INTERFAZ
+                        // Guiones
+                        driveN.release(guionesNecesarios);
+                        DesarrolladorNarrativa.setGuionesSubidosDriveN(guionesNecesarios);
+
+                        // Niveles
+                        driveNivel.release(nivelesNecesarios);
+                        DesarrolladorNiveles.setNivelesSubidosDriveN(nivelesNecesarios);
+
+                        // DLC
+                        driveDLC.release(DLCNecesarios);
+                        DesarrolladorDLC.setDlcsSubidosDriveN(DLCNecesarios);
+
+                        // Sistemas
+                        driveLogic.release(sistemasNecesarios);
+                        DesarrolladorLogica.setSistemasSubidosDriveN(sistemasNecesarios);
+
+                        // Sprites
+                        driveSprites.release(spritesNecesarios);
+                        DesarrolladorSprites.setSpritesSubidosDriveN(spritesNecesarios);
+
+                        countJuegosDLCGeneradosN++;
+                        Nintendo.actualizarJuegosDLCGenerados(countJuegosDLCGeneradosN);
+                        countJuegos = 0; // Se reinicia el contador de juegos para poder contar otra vez la cantidad de juegos necesarios para desarrollar uno con DLC.
+                        System.out.println("SE GENERO UN JUEGOOOOOOOOOOOOOO");
+                    } catch (InterruptedException ex) {
+                        System.out.println("testttt");
+                    }
+                } else {
+                    System.out.println("No hay recursos suficientes para generar el juego");
+                }
+            } else {
+                if (DesarrolladorNarrativa.getGuionesSubidosDriveN() >= guionesNecesarios && DesarrolladorNiveles.getNivelesSubidosDriveN() >= nivelesNecesarios && DesarrolladorLogica.getSistemasSubidosDriveN() >= sistemasNecesarios && DesarrolladorSprites.getSpritesSubidosDriveN() >= spritesNecesarios) {
+                    try {
+                        // Tiempo de armado (2 dias)
+                        Thread.sleep(2000);
+
+                        // LIBERAR Y ACTUALIZAR VALORES EN LA INTERFAZ
+                        // Guiones
+                        driveN.release(guionesNecesarios);
+                        DesarrolladorNarrativa.setGuionesSubidosDriveN(guionesNecesarios);
+
+                        // Niveles
+                        driveNivel.release(nivelesNecesarios);
+                        DesarrolladorNiveles.setNivelesSubidosDriveN(nivelesNecesarios);
+
+                        // Sistemas
+                        driveLogic.release(sistemasNecesarios);
+                        DesarrolladorLogica.setSistemasSubidosDriveN(sistemasNecesarios);
+
+                        // Sprites
+                        driveSprites.release(spritesNecesarios);
+                        DesarrolladorSprites.setSpritesSubidosDriveN(spritesNecesarios);
+
+                        countJuegosDLCGeneradosN++;
+                        Nintendo.actualizarJuegosGenerados(countJuegosDLCGeneradosN);
+                        countJuegos++;
+                        System.out.println("SE GENERO UN JUEGOOOOOOOOOOOOOO");
+                    } catch (InterruptedException ex) {
+                        System.out.println("testttt");
+                    }
+                } else {
+                    System.out.println("No hay recursos suficientes para generar el juego");
+                }
+            }
         }
     }
 
