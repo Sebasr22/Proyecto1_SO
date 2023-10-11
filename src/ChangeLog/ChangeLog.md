@@ -1,5 +1,9 @@
 # Registro de Cambios
 
+## [1.0.26] - 11/10/2023 (Sebasr22)
+
+- Fix error en el integrador, listo en ambas interfaz. 
+
 ## [1.0.25] - 11/10/2023 (Sebasr22)
 
 - Se agrego integreador a Nintendo. 

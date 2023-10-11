@@ -157,8 +157,8 @@ public class Integrador extends Thread {
                         driveSprites.release(spritesNecesarios);
                         DesarrolladorSprites.setSpritesSubidosDriveB(spritesNecesarios);
 
-                        countJuegosDLCGeneradosB++;
-                        Bethesda.actualizarJuegosDLCGenerados(countJuegosDLCGeneradosB);
+                        countJuegosGeneradosB++;
+                        Bethesda.actualizarJuegosGenerados(countJuegosGeneradosB);
                         countJuegos++;
                         System.out.println("SE GENERO UN JUEGOIOOOOOOOOOOOOO");
                     } catch (InterruptedException ex) {
@@ -230,8 +230,8 @@ public class Integrador extends Thread {
                         driveSprites.release(spritesNecesarios);
                         DesarrolladorSprites.setSpritesSubidosDriveN(spritesNecesarios);
 
-                        countJuegosDLCGeneradosN++;
-                        Nintendo.actualizarJuegosGenerados(countJuegosDLCGeneradosN);
+                        countJuegosGeneradosN++;
+                        Nintendo.actualizarJuegosGenerados(countJuegosGeneradosN);
                         countJuegos++;
                         System.out.println("SE GENERO UN JUEGOOOOOOOOOOOOOO");
                     } catch (InterruptedException ex) {
