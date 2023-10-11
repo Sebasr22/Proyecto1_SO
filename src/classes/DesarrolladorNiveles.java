@@ -55,7 +55,7 @@ public class DesarrolladorNiveles extends Thread {
             try {
                 int count = 0;
 
-                while (count < diasParaGenerar) { // Para poder hacer los pagos por cada dia de trabajo que pasa.
+                while (count <= diasParaGenerar) {
                     Thread.sleep(1000);
                     payDayDesarrolladorNiveles();
                     count++;
@@ -72,30 +72,20 @@ public class DesarrolladorNiveles extends Thread {
         if ("B".equals(studio)) {
             if (driveNivel.availablePermits() > 0) {
                 driveNivel.acquire(1);
-                //System.out.println("Nivel agregado al Drive por Desarrollador ");
-
                 nivelesSubidosDriveB++; // Incrementa el contador 
                 Bethesda.actualizarNivelesEnDrive(nivelesSubidosDriveB);
-                //System.out.println("Pago total:" + BethesdaStudio.totalPay);
-                //System.out.println("Niveles subidos al Drive " + nivelesSubidosDriveB);
             } else {
                 System.out.println("Drive NIVELES lleno. Esperando a que se libere espacio.");
-//            driveGuion.release(1);
-//            System.out.println("Se libero un guion del drive SUUUUU");  //LIBERAR ESPACIO DEL DRIVE PRUEBA
             }
         } else {
             // NINTENDO
             if (driveNivel.availablePermits() > 0) {
                 driveNivel.acquire(1);
-                //System.out.println("Nivel agregado al Drive por Desarrollador ");
-
                 nivelesSubidosDriveN++; // Incrementa el contador 
                 Nintendo.actualizarNivelesEnDrive(nivelesSubidosDriveN);
 
             } else {
                 System.out.println("Drive NIVELES lleno. Esperando a que se libere espacio.");
-//            driveGuion.release(1);
-//            System.out.println("Se libero un guion del drive SUUUUU");  //LIBERAR ESPACIO DEL DRIVE PRUEBA
             }
         }
 

@@ -74,11 +74,10 @@ public class DesarrolladorLogica extends Thread {
     }
 
     public void generarSistema() throws InterruptedException {
-        if (studio == "B") {
+        if ("B".equals(studio)) {
             //BETHESDA
             if (driveSistemas.availablePermits() > 0) {
-                driveSistemas.acquire(5);// Puse directo 5 ya que el ultimo dijito del carnet de Juan y mio coincide con el numero de sistemas que se generan.
-//                System.out.println("Se agregaron 5 Sistemas al drive");
+                driveSistemas.acquire(5);
                 sistemasSubidosDriveB += 5;
                 Bethesda.actualizarSistemasEnDrive(sistemasSubidosDriveB);
             } else {
@@ -88,7 +87,6 @@ public class DesarrolladorLogica extends Thread {
             //NINTENDO
             if (driveSistemas.availablePermits() > 0) {
                 driveSistemas.acquire(5);
-//                System.out.println("Se agregaron 5 sistemas al drive");
                 sistemasSubidosDriveN += 5;
                 Nintendo.actualizarSistemasEnDrive(sistemasSubidosDriveN);
             }
@@ -99,13 +97,8 @@ public class DesarrolladorLogica extends Thread {
     public void run() {
         while (activo) {
             try {
-//                int count = 0;
-
-//                while (count < diasParaGenerar) {
                 Thread.sleep(1000);
                 payDayDesarrolladorLogica();
-//                    count++;
-//                }
                 generarSistema();
             } catch (InterruptedException ex) {
                 System.out.println("Metodo run dev Logica Catch");

@@ -38,7 +38,7 @@ public class DesarrolladorNarrativa extends Thread {
         // Calcular el salario basado en las horas trabajadas y agregarlo al total de pago
         int horasTrabajadas = 24;
         int salario = sueldoPorHora * horasTrabajadas;
-        if (studio == "B") {
+        if ("B".equals(studio)) {
             BethesdaStudio.totalPayB += salario;
         } else {
             // Pago de nintendo
@@ -53,11 +53,10 @@ public class DesarrolladorNarrativa extends Thread {
             try {
                 int count = 0;
 
-                while (count < diasParaGenerar) { // Para poder hacer los pagos por cada dia de trabajo que pasa.
+                while (count <= diasParaGenerar) {
                     Thread.sleep(1000);
                     payDayDesarrolladorNarrativa();
                     count++;
-
                 }
                 generarGuion();
             } catch (InterruptedException ex) {
@@ -69,22 +68,14 @@ public class DesarrolladorNarrativa extends Thread {
 
     private void generarGuion() throws InterruptedException {
         // Intento agregar el guion al drive
-        if (studio == "B") {
+        if ("B".equals(studio)) {
             if (driveGuion.availablePermits() > 0) {
                 driveGuion.acquire(1);
-                //System.out.println("Guion agregado al Drive por Desarrollador ");
-
                 guionesSubidosDriveB++; // Incrementa el contador 
                 Bethesda.actualizarGuionesEnDrive(guionesSubidosDriveB);
-                //System.out.println("Pago total:" + BethesdaStudio.totalPay);
-
             } else {
                 System.out.println("Drive GUIONES Lleno esperando libere espacio.");
-
             }
-
-//            driveGuion.release(1);
-//            System.out.println("Se libero un guion del drive SUUUUU");  //LIBERAR ESPACIO DEL DRIVE PRUEBA
         } else {
             // Generar Nintendo
             if (driveGuion.availablePermits() > 0) {
@@ -95,7 +86,6 @@ public class DesarrolladorNarrativa extends Thread {
                 System.out.println("Drive GUIONES lleno. Esperando a que se libere espacio.");
             }
         }
-
     }
 
     public boolean isActivo() {

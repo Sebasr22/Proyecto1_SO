@@ -27,7 +27,7 @@ public class Nintendo extends javax.swing.JPanel {
         valorSpinnerN = (int) spinnnerNarrativaN.getValue();
         if (valorSpinnerN == 1) {
             // Llama a la función para crear un desarrollador de narrativa
-            NintendoStudio.crearDesarrolladorNarrativa(NintendoStudio.driveN, 0, 4, "N", true);  //MODIFICAR VALORES
+            NintendoStudio.crearDesarrolladorNarrativa(NintendoStudio.driveN, 0, 4, "N", true);  //MODIFICAR VALORES (LISTOOOO)
         }
 
         spinnnerNarrativaN.addChangeListener(new ChangeListener() {
@@ -39,7 +39,7 @@ public class Nintendo extends javax.swing.JPanel {
 
                     //FUNCION CREAR DESARROLLADOR NARRATIVA
                     // Llama a la función para crear un desarrollador de narrativa
-                    NintendoStudio.crearDesarrolladorNarrativa(NintendoStudio.driveN, 0, 4, "N", true);   //MODIFICAR VALORES 
+                    NintendoStudio.crearDesarrolladorNarrativa(NintendoStudio.driveN, 0, 4, "N", true);   //MODIFICAR VALORES (LISTOOOO)
                     // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
                     int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
                     valorActual--;
@@ -62,7 +62,7 @@ public class Nintendo extends javax.swing.JPanel {
         valorSpinnerLvl = (int) spinnnerNivelN.getValue();
         if (valorSpinnerLvl == 1) {
             // Llama a la función para crear un desarrollador de narrativa
-            NintendoStudio.crearDesarrolladorNivel(NintendoStudio.driveNivelN, 0, 3, "N", true);
+            NintendoStudio.crearDesarrolladorNivel(NintendoStudio.driveNivelN, 0, 4, "N", true); // (LISTOOOO Los valores)
         }
 
         // Agrega un ChangeListener al JSpinner
@@ -76,7 +76,7 @@ public class Nintendo extends javax.swing.JPanel {
                 if (nuevoValorSpinnerLvl > valorSpinnerLvl) {
                     //FUNCION CREAR DESARROLLADOR NARRATIVA
                     // Llama a la función para crear un desarrollador de nivel
-                    NintendoStudio.crearDesarrolladorNivel(NintendoStudio.driveNivelN, 0, 3, "N", true);
+                    NintendoStudio.crearDesarrolladorNivel(NintendoStudio.driveNivelN, 0, 4, "N", true); // (LISTOOOO Los valores)
                     // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
                     int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
                     valorActual--;
@@ -101,7 +101,7 @@ public class Nintendo extends javax.swing.JPanel {
         valorSpinnerDLCN = (int) spinnerDLCN.getValue();
         if (valorSpinnerDLCN == 1) {
             // Llama a la función para crear un desarrollador de DLC
-            NintendoStudio.crearDesarrolladorDLC(NintendoStudio.driveDLCN, 0, 2, "N", true);
+            NintendoStudio.crearDesarrolladorDLC(NintendoStudio.driveDLCN, 0, 2, "N", true); // (LISTOOOO Los valores)
         }
 
 // Agrega un ChangeListener al JSpinner
@@ -115,7 +115,7 @@ public class Nintendo extends javax.swing.JPanel {
                 if (nuevoValorSpinnerDLCB > valorSpinnerDLCN) {
                     //FUNCION CREAR DESARROLLADOR DLC
                     // Llama a la función para crear un desarrollador de DLC
-                    NintendoStudio.crearDesarrolladorDLC(NintendoStudio.driveDLCN, 0, 2, "N", true);
+                    NintendoStudio.crearDesarrolladorDLC(NintendoStudio.driveDLCN, 0, 2, "N", true); // (LISTOOOO Los valores)
                     // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
                     int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
                     valorActual--;
@@ -138,7 +138,7 @@ public class Nintendo extends javax.swing.JPanel {
         valorSpinnerSistemasN = (int) spinnerSistemasN.getValue();
         if (valorSpinnerSistemasN == 1) {
             // Llama a la funcion para crear un desarrollador de logica
-            NintendoStudio.crearDesarrolladorLogic(NintendoStudio.driveLogicN, 1, 0, "N", true);
+            NintendoStudio.crearDesarrolladorLogic(NintendoStudio.driveLogicN, 1, 0, "N", true); // (LISTOOOO Los valores)
         }
 
         spinnerSistemasN.addChangeListener(new ChangeListener() {
@@ -149,7 +149,7 @@ public class Nintendo extends javax.swing.JPanel {
 
                 if (nuevoValorSpinnerSistemasB > valorSpinnerSistemasN) {
 
-                    NintendoStudio.crearDesarrolladorLogic(NintendoStudio.driveLogicN, 1, 0, "N", true);
+                    NintendoStudio.crearDesarrolladorLogic(NintendoStudio.driveLogicN, 1, 0, "N", true); // (LISTOOOO Los valores)
 
                     int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
                     valorActual--;
@@ -172,7 +172,7 @@ public class Nintendo extends javax.swing.JPanel {
         valorSpinnerSpritesN = (int) spinnerSpritesN.getValue();
         if (valorSpinnerSpritesN == 1) {
             // Llama a la funcion para crear un desarrollador de logica
-            NintendoStudio.crearDesarrolladorSprites(NintendoStudio.driveSpritesN, 1, 0, "N", true);
+            NintendoStudio.crearDesarrolladorSprites(NintendoStudio.driveSpritesN, 1, 0, "N", true); // (LISTOOOO Los valores)
         }
 
         spinnerSpritesN.addChangeListener(new ChangeListener() {
@@ -183,7 +183,7 @@ public class Nintendo extends javax.swing.JPanel {
 
                 if (nuevoValorSpinnerSpritesB > valorSpinnerSpritesN) {
 
-                    NintendoStudio.crearDesarrolladorSprites(NintendoStudio.driveSpritesN, 1, 0, "N", true);
+                    NintendoStudio.crearDesarrolladorSprites(NintendoStudio.driveSpritesN, 1, 0, "N", true); // (LISTOOOO Los valores)
 
                     int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
                     valorActual--;

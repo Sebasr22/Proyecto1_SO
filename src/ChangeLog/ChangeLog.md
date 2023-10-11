@@ -1,5 +1,9 @@
 # Registro de Cambios
 
+## [1.0.24] - 11/10/2023 (Sebasr22)
+
+- Cambios en los desarrolladores y ajustes de valores segun mi carnet a la clase nintendo.
+
 ## [1.0.23] - 11/10/2023 (Sebasr22)
 
 - Finalizacion de la clase de integrador y se vinculo con la interfaz Bethesda.

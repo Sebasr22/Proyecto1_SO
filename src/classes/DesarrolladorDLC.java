@@ -47,7 +47,7 @@ public class DesarrolladorDLC extends Thread {
             try {
                 int count = 0;
 
-                while (count < diasParaGenerar) {
+                while (count <= diasParaGenerar) {
                     Thread.sleep(1000);
                     payDayDesarrolladorDLC();
                     count++;
