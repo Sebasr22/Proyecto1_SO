@@ -46,6 +46,22 @@ public class DesarrolladorLogica extends Thread {
         this.activo = activo;
     }
 
+    public static int getSistemasSubidosDriveN() {
+        return sistemasSubidosDriveN;
+    }
+
+    public static void setSistemasSubidosDriveN(int sistemasSubidosDriveN) {
+        DesarrolladorLogica.sistemasSubidosDriveN -= sistemasSubidosDriveN;
+    }
+
+    public static int getSistemasSubidosDriveB() {
+        return sistemasSubidosDriveB;
+    }
+
+    public static void setSistemasSubidosDriveB(int sistemasSubidosDriveB) {
+        DesarrolladorLogica.sistemasSubidosDriveB -= sistemasSubidosDriveB;
+    }
+
     public void payDayDesarrolladorLogica() {
         int horasTrabajadas = 24;
         int salario = sueldoPorHora * horasTrabajadas;
@@ -62,7 +78,7 @@ public class DesarrolladorLogica extends Thread {
             //BETHESDA
             if (driveSistemas.availablePermits() > 0) {
                 driveSistemas.acquire(5);// Puse directo 5 ya que el ultimo dijito del carnet de Juan y mio coincide con el numero de sistemas que se generan.
-                System.out.println("Se agregaron 5 Sistemas al drive");
+//                System.out.println("Se agregaron 5 Sistemas al drive");
                 sistemasSubidosDriveB += 5;
                 Bethesda.actualizarSistemasEnDrive(sistemasSubidosDriveB);
             } else {
@@ -72,7 +88,7 @@ public class DesarrolladorLogica extends Thread {
             //NINTENDO
             if (driveSistemas.availablePermits() > 0) {
                 driveSistemas.acquire(5);
-                System.out.println("Se agregaron 5 sistemas al drive");
+//                System.out.println("Se agregaron 5 sistemas al drive");
                 sistemasSubidosDriveN += 5;
                 Nintendo.actualizarSistemasEnDrive(sistemasSubidosDriveN);
             }

@@ -109,4 +109,20 @@ public class DesarrolladorNiveles extends Thread {
         this.activo = activo;
     }
 
+    public static int getNivelesSubidosDriveB() {
+        return nivelesSubidosDriveB;
+    }
+
+    public static void setNivelesSubidosDriveB(int nivelesSubidosDriveB) {
+        DesarrolladorNiveles.nivelesSubidosDriveB -= nivelesSubidosDriveB;
+    }
+
+    public static int getNivelesSubidosDriveN() {
+        return nivelesSubidosDriveN;
+    }
+
+    public static void setNivelesSubidosDriveN(int nivelesSubidosDriveN) {
+        DesarrolladorNiveles.nivelesSubidosDriveN -= nivelesSubidosDriveN;
+    }
+    
 }

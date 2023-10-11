@@ -88,4 +88,21 @@ public class DesarrolladorDLC extends Thread {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
+
+    public static int getDlcsSubidosDriveB() {
+        return dlcsSubidosDriveB;
+    }
+
+    public static void setDlcsSubidosDriveB(int dlcsSubidosDriveB) {
+        DesarrolladorDLC.dlcsSubidosDriveB -= dlcsSubidosDriveB;
+    }
+
+    public static int getDlcsSubidosDriveN() {
+        return dlcsSubidosDriveN;
+    }
+
+    public static void setDlcsSubidosDriveN(int dlcsSubidosDriveN) {
+        DesarrolladorDLC.dlcsSubidosDriveN -= dlcsSubidosDriveN;
+    }
+    
 }

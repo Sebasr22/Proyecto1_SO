@@ -8,6 +8,9 @@ public class BethesdaStudio {
     public static int totalPayB = 0;
     public static int ingreso = 0;
     public static int utilidad = ingreso - totalPayB;
+    public static int juegosGenerados = 0;
+    public static int juegosDLCGenerados = 0;
+    
     // Capacidad de los drive de los desarrolladores
     static int capacidadDriveNB = 25;
     static int capacidadDriveNivelB = 20;
@@ -21,6 +24,7 @@ public class BethesdaStudio {
     public static Semaphore driveDLCB = new Semaphore(capacidadDriveDLCB);
     public static Semaphore driveLogicB = new Semaphore(capacidadDriveLogicaB);
     public static Semaphore driveSpritesB = new Semaphore(capacidadDriveSprites);
+    public static Semaphore driveJuegosB = new Semaphore(Integer.MAX_VALUE);
 
     final private boolean active = true;
     private int videojuegosContador;
@@ -35,6 +39,7 @@ public class BethesdaStudio {
     private static int desarrolladorDLCCount = 0;
     private static int desarrolladorLogicCount = 0;
     private static int desarrolladorSpritesCount = 0;
+    private static int integradoresCount = 0;
 
     public BethesdaStudio(int dayDuration, int daysUntilLaunch) {
         this.dayDuration = dayDuration;
@@ -46,6 +51,7 @@ public class BethesdaStudio {
     private static DesarrolladorDLC[] desarrolladoresDLC = new DesarrolladorDLC[11];
     private static DesarrolladorLogica[] desarrolladoresLogica = new DesarrolladorLogica[11];
     private static DesarrolladorSprites[] desarrolladoresSprites = new DesarrolladorSprites[11];
+    private static Integrador[] integradores = new Integrador[11];
 
     //NARRATIVA 
     public static void crearDesarrolladorNarrativa(Semaphore driveN, int totalPay, int diasParaGenerar, String studio, boolean activo) {
@@ -225,6 +231,43 @@ public class BethesdaStudio {
             hilo.setActivo(false);
             desarrolladoresSprites[indiceAleatorio] = null;
             desarrolladorSpritesCount--;
+        }
+    }
+
+    // Integradores
+    public static void crearIntegrador(Semaphore driveJuegosB, Semaphore driveNB, Semaphore driveNivelB, Semaphore driveDLCB, Semaphore driveLogicB, Semaphore driveSpritesB, int juegosGenerados, int juegosDLCGenerados, int diasParaGenerar, int guionesNecesarios, int nivelesNecesarios, int spritesNecesarios, int sistemasNecesarios, int DLCNecesarios, String studio, boolean activo) {
+        Integrador integrador = new Integrador(driveJuegosB, driveNB, driveNivelB, driveDLCB, driveLogicB, driveSpritesB, juegosGenerados, juegosDLCGenerados, diasParaGenerar, guionesNecesarios, nivelesNecesarios, spritesNecesarios, sistemasNecesarios, DLCNecesarios, studio, activo);
+
+        for (int i = 0; i < 11; i++) {
+            if (integradores[i] == null) {
+                integradores[i] = integrador;
+                integradoresCount++;
+                integrador.start();
+                break;
+            }
+        }
+    }
+
+    public static void stopIntegradorAleatorio() {
+
+        if (integradoresCount == 0) {
+            return;
+        }
+
+        Random random = new Random();
+        int indiceAleatorio;
+
+        do {
+            indiceAleatorio = random.nextInt(11);
+        } while (integradores[indiceAleatorio] == null);
+
+        Integrador hilo = integradores[indiceAleatorio];
+
+        if (hilo != null) {
+            System.out.println("Cantidad de hilos de Integrador antes de eliminar: " + integradoresCount);
+            hilo.setActivo(false);
+            integradores[indiceAleatorio] = null;
+            integradoresCount--;
         }
     }
 }

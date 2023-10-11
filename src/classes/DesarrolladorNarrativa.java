@@ -92,7 +92,7 @@ public class DesarrolladorNarrativa extends Thread {
                 guionesSubidosDriveN++;
                 Nintendo.actualizarGuionesEnDrive(guionesSubidosDriveN);
             } else {
-                System.out.println("Drive DLC lleno. Esperando a que se libere espacio.");
+                System.out.println("Drive GUIONES lleno. Esperando a que se libere espacio.");
             }
         }
 
@@ -106,4 +106,20 @@ public class DesarrolladorNarrativa extends Thread {
         this.activo = activo;
     }
 
+    public static int getGuionesSubidosDriveB() {
+        return guionesSubidosDriveB;
+    }
+
+    public static void setGuionesSubidosDriveB(int guionesSubidosDriveB) {
+        DesarrolladorNarrativa.guionesSubidosDriveB -= guionesSubidosDriveB;
+    }
+
+    public static int getGuionesSubidosDriveN() {
+        return guionesSubidosDriveN;
+    }
+
+    public static void setGuionesSubidosDriveN(int guionesNecesarios) {
+        DesarrolladorNarrativa.guionesSubidosDriveN -= guionesSubidosDriveN;
+    }
+    
 }
