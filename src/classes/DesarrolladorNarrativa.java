@@ -44,7 +44,6 @@ public class DesarrolladorNarrativa extends Thread {
             // Pago de nintendo
             NintendoStudio.totalPayN += salario;
         }
-
     }
 
     @Override
