@@ -36,6 +36,7 @@ public class Dashboard extends javax.swing.JPanel {
      */
     public Dashboard() {
         initComponents();
+        cargarValoresDesdeArchivo();
         
     }
 public static void cargarValoresDesdeArchivo() {
