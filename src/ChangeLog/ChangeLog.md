@@ -2,7 +2,7 @@
 
 ## [1.0.31] - 11/10/2023 (Sebasr22)
 
-- Se agrego dias restantes a la interfaz de Nintendo y el PM ya lo actualiza al igual que el director.
+- Se agrego dias restantes a la interfaz de Nintendo y el PM ya lo actualiza al igual que el director. Al igual que en Bethesda.
 
 ## [1.0.30] - 11/10/2023 (Juandb1507)
 
