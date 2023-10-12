@@ -6,6 +6,7 @@ package interfaces;
 
 import classes.BethesdaStudio;
 import classes.Funciones;
+import classes.ProjectManager;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
@@ -25,6 +26,9 @@ public class Bethesda extends javax.swing.JPanel {
 
         Funciones dia = new Funciones();
         dia.start();
+
+        ProjectManager pm = new ProjectManager(10, "B");
+        pm.start();
 
         //SPINNER NARRATIVA-----------------------------------------------
         // Obtén el valor inicial del JSpinner
