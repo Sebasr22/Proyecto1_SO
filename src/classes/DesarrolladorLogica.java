@@ -76,19 +76,52 @@ public class DesarrolladorLogica extends Thread {
     public void generarSistema() throws InterruptedException {
         if ("B".equals(studio)) {
             //BETHESDA
-            if (driveSistemas.availablePermits() > 0) {
+            if (driveSistemas.availablePermits() >= 5) {
                 driveSistemas.acquire(5);
                 sistemasSubidosDriveB += 5;
                 Bethesda.actualizarSistemasEnDrive(sistemasSubidosDriveB);
+
+            } else if (driveSistemas.availablePermits() == 4) {
+                driveSistemas.acquire(4);
+                sistemasSubidosDriveB += 4;
+                Bethesda.actualizarSpritesEnDrive(sistemasSubidosDriveB);
+            } else if (driveSistemas.availablePermits() == 3) {
+                driveSistemas.acquire(3);
+                sistemasSubidosDriveB += 3;
+                Bethesda.actualizarSpritesEnDrive(sistemasSubidosDriveB);
+            } else if (driveSistemas.availablePermits() == 2) {
+                driveSistemas.acquire(2);
+                sistemasSubidosDriveB += 2;
+                Bethesda.actualizarSpritesEnDrive(sistemasSubidosDriveB);
+            } else if (driveSistemas.availablePermits() == 1) {
+                driveSistemas.acquire(1);
+                sistemasSubidosDriveB += 1;
+                Bethesda.actualizarSpritesEnDrive(sistemasSubidosDriveB);
             } else {
                 System.out.println("Drive lleno");
             }
         } else {
             //NINTENDO
-            if (driveSistemas.availablePermits() > 0) {
+            if (driveSistemas.availablePermits() >= 5) {
                 driveSistemas.acquire(5);
                 sistemasSubidosDriveN += 5;
                 Nintendo.actualizarSistemasEnDrive(sistemasSubidosDriveN);
+            } else if (driveSistemas.availablePermits() == 4) {
+                driveSistemas.acquire(4);
+                sistemasSubidosDriveN += 4;
+                Nintendo.actualizarSpritesEnDrive(sistemasSubidosDriveN);
+            } else if (driveSistemas.availablePermits() == 3) {
+                driveSistemas.acquire(3);
+                sistemasSubidosDriveN += 3;
+                Nintendo.actualizarSpritesEnDrive(sistemasSubidosDriveN);
+            } else if (driveSistemas.availablePermits() == 2) {
+                driveSistemas.acquire(2);
+                sistemasSubidosDriveN += 2;
+                Nintendo.actualizarSpritesEnDrive(sistemasSubidosDriveN);
+            } else if (driveSistemas.availablePermits() == 1) {
+                driveSistemas.acquire(1);
+                sistemasSubidosDriveN += 1;
+                Nintendo.actualizarSpritesEnDrive(sistemasSubidosDriveN);
             }
         }
     }

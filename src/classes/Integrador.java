@@ -127,7 +127,7 @@ public class Integrador extends Thread {
                         countJuegosDLCGeneradosB++;
                         Bethesda.actualizarJuegosDLCGenerados(countJuegosDLCGeneradosB);
                         countJuegos = 0; // Se reinicia el contador de juegos para poder contar otra vez la cantidad de juegos necesarios para desarrollar uno con DLC.
-                        System.out.println("SE GENERO UN JUEGOIOOOOOOOOOOOOO");
+                        System.out.println("SE GENERO UN JUEGOOOOOOOOOOOOOO");
                     } catch (InterruptedException ex) {
                         System.out.println("testttt");
                     }

@@ -5,6 +5,7 @@
 package interfaces;
 
 import classes.BethesdaStudio;
+import classes.Director;
 import classes.Funciones;
 import classes.ProjectManager;
 import javax.swing.JLabel;
@@ -23,7 +24,8 @@ public class Bethesda extends javax.swing.JPanel {
 
     public Bethesda() {
         initComponents();
-
+        Director director = new Director("B");
+        director.start();
         Funciones dia = new Funciones();
         dia.start();
 
@@ -416,7 +418,7 @@ public class Bethesda extends javax.swing.JPanel {
 
         estadoDirector.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         estadoDirector.setForeground(new java.awt.Color(255, 255, 255));
-        estadoDirector.setText("Trabajando");
+        estadoDirector.setText("Labores Administrativas");
         add(estadoDirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, -1, -1));
 
         LogoBethesda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/BethesdaLogo.png"))); // NOI18N
@@ -455,7 +457,7 @@ public class Bethesda extends javax.swing.JPanel {
         ganancia.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         ganancia.setForeground(new java.awt.Color(255, 255, 255));
         ganancia.setText("0");
-        add(ganancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 530, 470, -1));
+        add(ganancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 540, 470, -1));
 
         juegosGenerados.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         juegosGenerados.setForeground(new java.awt.Color(255, 255, 255));
@@ -487,7 +489,7 @@ public class Bethesda extends javax.swing.JPanel {
         faltasPM.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         faltasPM.setForeground(new java.awt.Color(255, 255, 255));
         faltasPM.setText("0");
-        jPanel2.add(faltasPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 50, -1));
+        jPanel2.add(faltasPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 40, -1));
 
         jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
@@ -512,7 +514,7 @@ public class Bethesda extends javax.swing.JPanel {
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("Faltas =");
-        jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
+        jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, -1, -1));
 
         descontadoPM.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         descontadoPM.setForeground(new java.awt.Color(255, 255, 255));
@@ -642,6 +644,52 @@ public class Bethesda extends javax.swing.JPanel {
         estadoPMB.setText(estado);
     }
 
+
+    public static JLabel getDescontadoPM() {
+        return descontadoPM;
+    }
+
+    public static void setDescontadoPM(JLabel descontadoPM) {
+        Bethesda.descontadoPM = descontadoPM;
+    }
+
+    public static JLabel getDiasParaEntrega() {
+        return diasParaEntrega;
+    }
+
+    public static void setDiasParaEntrega(JLabel diasParaEntrega) {
+        Bethesda.diasParaEntrega = diasParaEntrega;
+    }
+
+    public static JLabel getEstadoDirector() {
+        return estadoDirector;
+    }
+    
+
+    public static void setEstadoDirector(JLabel estadoDirector) {
+        Bethesda.estadoDirector = estadoDirector;
+    }
+
+    public static JLabel getFaltasPM() {
+        return faltasPM;
+    }
+
+    public static void setFaltasPM(JLabel faltasPM) {
+        Bethesda.faltasPM = faltasPM;
+    }
+
+    public static JLabel getGanancia() {
+        return ganancia;
+    }
+
+    public static void setGanancia(JLabel ganancia) {
+        Bethesda.ganancia = ganancia;
+    }
+
+      public static void actualizarEstadoDirector(String estado) {
+        estadoDirector.setText(estado);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel DLCEnDriveB;
     private javax.swing.JLabel FondoBethesda;
@@ -650,11 +698,13 @@ public class Bethesda extends javax.swing.JPanel {
     public static javax.swing.JLabel SpritesEnDriveB;
     public static javax.swing.JLabel costosOperativosB;
     private javax.swing.JLabel desarrolladoresRestantesB;
-    private javax.swing.JLabel descontadoPM;
+    public static javax.swing.JLabel descontadoPM;
     public static javax.swing.JLabel diasParaEntrega;
-    private javax.swing.JLabel estadoDirector;
+
+    public static javax.swing.JLabel estadoDirector;
     public static javax.swing.JLabel estadoPMB;
-    private javax.swing.JLabel faltasPM;
+    public static javax.swing.JLabel faltasPM;
+
     public static javax.swing.JLabel ganancia;
     public static javax.swing.JLabel guionesEnDriveB;
     private javax.swing.JLabel jLabel10;

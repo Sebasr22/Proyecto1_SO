@@ -4,7 +4,7 @@ import java.util.concurrent.Semaphore;
 import java.util.Random;
 
 public class BethesdaStudio {
-
+    public static int diasRestantesB = 6;
     public static int totalPayB = 0;
     public static int ingreso = 0;
     public static int utilidad = ingreso - totalPayB;

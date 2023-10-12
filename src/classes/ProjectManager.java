@@ -7,7 +7,7 @@ public class ProjectManager extends Thread {
 
     int diasRestantesEntregaJuegos;
     int totalPay;
-    boolean isWatchingStreams;
+   public static boolean isWatchingStreams;
     int sueldoPorHora;
     String studio;
 
@@ -96,10 +96,18 @@ public class ProjectManager extends Thread {
 
     private void changeDaysRemaining() {
         try {
-
+if ("B".equals(studio)) {
             // Cambia el contador de días restantes
-            diasRestantesEntregaJuegos--;
+            BethesdaStudio.diasRestantesB--;
             currentTime = 0;
+        } else {
+            // Cambia el contador de días restantes
+
+            NintendoStudio.diasRestantesN--;
+            currentTime = 0;
+        }
+            
+
 
             // Simula el tiempo que lleva cambiar el contador
             Thread.sleep(100); // Tiempo despreciable
