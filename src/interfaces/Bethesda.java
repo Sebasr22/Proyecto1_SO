@@ -54,9 +54,10 @@ public class Bethesda extends javax.swing.JPanel {
             public void stateChanged(ChangeEvent e) {
                 // Obtén el nuevo valor del JSpinner
                 int nuevoValorSpinner = (int) spinnnerNarrativaB.getValue();
+                int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesB.getText());
 
                 // Compara el nuevo valor del JSpinner con valorSpinner
-                if (nuevoValorSpinner > valorSpinnerN) {
+                if (nuevoValorSpinner > valorSpinnerN && desarrolladoresRestantes > 0) {
                     //FUNCION CREAR DESARROLLADOR NARRATIVA
                     // Llama a la función para crear un desarrollador de narrativa
                     BethesdaStudio.crearDesarrolladorNarrativa(BethesdaStudio.driveNB, 0, 4, "B", true);

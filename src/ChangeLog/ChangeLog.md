@@ -1,4 +1,10 @@
 # Registro de Cambios
+
+## [1.0.38] - 12/10/2023 (Sebasr22)
+
+- Se agrego las librerias para realizar las graficas. 
+- Validaciones interfaz
+
 ## [1.0.37] - 12/10/2023 (Juandb1507)
 
 - Se usa el parametro inicial de la duracion de los dias
@@ -8,7 +14,6 @@
 ## [1.0.36] - 12/10/2023 (Juandb1507)
 
 - Se guardan los parametros iniciales y se usan (diasEntrega)
-
 
 
 ## [1.0.35] - 12/10/2023 (Juandb1507)
