@@ -5,17 +5,46 @@
  */
 package interfaces;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
  * @author juand
  */
 public class Dashboard extends javax.swing.JPanel {
 
+    public static int duracionDiasSegundos;
+    public static int diasParaEntrega;
+    public static int narrativaBethesda;
+    public static int nivelesBethesda;
+    public static int dlcsBethesda;
+    public static int sistemasBethesda;
+    public static int spritesBethesda;
+    public static int integradoresBethesda;
+    public static int narrativaNintendo;
+    public static int nivelesNintendo;
+    public static int dlcsNintendo;
+    public static int sistemasNintendo;
+    public static int spritesNintendo;
+    public static int integradoresNintendo;
+
     /**
      * Creates new form Dashboard
      */
     public Dashboard() {
         initComponents();
+        guardar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                guardarValoresEnArchivo();
+            }
+        });
+
     }
 
     /**
@@ -33,6 +62,7 @@ public class Dashboard extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
+        guardar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -69,7 +99,11 @@ public class Dashboard extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1000, 603));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        spinnerDuracionDias.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         add(spinnerDuracionDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, -1, -1));
+
+        spinnerDiasParaEntrega.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         add(spinnerDiasParaEntrega, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, -1, -1));
 
         jLabel22.setBackground(new java.awt.Color(255, 255, 255));
@@ -93,6 +127,17 @@ public class Dashboard extends javax.swing.JPanel {
         jLabel24.setText("Días para entrega = ");
         add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, 20));
 
+        guardar.setBackground(new java.awt.Color(0, 204, 0));
+        guardar.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        guardar.setForeground(new java.awt.Color(0, 0, 0));
+        guardar.setText("GUARDAR");
+        guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarActionPerformed(evt);
+            }
+        });
+        add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, -1, -1));
+
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Duración del días (segundos) = ");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
@@ -113,7 +158,7 @@ public class Dashboard extends javax.swing.JPanel {
 
         desarrolladoresRestantesB.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         desarrolladoresRestantesB.setForeground(new java.awt.Color(255, 255, 255));
-        desarrolladoresRestantesB.setText("14");
+        desarrolladoresRestantesB.setText("13");
         jPanel1.add(desarrolladoresRestantesB, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 20, 20));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -228,7 +273,7 @@ public class Dashboard extends javax.swing.JPanel {
 
         desarrolladoresRestantesN.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         desarrolladoresRestantesN.setForeground(new java.awt.Color(255, 255, 255));
-        desarrolladoresRestantesN.setText("14");
+        desarrolladoresRestantesN.setText("13");
         jPanel1.add(desarrolladoresRestantesN, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 20, 20));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 260, 390));
@@ -237,11 +282,118 @@ public class Dashboard extends javax.swing.JPanel {
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 580));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guardarActionPerformed
+
+    public static void cargarValoresDesdeArchivo() {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("src\\assets\\valoresIniciales.txt"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // Divide la línea en partes para extraer el nombre y el valor
+                String[] parts = line.split(" = ");
+                if (parts.length == 2) {
+                    String nombre = parts[0];
+                    int valor = Integer.parseInt(parts[1]);
+                    // Asigna el valor a la variable correspondiente
+                    switch (nombre) {
+                        case "Duración de días (segundos)":
+                            duracionDiasSegundos = valor;
+                            break;
+                        case "Días para entrega":
+                            diasParaEntrega = valor;
+                            break;
+                        case "Narrativa (Bethesda)":
+                            narrativaBethesda = valor;
+                            break;
+                        case "Niveles (Bethesda)":
+                            nivelesBethesda = valor;
+                            break;
+                        case "DLC's (Bethesda)":
+                            dlcsBethesda = valor;
+                            break;
+                        case "Sistemas (Bethesda)":
+                            sistemasBethesda = valor;
+                            break;
+                        case "Sprites (Bethesda)":
+                            spritesBethesda = valor;
+                            break;
+                        case "Integradores (Bethesda)":
+                            integradoresBethesda = valor;
+                            break;
+                        case "Narrativa (Nintendo)":
+                            narrativaNintendo = valor;
+                            break;
+                        case "Niveles (Nintendo)":
+                            nivelesNintendo = valor;
+                            break;
+                        case "DLC's (Nintendo)":
+                            dlcsNintendo = valor;
+                            break;
+                        case "Sistemas (Nintendo)":
+                            sistemasNintendo = valor;
+                            break;
+                        case "Sprites (Nintendo)":
+                            spritesNintendo = valor;
+                            break;
+                        case "Integradores (Nintendo)":
+                            integradoresNintendo = valor;
+                            break;
+                    }
+                }
+            }
+            reader.close();
+        } catch (IOException ex) {
+            // Maneja la excepción si ocurre algún error al leer el archivo
+            ex.printStackTrace();
+        }
+    }
+
+    private void guardarValoresEnArchivo() {
+        try {
+            int duracionDias = (int) spinnerDuracionDias.getValue();
+            int diasParaEntrega = (int) spinnerDiasParaEntrega.getValue();
+            int narrativaB = (int) spinnnerNarrativaB.getValue();
+            int nivelB = (int) spinnnerNivelB.getValue();
+            int dlcB = (int) spinnerDLCB.getValue();
+            int sistemasB = (int) spinnerSistemasB.getValue();
+            int spritesB = (int) spinnerSpritesB.getValue();
+            int integradoresB = (int) spinnerIntegradoresB.getValue();
+            int narrativaN = (int) spinnnerNarrativaN.getValue();
+            int nivelN = (int) spinnnerNivelN.getValue();
+            int dlcN = (int) spinnerDLCN.getValue();
+            int sistemasN = (int) spinnerSistemasN.getValue();
+            int spritesN = (int) spinnerSpritesN.getValue();
+            int integradoresN = (int) spinnerIntegradoresN.getValue();
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src\\assets\\valoresIniciales.txt"));
+            writer.write("Duración de días (segundos) = " + duracionDias + "\n");
+            writer.write("Días para entrega = " + diasParaEntrega + "\n");
+            writer.write("Narrativa (Bethesda) = " + narrativaB + "\n");
+            writer.write("Niveles (Bethesda) = " + nivelB + "\n");
+            writer.write("DLC's (Bethesda) = " + dlcB + "\n");
+            writer.write("Sistemas (Bethesda) = " + sistemasB + "\n");
+            writer.write("Sprites (Bethesda) = " + spritesB + "\n");
+            writer.write("Integradores (Bethesda) = " + integradoresB + "\n");
+            writer.write("Narrativa (Nintendo) = " + narrativaN + "\n");
+            writer.write("Niveles (Nintendo) = " + nivelN + "\n");
+            writer.write("DLC's (Nintendo) = " + dlcN + "\n");
+            writer.write("Sistemas (Nintendo) = " + sistemasN + "\n");
+            writer.write("Sprites (Nintendo) = " + spritesN + "\n");
+            writer.write("Integradores (Nintendo) = " + integradoresN + "\n");
+            writer.close();
+        } catch (IOException ex) {
+            // Maneja la excepción si ocurre algún error al escribir el archivo
+            ex.printStackTrace();
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel desarrolladoresRestantesB;
     private javax.swing.JLabel desarrolladoresRestantesN;
+    private javax.swing.JButton guardar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

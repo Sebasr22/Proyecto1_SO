@@ -10,6 +10,7 @@ package classes;
  * @author juand
  */
 import interfaces.Bethesda;
+import interfaces.Dashboard;
 import interfaces.Nintendo;
 import java.util.Random;
 import java.util.concurrent.Semaphore;
@@ -68,7 +69,7 @@ public class Director extends Thread {
             Bethesda.actualizarJuegosGenerados(Integrador.countJuegosGeneradosB);
             Integrador.countJuegosDLCGeneradosB = 0;
             Bethesda.actualizarJuegosDLCGenerados(Integrador.countJuegosDLCGeneradosB);
-            BethesdaStudio.diasRestantesB = 6;  //Resetea Dias Restantes 
+            BethesdaStudio.diasRestantesB = Dashboard.diasParaEntrega;  //Resetea Dias Restantes 
             Bethesda.estadoDirector.setText("Labores administrativas");
         } else {
             ingresoN += Integrador.countJuegosGeneradosN * 550000;
@@ -77,7 +78,7 @@ public class Director extends Thread {
             Nintendo.actualizarJuegosGenerados(Integrador.countJuegosGeneradosN);
             Integrador.countJuegosDLCGeneradosN = 0;
             Nintendo.actualizarJuegosDLCGenerados(Integrador.countJuegosDLCGeneradosN);
-            NintendoStudio.diasRestantesN = 6;  //Resetea Dias Restantes
+            NintendoStudio.diasRestantesN =  Dashboard.diasParaEntrega;  //Resetea Dias Restantes
             Nintendo.estadoDirector.setText("Labores administrativas");
         }
 
