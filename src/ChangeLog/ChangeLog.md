@@ -1,4 +1,9 @@
 # Registro de Cambios
+## [1.0.38] - 12/10/2023 (Juandb1507)
+
+-  Cambio en la clase Dashboard (Ahora Funciona perfectamente)
+
+
 ## [1.0.37] - 12/10/2023 (Juandb1507)
 
 -  Correccion para que el CPU no explote :D

@@ -5,13 +5,10 @@
  */
 package interfaces;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  *
@@ -40,12 +37,7 @@ public class Dashboard extends javax.swing.JPanel {
     public Dashboard() {
         initComponents();
         cargarValoresDesdeArchivo();
-        guardar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                guardarValoresEnArchivo();
-            }
-        });
-
+        cargarValoresEnSpinners();
     }
 
     /**
@@ -102,10 +94,10 @@ public class Dashboard extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         spinnerDuracionDias.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        add(spinnerDuracionDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, -1, -1));
+        add(spinnerDuracionDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, 50, -1));
 
         spinnerDiasParaEntrega.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        add(spinnerDiasParaEntrega, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, -1, -1));
+        add(spinnerDiasParaEntrega, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, 50, -1));
 
         jLabel22.setBackground(new java.awt.Color(255, 255, 255));
         jLabel22.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
@@ -284,190 +276,106 @@ public class Dashboard extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        // TODO add your handling code here:
+        guardarValoresEnTxt();
     }//GEN-LAST:event_guardarActionPerformed
 
-     public static void cargarValoresDesdeArchivo() {
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("src\\assets\\valoresIniciales.txt"));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                // Divide la línea en partes para extraer el nombre y el valor
-                String[] parts = line.split(" = ");
+    public static void cargarValoresDesdeArchivo() {
+        try ( FileReader fileReader = new FileReader("src/assets/valoresIniciales.txt");  Scanner scanner = new Scanner(fileReader)) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] parts = line.split("=");
                 if (parts.length == 2) {
-                    String nombre = parts[0];
-                    int valor = Integer.parseInt(parts[1]);
-                    // Asigna el valor a la variable correspondiente
-                    switch (nombre) {
-                        case "Duración de días (segundos)":
-                            duracionDiasSegundos = valor;
+                    String key = parts[0];
+                    String value = parts[1];
+                    switch (key) {
+                        case "duracionDiasSegundos":
+                            duracionDiasSegundos = Integer.parseInt(value);
                             break;
-                        case "Días para entrega":
-                            diasParaEntrega = valor;
+                        case "diasParaEntrega":
+                            diasParaEntrega = Integer.parseInt(value);
                             break;
-                        case "Narrativa (Bethesda)":
-                            narrativaBethesda = valor;
+                        case "narrativaBethesda":
+                            narrativaBethesda = Integer.parseInt(value);
                             break;
-                        case "Niveles (Bethesda)":
-                            nivelesBethesda = valor;
+                        case "nivelesBethesda":
+                            nivelesBethesda = Integer.parseInt(value);
                             break;
-                        case "DLC's (Bethesda)":
-                            dlcsBethesda = valor;
+                        case "dlcsBethesda":
+                            dlcsBethesda = Integer.parseInt(value);
                             break;
-                        case "Sistemas (Bethesda)":
-                            sistemasBethesda = valor;
+                        case "sistemasBethesda":
+                            sistemasBethesda = Integer.parseInt(value);
                             break;
-                        case "Sprites (Bethesda)":
-                            spritesBethesda = valor;
+                        case "spritesBethesda":
+                            spritesBethesda = Integer.parseInt(value);
                             break;
-                        case "Integradores (Bethesda)":
-                            integradoresBethesda = valor;
+                        case "integradoresBethesda":
+                            integradoresBethesda = Integer.parseInt(value);
                             break;
-                        case "Narrativa (Nintendo)":
-                            narrativaNintendo = valor;
+                        case "narrativaNintendo":
+                            narrativaNintendo = Integer.parseInt(value);
                             break;
-                        case "Niveles (Nintendo)":
-                            nivelesNintendo = valor;
+                        case "nivelesNintendo":
+                            nivelesNintendo = Integer.parseInt(value);
                             break;
-                        case "DLC's (Nintendo)":
-                            dlcsNintendo = valor;
+                        case "dlcsNintendo":
+                            dlcsNintendo = Integer.parseInt(value);
                             break;
-                        case "Sistemas (Nintendo)":
-                            sistemasNintendo = valor;
+                        case "sistemasNintendo":
+                            sistemasNintendo = Integer.parseInt(value);
                             break;
-                        case "Sprites (Nintendo)":
-                            spritesNintendo = valor;
+                        case "spritesNintendo":
+                            spritesNintendo = Integer.parseInt(value);
                             break;
-                        case "Integradores (Nintendo)":
-                            integradoresNintendo = valor;
+                        case "integradoresNintendo":
+                            integradoresNintendo = Integer.parseInt(value);
                             break;
                     }
                 }
             }
-            reader.close();
-        } catch (IOException ex) {
-            // Maneja la excepción si ocurre algún error al leer el archivo
-           ex.printStackTrace(); // Imprime la excepción en la consola
-        System.out.println("Error al cargar valores en el archivo: " + ex.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-
-    private void guardarValoresEnArchivo() {
-        try {
-            int duracionDias = (int) spinnerDuracionDias.getValue();
-            int diasParaEntrega = (int) spinnerDiasParaEntrega.getValue();
-            int narrativaB = (int) spinnnerNarrativaB.getValue();
-            int nivelB = (int) spinnnerNivelB.getValue();
-            int dlcB = (int) spinnerDLCB.getValue();
-            int sistemasB = (int) spinnerSistemasB.getValue();
-            int spritesB = (int) spinnerSpritesB.getValue();
-            int integradoresB = (int) spinnerIntegradoresB.getValue();
-            int narrativaN = (int) spinnnerNarrativaN.getValue();
-            int nivelN = (int) spinnnerNivelN.getValue();
-            int dlcN = (int) spinnerDLCN.getValue();
-            int sistemasN = (int) spinnerSistemasN.getValue();
-            int spritesN = (int) spinnerSpritesN.getValue();
-            int integradoresN = (int) spinnerIntegradoresN.getValue();
-
-            BufferedWriter writer = new BufferedWriter(new FileWriter("src\\assets\\valoresIniciales.txt"));
-            writer.write("Duración de días (segundos) = " + duracionDias + "\n");
-            writer.write("Días para entrega = " + diasParaEntrega + "\n");
-            writer.write("Narrativa (Bethesda) = " + narrativaB + "\n");
-            writer.write("Niveles (Bethesda) = " + nivelB + "\n");
-            writer.write("DLC's (Bethesda) = " + dlcB + "\n");
-            writer.write("Sistemas (Bethesda) = " + sistemasB + "\n");
-            writer.write("Sprites (Bethesda) = " + spritesB + "\n");
-            writer.write("Integradores (Bethesda) = " + integradoresB + "\n");
-            writer.write("Narrativa (Nintendo) = " + narrativaN + "\n");
-            writer.write("Niveles (Nintendo) = " + nivelN + "\n");
-            writer.write("DLC's (Nintendo) = " + dlcN + "\n");
-            writer.write("Sistemas (Nintendo) = " + sistemasN + "\n");
-            writer.write("Sprites (Nintendo) = " + spritesN + "\n");
-            writer.write("Integradores (Nintendo) = " + integradoresN + "\n");
-            writer.close();
-        } catch (IOException ex) {
-            // Maneja la excepción si ocurre algún error al escribir el archivo
-            ex.printStackTrace();
+    private void guardarValoresEnTxt() {
+        try ( FileWriter fileWriter = new FileWriter("src/assets/valoresIniciales.txt")) {
+            fileWriter.write("duracionDiasSegundos=" + spinnerDuracionDias.getValue() + "\n");
+            fileWriter.write("diasParaEntrega=" + spinnerDiasParaEntrega.getValue() + "\n");
+            fileWriter.write("narrativaBethesda=" + spinnnerNarrativaB.getValue() + "\n");
+            fileWriter.write("nivelesBethesda=" + spinnnerNivelB.getValue() + "\n");
+            fileWriter.write("dlcsBethesda=" + spinnerDLCB.getValue() + "\n");
+            fileWriter.write("sistemasBethesda=" + spinnerSistemasB.getValue() + "\n");
+            fileWriter.write("spritesBethesda=" + spinnerSpritesB.getValue() + "\n");
+            fileWriter.write("integradoresBethesda=" + spinnerIntegradoresB.getValue() + "\n");
+            fileWriter.write("narrativaNintendo=" + spinnnerNarrativaN.getValue() + "\n");
+            fileWriter.write("nivelesNintendo=" + spinnnerNivelN.getValue() + "\n");
+            fileWriter.write("dlcsNintendo=" + spinnerDLCN.getValue() + "\n");
+            fileWriter.write("sistemasNintendo=" + spinnerSistemasN.getValue() + "\n");
+            fileWriter.write("spritesNintendo=" + spinnerSpritesN.getValue() + "\n");
+            fileWriter.write("integradoresNintendo=" + spinnerIntegradoresN.getValue() + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
-public static void cargarValoresDesdeArchivoSpinners() {
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("src\\assets\\valoresIniciales.txt"));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                // Divide la línea en partes para extraer el nombre y el valor
-                String[] parts = line.split(" = ");
-                if (parts.length == 2) {
-                    String nombre = parts[0];
-                    int valor = Integer.parseInt(parts[1]);
-                    // Asigna el valor a la variable correspondiente
-                    switch (nombre) {
-                        case "Duración de días (segundos)":
-                         
-                            spinnerDuracionDias.setValue(valor); // Actualiza el Spinner
-                            break;
-                        case "Días para entrega":
-                          
-                            spinnerDiasParaEntrega.setValue(valor); // Actualiza el Spinner
-                            break;
-                        case "Narrativa (Bethesda)":
-                            
-                            spinnnerNarrativaB.setValue(valor); // Actualiza el Spinner
-                            break;
-                        case "Niveles (Bethesda)":
-                           
-                            spinnnerNivelB.setValue(valor); // Actualiza el Spinner
-                            break;
-                        case "DLC's (Bethesda)":
-                           
-                            spinnerDLCB.setValue(valor); // Actualiza el Spinner
-                            break;
-                        case "Sistemas (Bethesda)":
-                           
-                            spinnerSistemasB.setValue(valor); // Actualiza el Spinner
-                            break;
-                        case "Sprites (Bethesda)":
-                            
-                            spinnerSpritesB.setValue(valor); // Actualiza el Spinner
-                            break;
-                        case "Integradores (Bethesda)":
-                            
-                            spinnerIntegradoresB.setValue(valor); // Actualiza el Spinner
-                            break;
-                        case "Narrativa (Nintendo)":
-                            
-                            spinnnerNarrativaN.setValue(valor); // Actualiza el Spinner
-                            break;
-                        case "Niveles (Nintendo)":
-                            
-                            spinnnerNivelN.setValue(valor); // Actualiza el Spinner
-                            break;
-                        case "DLC's (Nintendo)":
-                            
-                            spinnerDLCN.setValue(valor); // Actualiza el Spinner
-                            break;
-                        case "Sistemas (Nintendo)":
-                            
-                            spinnerSistemasN.setValue(valor); // Actualiza el Spinner
-                            break;
-                        case "Sprites (Nintendo)":
-                           
-                            spinnerSpritesN.setValue(valor); // Actualiza el Spinner
-                            break;
-                        case "Integradores (Nintendo)":
-                            
-                            spinnerIntegradoresN.setValue(valor); // Actualiza el Spinner
-                            break;
-                    }
-                }
-            }
-            reader.close();
-        } catch (IOException ex) {
-            // Maneja la excepción si ocurre algún error al leer el archivo
-            ex.printStackTrace();
-        }
+
+    private void cargarValoresEnSpinners() {
+        spinnerDuracionDias.setValue(duracionDiasSegundos);
+        spinnerDiasParaEntrega.setValue(diasParaEntrega);
+        spinnnerNarrativaB.setValue(narrativaBethesda);
+        spinnnerNivelB.setValue(nivelesBethesda);
+        spinnerDLCB.setValue(dlcsBethesda);
+        spinnerSistemasB.setValue(sistemasBethesda);
+        spinnerSpritesB.setValue(spritesBethesda);
+        spinnerIntegradoresB.setValue(integradoresBethesda);
+        spinnnerNarrativaN.setValue(narrativaNintendo);
+        spinnnerNivelN.setValue(nivelesNintendo);
+        spinnerDLCN.setValue(dlcsNintendo);
+        spinnerSistemasN.setValue(sistemasNintendo);
+        spinnerSpritesN.setValue(spritesNintendo);
+        spinnerIntegradoresN.setValue(integradoresNintendo);
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel desarrolladoresRestantesB;
