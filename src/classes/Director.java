@@ -10,6 +10,7 @@ package classes;
  * @author juand
  */
 import interfaces.Bethesda;
+import interfaces.Dashboard;
 import interfaces.Nintendo;
 import java.util.Random;
 import java.util.concurrent.Semaphore;
@@ -92,7 +93,7 @@ public class Director extends Thread {
                     if (daysRemaining.availablePermits() == 0) {
 
                         Bethesda.actualizarEstadoDirector("Entregando Juegos");
-                        Thread.sleep(1000);  //PASA UN DIA
+                        Thread.sleep(1000*Dashboard.duracionDiasSegundos);  //PASA UN DIA
                         payDayDirector();
                         entregarJuegos();
                     } else {
@@ -103,7 +104,7 @@ public class Director extends Thread {
                     if (daysRemaining.availablePermits() == 0) {
 
                         Nintendo.actualizarEstadoDirector("Entregando Juegos");
-                        Thread.sleep(1000);  //PASA UN DIA
+                        Thread.sleep(1000*Dashboard.duracionDiasSegundos);  //PASA UN DIA
                         payDayDirector();
                         entregarJuegos();
                     } else {
@@ -122,9 +123,9 @@ public class Director extends Thread {
     public void trabajoAdministrativo() {
         try {
             int randomN = new Random().nextInt(1000);
-            Thread.sleep(randomN);
+            Thread.sleep(randomN*Dashboard.duracionDiasSegundos);
             checkPM();
-            Thread.sleep(1000 - randomN);
+            Thread.sleep((1000 - randomN)*Dashboard.duracionDiasSegundos);
             payDayDirector();
 
         } catch (InterruptedException ex) {

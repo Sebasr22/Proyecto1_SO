@@ -6,6 +6,7 @@
 package classes;
 
 import interfaces.Bethesda;
+import interfaces.Dashboard;
 import interfaces.Nintendo;
 import java.util.concurrent.Semaphore;
 
@@ -101,7 +102,7 @@ public class Integrador extends Thread {
                 if (DesarrolladorNarrativa.getGuionesSubidosDriveB() >= guionesNecesarios && DesarrolladorNiveles.getNivelesSubidosDriveB() >= nivelesNecesarios && DesarrolladorDLC.getDlcsSubidosDriveB() >= DLCNecesarios && DesarrolladorLogica.getSistemasSubidosDriveB() >= sistemasNecesarios) {
                     try {
                         // Tiempo de armado (2 dias)
-                        Thread.sleep(2000);
+                        Thread.sleep(2000*Dashboard.duracionDiasSegundos);
 
                         // LIBERAR Y ACTUALIZAR VALORES EN LA INTERFAZ
                         // Guiones
@@ -138,7 +139,7 @@ public class Integrador extends Thread {
                 if (DesarrolladorNarrativa.getGuionesSubidosDriveB() >= guionesNecesarios && DesarrolladorNiveles.getNivelesSubidosDriveB() >= nivelesNecesarios && DesarrolladorLogica.getSistemasSubidosDriveB() >= sistemasNecesarios && DesarrolladorSprites.getSpritesSubidosDriveB() >= spritesNecesarios) {
                     try {
                         // Tiempo de armado (2 dias)
-                        Thread.sleep(2000);
+                        Thread.sleep(2000*Dashboard.duracionDiasSegundos);
 
                         // LIBERAR Y ACTUALIZAR VALORES EN LA INTERFAZ
                         // Guiones
@@ -174,7 +175,7 @@ public class Integrador extends Thread {
                 if (DesarrolladorNarrativa.getGuionesSubidosDriveN() >= guionesNecesarios && DesarrolladorNiveles.getNivelesSubidosDriveN() >= nivelesNecesarios && DesarrolladorDLC.getDlcsSubidosDriveN() >= DLCNecesarios && DesarrolladorLogica.getSistemasSubidosDriveN() >= sistemasNecesarios) {
                     try {
                         // Tiempo de armado (2 dias)
-                        Thread.sleep(2000);
+                        Thread.sleep(2000*Dashboard.duracionDiasSegundos);
 
                         // LIBERAR Y ACTUALIZAR VALORES EN LA INTERFAZ
                         // Guiones
@@ -211,7 +212,7 @@ public class Integrador extends Thread {
                 if (DesarrolladorNarrativa.getGuionesSubidosDriveN() >= guionesNecesarios && DesarrolladorNiveles.getNivelesSubidosDriveN() >= nivelesNecesarios && DesarrolladorLogica.getSistemasSubidosDriveN() >= sistemasNecesarios && DesarrolladorSprites.getSpritesSubidosDriveN() >= spritesNecesarios) {
                     try {
                         // Tiempo de armado (2 dias)
-                        Thread.sleep(2000);
+                        Thread.sleep(2000*Dashboard.duracionDiasSegundos);
 
                         // LIBERAR Y ACTUALIZAR VALORES EN LA INTERFAZ
                         // Guiones
@@ -248,7 +249,7 @@ public class Integrador extends Thread {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(1000*Dashboard.duracionDiasSegundos);
                 payDayEnsamblador();
                 generarVideoJuego();
             } catch (InterruptedException ex) {

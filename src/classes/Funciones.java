@@ -6,6 +6,7 @@
 package classes;
 
 import interfaces.Bethesda;
+import interfaces.Dashboard;
 import interfaces.Nintendo;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,9 +28,9 @@ public class Funciones extends Thread {
     public void run() {
         while (activo) 
         try {
-            Thread.sleep(1005);
-            Bethesda.costosOperativosB.setText(Integer.toString(BethesdaStudio.totalPayB));
-            Nintendo.costosOperativosN.setText(Integer.toString(NintendoStudio.totalPayN));
+            Thread.sleep(1002*Dashboard.duracionDiasSegundos);
+            Bethesda.costosOperativosB.setText(Integer.toString((BethesdaStudio.totalPayB)+Director.descontadoPmB));
+            Nintendo.costosOperativosN.setText(Integer.toString((NintendoStudio.totalPayN)+Director.descontadoPmB));
             Bethesda.ganancia.setText(Integer.toString(Director.ingresoB-BethesdaStudio.totalPayB+Math.abs(Director.descontadoPmB)));
             Nintendo.ganancia.setText(Integer.toString(Director.ingresoN-NintendoStudio.totalPayN+Math.abs(Director.descontadoPmN)));
             Bethesda.ingresosBrutos.setText(Integer.toString(Director.ingresoB));

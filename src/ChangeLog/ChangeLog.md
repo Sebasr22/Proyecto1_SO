@@ -1,4 +1,10 @@
 # Registro de Cambios
+## [1.0.37] - 12/10/2023 (Juandb1507)
+
+- Se usa el parametro inicial de la duracion de los dias
+- Se setean los spinners para conocer los valores iniciales de la simulación
+- Corrección lógica de costos oprativos (se le descontó la falta del PM)
+
 ## [1.0.36] - 12/10/2023 (Juandb1507)
 
 - Se guardan los parametros iniciales y se usan (diasEntrega)

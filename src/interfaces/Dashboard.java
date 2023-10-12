@@ -15,7 +15,7 @@ import java.util.Scanner;
  * @author juand
  */
 public class Dashboard extends javax.swing.JPanel {
- public static int duracionDiasSegundos;
+    public static int duracionDiasSegundos;
     public static int diasParaEntrega;
     public static int narrativaBethesda;
     public static int nivelesBethesda;
@@ -37,6 +37,7 @@ public class Dashboard extends javax.swing.JPanel {
     public Dashboard() {
         initComponents();
         cargarValoresDesdeArchivo();
+        cargarValoresEnSpinners();
         
     }
 public static void cargarValoresDesdeArchivo() {

@@ -6,6 +6,7 @@
 package classes;
 
 import interfaces.Bethesda;
+import interfaces.Dashboard;
 import interfaces.Nintendo;
 import java.util.concurrent.Semaphore;
 
@@ -105,7 +106,7 @@ public class DesarrolladorSprites extends Thread {
         while (activo) {
             try {
 
-                Thread.sleep(1000);
+                Thread.sleep(1000*Dashboard.duracionDiasSegundos);
                 payDayDesarrolladorSprites();
                 generarSprite();
 
