@@ -1,4 +1,10 @@
 # Registro de Cambios
+## [1.0.36] - 12/10/2023 (Juandb1507)
+
+- Se guardan los parametros iniciales y se usan (diasEntrega)
+
+
+
 ## [1.0.35] - 12/10/2023 (Juandb1507)
 
 - Ingresos en Interfaz B y N
