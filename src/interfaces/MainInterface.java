@@ -53,7 +53,6 @@ public class MainInterface extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Dashboard.cargarValoresDesdeArchivo();
                 new MainInterface().setVisible(true);
                 
             }
