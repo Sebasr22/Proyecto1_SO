@@ -29,10 +29,11 @@ public class Dashboard extends javax.swing.JPanel {
 
         spinnerDuracionDias = new javax.swing.JSpinner();
         spinnerDiasParaEntrega = new javax.swing.JSpinner();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -71,21 +72,30 @@ public class Dashboard extends javax.swing.JPanel {
         add(spinnerDuracionDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, -1, -1));
         add(spinnerDiasParaEntrega, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, -1, -1));
 
+        jLabel22.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel22.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("DashBoard Principal");
+        add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Valores Iniciales");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("Duración del días (segundos) = ");
+        add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Días para entrega = ");
+        add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, 20));
+
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Duración del días (segundos) = ");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel5.setText("DashBoard Principal");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setText("Valores Iniciales");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setText("Días para entrega = ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, 20));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -242,10 +252,11 @@ public class Dashboard extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

@@ -24,15 +24,17 @@ public class Bethesda extends javax.swing.JPanel {
 
     public Bethesda() {
         initComponents();
+        Bethesda.diasParaEntrega.setText(Integer.toString(BethesdaStudio.diasRestantesB));
         Director director = new Director("B");
         director.start();
+        ProjectManager pm = new ProjectManager(10, "B");
+        pm.start();
         Funciones dia = new Funciones();
         dia.start();
 
-        ProjectManager pm = new ProjectManager(10, "B");
-        pm.start();
         
-         Bethesda.diasParaEntrega.setText(Integer.toString(BethesdaStudio.diasRestantesB));
+        
+         
 
         //SPINNER NARRATIVA-----------------------------------------------
         // Obtén el valor inicial del JSpinner
