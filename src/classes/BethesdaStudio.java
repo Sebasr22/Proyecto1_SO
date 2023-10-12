@@ -4,13 +4,14 @@ import java.util.concurrent.Semaphore;
 import java.util.Random;
 
 public class BethesdaStudio {
+
     public static int diasRestantesB = 6;
     public static int totalPayB = 0;
     public static int ingreso = 0;
     public static int utilidad = ingreso - totalPayB;
     public static int juegosGeneradosB = 0;
     public static int juegosDLCGeneradosB = 0;
-    
+
     // Capacidad de los drive de los desarrolladores
     static int capacidadDriveNB = 25;
     static int capacidadDriveNivelB = 20;
@@ -25,6 +26,9 @@ public class BethesdaStudio {
     public static Semaphore driveLogicB = new Semaphore(capacidadDriveLogicaB);
     public static Semaphore driveSpritesB = new Semaphore(capacidadDriveSprites);
     public static Semaphore driveJuegosB = new Semaphore(Integer.MAX_VALUE);
+
+    // Semaforo de los dias restantes
+    public static Semaphore diasRestantesSem = new Semaphore(diasRestantesB);
 
     final private boolean active = true;
     private int videojuegosContador;

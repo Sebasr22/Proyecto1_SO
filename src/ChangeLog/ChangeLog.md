@@ -1,8 +1,13 @@
 # Registro de Cambios
+
+## [1.0.34] - 12/10/2023 (Sebasr22)
+
+- Se cambio los dias restantes para la entrega de int a Semaphoro y se ajusto la logica en:
+     BethedaStudio, Bethesda, NintendoStudio, Nintendo, PM y director.
+
 ## [1.0.33] - 12/10/2023 (Juandb1507)
 
 - Corrección al Dashboard Principal
-
 
 ## [1.0.32] - 12/10/2023 (Juandb1507)
 

@@ -4,12 +4,14 @@ import java.util.Random;
 import java.util.concurrent.Semaphore;
 
 public class NintendoStudio {
+    
     public static int diasRestantesN = 6;
     public static int totalPayN = 0;
     public static int ingresoN = 0;
     public static int utilidadN = ingresoN - totalPayN;
     public static int juegosGeneradosN = 0;
     public static int juegosDLCGeneradosN = 0;
+    
     // Capacidad de los drive de los desarrolladores
     static int capacidadDriveN = 25;
     static int capacidadDriveNivelN = 20;
@@ -24,6 +26,9 @@ public class NintendoStudio {
     public static Semaphore driveLogicN = new Semaphore(capacidadDriveLogicaN);
     public static Semaphore driveSpritesN = new Semaphore(capacidadDriveSpritesN);
     public static Semaphore driveJuegosN = new Semaphore(Integer.MAX_VALUE);
+    
+    // Semaforo de los dias restantes
+    public static Semaphore diasRestantesSem = new Semaphore(diasRestantesN);
 
     final private boolean active = true;
     private int videojuegosContador;

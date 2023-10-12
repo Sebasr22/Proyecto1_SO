@@ -23,19 +23,20 @@ public class Nintendo extends javax.swing.JPanel {
     private int valorSpinnerIntegradoresN;
 
     public Nintendo() {
+        
         initComponents();
-        Nintendo.diasParaEntrega.setText(Integer.toString(NintendoStudio.diasRestantesN));
-        Director director = new Director("N");
+        
+        Nintendo.diasParaEntrega.setText(Integer.toString(NintendoStudio.diasRestantesSem.availablePermits()));
+        
+        Director director = new Director(NintendoStudio.diasRestantesSem, "N");
         director.start();
-        ProjectManager pm = new ProjectManager(NintendoStudio.diasRestantesN, "N");
+        
+        ProjectManager pm = new ProjectManager(NintendoStudio.diasRestantesSem, "N");
         pm.start();
+        
         Funciones dia = new Funciones();
         dia.start();
         
-        
-
-        
-
         // SPINNER NARRATIVA
         valorSpinnerN = (int) spinnnerNarrativaN.getValue();
         if (valorSpinnerN == 1) {

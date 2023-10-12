@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 
 public class Director extends Thread {
 
-    private int daysRemaining;
+    Semaphore daysRemaining;
     private float totalIncome;
     int rand1;
     int rand2;
@@ -32,7 +32,7 @@ public class Director extends Thread {
     static int descontadoPmB;
     static int descontadoPmN;
 
-    public Director(String studio) {
+    public Director(Semaphore daysRemaining,String studio) {
         this.studio = studio;
         this.daysRemaining = daysRemaining;
         this.totalIncome = 0;
@@ -68,7 +68,7 @@ public class Director extends Thread {
             Bethesda.actualizarJuegosGenerados(Integrador.countJuegosGeneradosB);
             Integrador.countJuegosDLCGeneradosB = 0;
             Bethesda.actualizarJuegosDLCGenerados(Integrador.countJuegosDLCGeneradosB);
-            BethesdaStudio.diasRestantesB = 6;  //Resetea Dias Restantes 
+            daysRemaining.release(BethesdaStudio.diasRestantesB);  //Resetea Dias Restantes 
             Bethesda.estadoDirector.setText("Labores administrativas");
         } else {
             ingresoN += Integrador.countJuegosGeneradosN * 550000;
@@ -77,7 +77,7 @@ public class Director extends Thread {
             Nintendo.actualizarJuegosGenerados(Integrador.countJuegosGeneradosN);
             Integrador.countJuegosDLCGeneradosN = 0;
             Nintendo.actualizarJuegosDLCGenerados(Integrador.countJuegosDLCGeneradosN);
-            NintendoStudio.diasRestantesN = 6;  //Resetea Dias Restantes
+            daysRemaining.release(NintendoStudio.diasRestantesN);  //Resetea Dias Restantes
             Nintendo.estadoDirector.setText("Labores administrativas");
         }
 
@@ -89,7 +89,7 @@ public class Director extends Thread {
 
             try {
                 if ("B".equals(studio)) {
-                    if (BethesdaStudio.diasRestantesB == 0) {
+                    if (daysRemaining.availablePermits() == 0) {
 
                         Bethesda.actualizarEstadoDirector("Entregando Juegos");
                         Thread.sleep(1000);  //PASA UN DIA
@@ -100,7 +100,7 @@ public class Director extends Thread {
                         trabajoAdministrativo();
                     }
                 } else {
-                    if (NintendoStudio.diasRestantesN == 0) {
+                    if (daysRemaining.availablePermits() == 0) {
 
                         Nintendo.actualizarEstadoDirector("Entregando Juegos");
                         Thread.sleep(1000);  //PASA UN DIA
