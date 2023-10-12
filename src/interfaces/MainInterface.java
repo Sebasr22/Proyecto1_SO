@@ -27,6 +27,7 @@ public class MainInterface extends javax.swing.JFrame {
     private void initComponents() {
 
         tabbedPane = new javax.swing.JTabbedPane();
+        dashboard1 = new interfaces.Dashboard();
         bethesda1 = new interfaces.Bethesda();
         nintendo2 = new interfaces.Nintendo();
 
@@ -34,6 +35,7 @@ public class MainInterface extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabbedPane.setName("tabbedPane"); // NOI18N
+        tabbedPane.addTab("Dasboard Principal", dashboard1);
         tabbedPane.addTab("Bethesda", bethesda1);
         tabbedPane.addTab("Nintendo", nintendo2);
 
@@ -60,6 +62,7 @@ public class MainInterface extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private interfaces.Bethesda bethesda1;
+    private interfaces.Dashboard dashboard1;
     private interfaces.Nintendo nintendo2;
     private javax.swing.JTabbedPane tabbedPane;
     // End of variables declaration//GEN-END:variables

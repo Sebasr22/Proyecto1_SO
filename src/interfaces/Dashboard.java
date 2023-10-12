@@ -27,26 +27,245 @@ public class Dashboard extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        spinnerDuracionDias = new javax.swing.JSpinner();
+        spinnerDiasParaEntrega = new javax.swing.JSpinner();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        desarrolladoresRestantesB = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        spinnnerNarrativaB = new javax.swing.JSpinner();
+        spinnnerNivelB = new javax.swing.JSpinner();
+        spinnerDLCB = new javax.swing.JSpinner();
+        spinnerSistemasB = new javax.swing.JSpinner();
+        spinnerSpritesB = new javax.swing.JSpinner();
+        spinnerIntegradoresB = new javax.swing.JSpinner();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        spinnnerNarrativaN = new javax.swing.JSpinner();
+        spinnnerNivelN = new javax.swing.JSpinner();
+        spinnerDLCN = new javax.swing.JSpinner();
+        spinnerSistemasN = new javax.swing.JSpinner();
+        spinnerSpritesN = new javax.swing.JSpinner();
+        spinnerIntegradoresN = new javax.swing.JSpinner();
+        desarrolladoresRestantesN = new javax.swing.JLabel();
+        Fondo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1000, 603));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(spinnerDuracionDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, -1, -1));
+        add(spinnerDiasParaEntrega, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dashboard_background.png"))); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setText("Duración del días (segundos) = ");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 747, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 603, Short.MAX_VALUE)
-        );
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel5.setText("DashBoard Principal");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel2.setText("Valores Iniciales");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setText("Días para entrega = ");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, 20));
+
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("NintendoStudio");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 200, -1));
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Desarrolladores restantes = ");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 200, -1));
+
+        desarrolladoresRestantesB.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        desarrolladoresRestantesB.setForeground(new java.awt.Color(255, 255, 255));
+        desarrolladoresRestantesB.setText("14");
+        jPanel1.add(desarrolladoresRestantesB, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 20, 20));
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("BethesdaStudio");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 200, -1));
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Narrativa = ");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 80, -1));
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Niveles =");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 70, 20));
+
+        jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("DLC's =");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 60, -1));
+
+        jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Sistemas =");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Sprites =");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
+
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Integradores =");
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+
+        spinnnerNarrativaB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
+        spinnnerNarrativaB.setValue(1);
+        jPanel1.add(spinnnerNarrativaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, -1));
+
+        spinnnerNivelB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
+        spinnnerNivelB.setValue(1);
+        jPanel1.add(spinnnerNivelB, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
+
+        spinnerDLCB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
+        jPanel1.add(spinnerDLCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
+
+        spinnerSistemasB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
+        jPanel1.add(spinnerSistemasB, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, -1, -1));
+
+        spinnerSpritesB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
+        jPanel1.add(spinnerSpritesB, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
+
+        spinnerIntegradoresB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
+        jPanel1.add(spinnerIntegradoresB, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Desarrolladores restantes = ");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 200, -1));
+
+        jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Narrativa = ");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 80, -1));
+
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Niveles =");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 70, 20));
+
+        jLabel17.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("DLC's =");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 60, -1));
+
+        jLabel18.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Sistemas =");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
+
+        jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Sprites =");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Integradores =");
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+
+        spinnnerNarrativaN.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
+        spinnnerNarrativaN.setValue(1);
+        jPanel1.add(spinnnerNarrativaN, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, -1, -1));
+
+        spinnnerNivelN.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
+        spinnnerNivelN.setValue(1);
+        jPanel1.add(spinnnerNivelN, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, -1, -1));
+
+        spinnerDLCN.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
+        jPanel1.add(spinnerDLCN, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, -1));
+
+        spinnerSistemasN.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
+        jPanel1.add(spinnerSistemasN, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, -1, -1));
+
+        spinnerSpritesN.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
+        jPanel1.add(spinnerSpritesN, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, -1, -1));
+
+        spinnerIntegradoresN.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
+        jPanel1.add(spinnerIntegradoresN, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, -1, -1));
+
+        desarrolladoresRestantesN.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        desarrolladoresRestantesN.setForeground(new java.awt.Color(255, 255, 255));
+        desarrolladoresRestantesN.setText("14");
+        jPanel1.add(desarrolladoresRestantesN, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 20, 20));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 260, 390));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dashboard_background.png"))); // NOI18N
+        add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 580));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel Fondo;
+    private javax.swing.JLabel desarrolladoresRestantesB;
+    private javax.swing.JLabel desarrolladoresRestantesN;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSpinner spinnerDLCB;
+    private javax.swing.JSpinner spinnerDLCN;
+    private javax.swing.JSpinner spinnerDiasParaEntrega;
+    private javax.swing.JSpinner spinnerDuracionDias;
+    private javax.swing.JSpinner spinnerIntegradoresB;
+    private javax.swing.JSpinner spinnerIntegradoresN;
+    private javax.swing.JSpinner spinnerSistemasB;
+    private javax.swing.JSpinner spinnerSistemasN;
+    private javax.swing.JSpinner spinnerSpritesB;
+    private javax.swing.JSpinner spinnerSpritesN;
+    private javax.swing.JSpinner spinnnerNarrativaB;
+    private javax.swing.JSpinner spinnnerNarrativaN;
+    private javax.swing.JSpinner spinnnerNivelB;
+    private javax.swing.JSpinner spinnnerNivelN;
     // End of variables declaration//GEN-END:variables
 }

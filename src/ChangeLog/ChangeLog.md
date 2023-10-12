@@ -1,4 +1,8 @@
 # Registro de Cambios
+## [1.0.32] - 12/10/2023 (Juandb1507)
+
+- Se agregaron las variables para valores iniciales al Dashboard Principal
+- Se colocó en el tabbedPane de MainInterface
 
 ## [1.0.31] - 11/10/2023 (Sebasr22)
 
