@@ -99,6 +99,7 @@ public class ProjectManager extends Thread {
 if ("B".equals(studio)) {
             // Cambia el contador de días restantes
             BethesdaStudio.diasRestantesB--;
+            Bethesda.actualizarDiasParaEntregaB(BethesdaStudio.diasRestantesB);
             currentTime = 0;
         } else {
             // Cambia el contador de días restantes

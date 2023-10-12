@@ -31,6 +31,8 @@ public class Bethesda extends javax.swing.JPanel {
 
         ProjectManager pm = new ProjectManager(10, "B");
         pm.start();
+        
+         Bethesda.diasParaEntrega.setText(Integer.toString(BethesdaStudio.diasRestantesB));
 
         //SPINNER NARRATIVA-----------------------------------------------
         // Obtén el valor inicial del JSpinner
@@ -644,7 +646,6 @@ public class Bethesda extends javax.swing.JPanel {
         estadoPMB.setText(estado);
     }
 
-
     public static JLabel getDescontadoPM() {
         return descontadoPM;
     }
@@ -661,10 +662,13 @@ public class Bethesda extends javax.swing.JPanel {
         Bethesda.diasParaEntrega = diasParaEntrega;
     }
 
+    public static void actualizarDiasParaEntregaB(int nuevoValor) {
+        diasParaEntrega.setText(Integer.toString(nuevoValor));
+    }
+
     public static JLabel getEstadoDirector() {
         return estadoDirector;
     }
-    
 
     public static void setEstadoDirector(JLabel estadoDirector) {
         Bethesda.estadoDirector = estadoDirector;
@@ -686,7 +690,7 @@ public class Bethesda extends javax.swing.JPanel {
         Bethesda.ganancia = ganancia;
     }
 
-      public static void actualizarEstadoDirector(String estado) {
+    public static void actualizarEstadoDirector(String estado) {
         estadoDirector.setText(estado);
     }
 
