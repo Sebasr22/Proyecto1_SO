@@ -1,5 +1,8 @@
 package classes;
 
+import interfaces.Bethesda;
+import interfaces.Nintendo;
+
 public class ProjectManager extends Thread {
 
     int diasRestantesEntregaJuegos;
@@ -14,6 +17,10 @@ public class ProjectManager extends Thread {
     int workInterval = 21;   // 30 minutos en milisegundos
     int totalWorkTime = 666; // 16 horas en milisegundos 
     int totalDayTime = 1000;  // 24 horas en milisegundos
+
+    // Estados PM
+    String estadoWork = "Trabajando";
+    String estadoStreams = "Viendo streams";
 
     public ProjectManager(int diasRestantes, String studio) {
         this.diasRestantesEntregaJuegos = diasRestantes;
@@ -30,10 +37,11 @@ public class ProjectManager extends Thread {
             try {
                 while (currentTime < totalWorkTime) {
                     trabaja();
+                    Thread.sleep(100);
                     veStreams();
                     currentTime += (workInterval + streamInterval);
                 }
-                
+
                 changeDaysRemaining();
                 payDayPM();
 
@@ -48,22 +56,42 @@ public class ProjectManager extends Thread {
     }
 
     private void trabaja() {
-        try {
-            isWatchingStreams = false;
-            // Realiza tareas de revisión del avance del proyecto
-            Thread.sleep(workInterval); // 30 minutos en milisegundos
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        if ("B".equals(studio)) {
+            try {
+                isWatchingStreams = false;
+                Bethesda.actualizarEstadoPMB(estadoWork);
+                Thread.sleep(workInterval); // 30 minutos en milisegundos
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                isWatchingStreams = false;
+                Nintendo.actualizarEstadoPM(estadoWork);
+                Thread.sleep(workInterval); // 30 minutos en milisegundos
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     private void veStreams() {
-        try {
-            isWatchingStreams = true;
-            // Ve streams de E-sports durante 30 minutos
-            Thread.sleep(streamInterval); // 30 minutos en milisegundos
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        if ("B".equals(studio)) {
+            try {
+                isWatchingStreams = true;
+                Bethesda.actualizarEstadoPMB(estadoStreams);
+                Thread.sleep(streamInterval); // 30 minutos en milisegundos
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                isWatchingStreams = true;
+                Nintendo.actualizarEstadoPM(estadoStreams);
+                Thread.sleep(streamInterval); // 30 minutos en milisegundos
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 

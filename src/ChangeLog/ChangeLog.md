@@ -1,5 +1,9 @@
 # Registro de Cambios
 
+## [1.0.28] - 11/10/2023 (Sebasr22)
+
+- PM ya en Nintendo.
+
 ## [1.0.27] - 11/10/2023 (Sebasr22)
 
 -- Finalizacion de la clase PM.

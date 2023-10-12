@@ -6,6 +6,7 @@ package interfaces;
 
 import classes.Funciones;
 import classes.NintendoStudio;
+import classes.ProjectManager;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
@@ -24,6 +25,10 @@ public class Nintendo extends javax.swing.JPanel {
         initComponents();
         Funciones dia = new Funciones();
         dia.start();
+        
+        ProjectManager pm = new ProjectManager(10,"N");
+        pm.start();
+        
         // SPINNER NARRATIVA
         valorSpinnerN = (int) spinnnerNarrativaN.getValue();
         if (valorSpinnerN == 1) {
@@ -202,7 +207,7 @@ public class Nintendo extends javax.swing.JPanel {
                 valorSpinnerSpritesN = nuevoValorSpinnerSpritesB;
             }
         });
-        
+
         // SPINNER INTEGRADORES
         valorSpinnerIntegradoresN = (int) spinnerIntegradorN.getValue();
         if (valorSpinnerIntegradoresN == 1) {
@@ -216,7 +221,7 @@ public class Nintendo extends javax.swing.JPanel {
                 int nuevoValorSpinnerIntegradoresN = (int) spinnerIntegradorN.getValue();
 
                 if (nuevoValorSpinnerIntegradoresN > valorSpinnerIntegradoresN) {
-                    
+
                     NintendoStudio.crearIntegrador(NintendoStudio.driveJuegosN, NintendoStudio.driveN, NintendoStudio.driveNivelN, NintendoStudio.driveDLCN, NintendoStudio.driveLogicN, NintendoStudio.driveSpritesN, NintendoStudio.juegosGeneradosN, NintendoStudio.juegosDLCGeneradosN, 2, 2, 1, 4, 4, 2, "N", true);
 
                     int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
@@ -235,6 +240,8 @@ public class Nintendo extends javax.swing.JPanel {
                 valorSpinnerIntegradoresN = nuevoValorSpinnerIntegradoresN;
             }
         });
+        
+        
     }
 
     public static void actualizarGuionesEnDrive(int nuevoValor) {
@@ -568,14 +575,14 @@ public class Nintendo extends javax.swing.JPanel {
         Nintendo.juegosGeneradosN = juegosGeneradosN;
     }
 
-        public static void actualizarJuegosGenerados(int nuevoValor) {
+    public static void actualizarJuegosGenerados(int nuevoValor) {
         juegosGeneradosN.setText(Integer.toString(nuevoValor));
     }
 
     public static void actualizarJuegosDLCGenerados(int nuevoValor) {
         juegosDLCGeneradosN.setText(Integer.toString(nuevoValor));
     }
-    
+
     public static JLabel getDLCEnDriveN() {
         return DLCEnDriveN;
     }
@@ -624,6 +631,18 @@ public class Nintendo extends javax.swing.JPanel {
         Nintendo.costosOperativosN = costosOperativosN;
     }
 
+    public static JLabel getEstadoPM() {
+        return estadoPM;
+    }
+
+    public static void setEstadoPM(JLabel estadoPM) {
+        Nintendo.estadoPM = estadoPM;
+    }
+    
+    public static void actualizarEstadoPM(String estado) {
+        estadoPM.setText(estado);
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel DLCEnDriveN;
@@ -634,7 +653,7 @@ public class Nintendo extends javax.swing.JPanel {
     private javax.swing.JLabel descontadoPM;
     public static javax.swing.JLabel diasParaEntrega;
     private javax.swing.JLabel estadoDirector;
-    private javax.swing.JLabel estadoPM;
+    public static javax.swing.JLabel estadoPM;
     private javax.swing.JLabel faltasPM;
     public static javax.swing.JLabel ganancia;
     public static javax.swing.JLabel guionesEnDriveN;
