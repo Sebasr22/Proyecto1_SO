@@ -1,4 +1,8 @@
 # Registro de Cambios
+## [1.0.35] - 12/10/2023 (Juandb1507)
+
+- Ingresos en Interfaz B y N
+
 
 ## [1.0.34] - 12/10/2023 (Sebasr22)
 
