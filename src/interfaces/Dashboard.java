@@ -286,7 +286,7 @@ public class Dashboard extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_guardarActionPerformed
 
-    public static void cargarValoresDesdeArchivo() {
+     public static void cargarValoresDesdeArchivo() {
         try {
             BufferedReader reader = new BufferedReader(new FileReader("src\\assets\\valoresIniciales.txt"));
             String line;
@@ -349,6 +349,7 @@ public class Dashboard extends javax.swing.JPanel {
             ex.printStackTrace();
         }
     }
+
 
     private void guardarValoresEnArchivo() {
         try {
@@ -416,19 +417,19 @@ public class Dashboard extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSpinner spinnerDLCB;
-    private javax.swing.JSpinner spinnerDLCN;
-    private javax.swing.JSpinner spinnerDiasParaEntrega;
-    private javax.swing.JSpinner spinnerDuracionDias;
-    private javax.swing.JSpinner spinnerIntegradoresB;
-    private javax.swing.JSpinner spinnerIntegradoresN;
-    private javax.swing.JSpinner spinnerSistemasB;
-    private javax.swing.JSpinner spinnerSistemasN;
-    private javax.swing.JSpinner spinnerSpritesB;
-    private javax.swing.JSpinner spinnerSpritesN;
-    private javax.swing.JSpinner spinnnerNarrativaB;
-    private javax.swing.JSpinner spinnnerNarrativaN;
-    private javax.swing.JSpinner spinnnerNivelB;
-    private javax.swing.JSpinner spinnnerNivelN;
+    private static javax.swing.JSpinner spinnerDLCB;
+    private static javax.swing.JSpinner spinnerDLCN;
+    private static javax.swing.JSpinner spinnerDiasParaEntrega;
+    private static javax.swing.JSpinner spinnerDuracionDias;
+    private static javax.swing.JSpinner spinnerIntegradoresB;
+    private static javax.swing.JSpinner spinnerIntegradoresN;
+    private static javax.swing.JSpinner spinnerSistemasB;
+    private static javax.swing.JSpinner spinnerSistemasN;
+    private static javax.swing.JSpinner spinnerSpritesB;
+    private static javax.swing.JSpinner spinnerSpritesN;
+    private static javax.swing.JSpinner spinnnerNarrativaB;
+    private static javax.swing.JSpinner spinnnerNarrativaN;
+    private static javax.swing.JSpinner spinnnerNivelB;
+    private static javax.swing.JSpinner spinnnerNivelN;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,7 @@
 package classes;
 
 import interfaces.Bethesda;
+import interfaces.Dashboard;
 import interfaces.Nintendo;
 import java.util.concurrent.Semaphore;
 
@@ -130,7 +131,7 @@ public class DesarrolladorLogica extends Thread {
     public void run() {
         while (activo) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(1000*Dashboard.duracionDiasSegundos);
                 payDayDesarrolladorLogica();
                 generarSistema();
             } catch (InterruptedException ex) {

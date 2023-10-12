@@ -1,5 +1,5 @@
 Duración de días (segundos) = 1
-Días para entrega = 5
+Días para entrega = 6
 Narrativa (Bethesda) = 1
 Niveles (Bethesda) = 1
 DLC's (Bethesda) = 1

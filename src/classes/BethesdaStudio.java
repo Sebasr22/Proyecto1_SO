@@ -29,6 +29,9 @@ public class BethesdaStudio {
     public static Semaphore driveSpritesB = new Semaphore(capacidadDriveSprites);
     public static Semaphore driveJuegosB = new Semaphore(Integer.MAX_VALUE);
 
+    // Semaforo de los dias restantes
+    public static Semaphore diasRestantesSem = new Semaphore(diasRestantesB);
+
     final private boolean active = true;
 
     int totalDayCounter = 0;

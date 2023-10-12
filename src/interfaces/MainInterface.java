@@ -55,7 +55,7 @@ public class MainInterface extends javax.swing.JFrame {
             public void run() {
                 Dashboard.cargarValoresDesdeArchivo();
                 new MainInterface().setVisible(true);
-
+                
             }
         });
     }

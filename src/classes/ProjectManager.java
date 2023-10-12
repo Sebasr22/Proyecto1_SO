@@ -1,29 +1,31 @@
 package classes;
 
 import interfaces.Bethesda;
+import interfaces.Dashboard;
 import interfaces.Nintendo;
+import java.util.concurrent.Semaphore;
 
 public class ProjectManager extends Thread {
 
-    int diasRestantesEntregaJuegos;
+    Semaphore diasRestantesEntregaJuegos;
     int totalPay;
-   public static boolean isWatchingStreams;
+    public static boolean isWatchingStreams;
     int sueldoPorHora;
     String studio;
 
     // Tiempos basados en que 1 dia de trabajo (24 horas) son 1000 milisegundos.
     int currentTime = 0;
-    int streamInterval = 21; // 30 minutos en milisegundos
-    int workInterval = 21;   // 30 minutos en milisegundos
-    int totalWorkTime = 666; // 16 horas en milisegundos 
-    int totalDayTime = 1000;  // 24 horas en milisegundos
+    int streamInterval = 21*Dashboard.duracionDiasSegundos; // 30 minutos en milisegundos
+    int workInterval = 21*Dashboard.duracionDiasSegundos;   // 30 minutos en milisegundos
+    int totalWorkTime = 666*Dashboard.duracionDiasSegundos; // 16 horas en milisegundos 
+    int totalDayTime = 1000*Dashboard.duracionDiasSegundos;  // 24 horas en milisegundos
 
     // Estados PM
     String estadoWork = "Trabajando";
     String estadoStreams = "Viendo streams";
 
-    public ProjectManager(int diasRestantes, String studio) {
-        this.diasRestantesEntregaJuegos = diasRestantes;
+    public ProjectManager(Semaphore diasRestantesEntregaJuegos, String studio) {
+        this.diasRestantesEntregaJuegos = diasRestantesEntregaJuegos;
         this.totalPay = 0;
         this.isWatchingStreams = false;
         this.sueldoPorHora = 20;
@@ -96,17 +98,17 @@ public class ProjectManager extends Thread {
 
     private void changeDaysRemaining() {
         try {
-if ("B".equals(studio)) {
-            // Cambia el contador de días restantes
-            BethesdaStudio.diasRestantesB--;
-            Bethesda.actualizarDiasParaEntregaB(BethesdaStudio.diasRestantesB);
-            currentTime = 0;
-        } else {
-            // Cambia el contador de días restantes
-            NintendoStudio.diasRestantesN--;
-            Nintendo.actualizarDiasParaEntrega(NintendoStudio.diasRestantesN);
-            currentTime = 0;
-        }
+            if ("B".equals(studio)) {
+                // Cambia el contador de días restantes
+                diasRestantesEntregaJuegos.acquire(1);
+                Bethesda.actualizarDiasParaEntregaB(diasRestantesEntregaJuegos.availablePermits());
+                currentTime = 0;
+            } else {
+                // Cambia el contador de días restantes
+                diasRestantesEntregaJuegos.acquire(1);
+                Nintendo.actualizarDiasParaEntrega(diasRestantesEntregaJuegos.availablePermits());
+                currentTime = 0;
+            }
             // Simula el tiempo que lleva cambiar el contador
             Thread.sleep(100); // Tiempo despreciable
         } catch (InterruptedException e) {
