@@ -102,10 +102,12 @@ if ("B".equals(studio)) {
             currentTime = 0;
         } else {
             // Cambia el contador de días restantes
+
             NintendoStudio.diasRestantesN--;
             currentTime = 0;
         }
             
+
 
             // Simula el tiempo que lleva cambiar el contador
             Thread.sleep(100); // Tiempo despreciable

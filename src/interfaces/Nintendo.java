@@ -645,6 +645,7 @@ public class Nintendo extends javax.swing.JPanel {
     public static void actualizarEstadoPM(String estado) {
         estadoPM.setText(estado);
     }
+
  public static void actualizarEstadoDirector(String estado) {
         estadoDirector.setText(estado);
     }
@@ -681,6 +682,7 @@ public class Nintendo extends javax.swing.JPanel {
         Nintendo.ganancia = ganancia;
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel DLCEnDriveN;
     public static javax.swing.JLabel SistemasEnDriveN;
@@ -689,9 +691,11 @@ public class Nintendo extends javax.swing.JPanel {
     private javax.swing.JLabel desarrolladoresRestantesN;
     public static javax.swing.JLabel descontadoPM;
     public static javax.swing.JLabel diasParaEntrega;
+
     public static javax.swing.JLabel estadoDirector;
     public static javax.swing.JLabel estadoPM;
     public static javax.swing.JLabel faltasPM;
+
     public static javax.swing.JLabel ganancia;
     public static javax.swing.JLabel guionesEnDriveN;
     private javax.swing.JLabel jLabel1;

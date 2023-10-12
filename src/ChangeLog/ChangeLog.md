@@ -13,6 +13,14 @@
 
 - PM ya en Nintendo y Bethesda
 
+## [1.0.29] - 11/10/2023 (Sebasr22)
+
+- Se corrigio algo en PM que hacia que no se cambiara el estado despues del primer dia.
+
+## [1.0.28] - 11/10/2023 (Sebasr22)
+
+- PM ya en Nintendo y Bethesda
+
 ## [1.0.27] - 11/10/2023 (Sebasr22)
 
 -- Finalizacion de la clase PM.

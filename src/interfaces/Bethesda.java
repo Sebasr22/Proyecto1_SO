@@ -644,6 +644,7 @@ public class Bethesda extends javax.swing.JPanel {
         estadoPMB.setText(estado);
     }
 
+
     public static JLabel getDescontadoPM() {
         return descontadoPM;
     }
@@ -688,6 +689,7 @@ public class Bethesda extends javax.swing.JPanel {
       public static void actualizarEstadoDirector(String estado) {
         estadoDirector.setText(estado);
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel DLCEnDriveB;
     private javax.swing.JLabel FondoBethesda;
@@ -698,9 +700,11 @@ public class Bethesda extends javax.swing.JPanel {
     private javax.swing.JLabel desarrolladoresRestantesB;
     public static javax.swing.JLabel descontadoPM;
     public static javax.swing.JLabel diasParaEntrega;
+
     public static javax.swing.JLabel estadoDirector;
     public static javax.swing.JLabel estadoPMB;
     public static javax.swing.JLabel faltasPM;
+
     public static javax.swing.JLabel ganancia;
     public static javax.swing.JLabel guionesEnDriveB;
     private javax.swing.JLabel jLabel10;
