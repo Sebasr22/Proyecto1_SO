@@ -37,7 +37,6 @@ public class ProjectManager extends Thread {
             try {
                 while (currentTime < totalWorkTime) {
                     trabaja();
-                    Thread.sleep(100);
                     veStreams();
                     currentTime += (workInterval + streamInterval);
                 }
@@ -100,6 +99,7 @@ public class ProjectManager extends Thread {
 
             // Cambia el contador de días restantes
             diasRestantesEntregaJuegos--;
+            currentTime = 0;
 
             // Simula el tiempo que lleva cambiar el contador
             Thread.sleep(100); // Tiempo despreciable
