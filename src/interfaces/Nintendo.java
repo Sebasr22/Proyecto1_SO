@@ -24,14 +24,16 @@ public class Nintendo extends javax.swing.JPanel {
 
     public Nintendo() {
         initComponents();
-        Director director = new Director ("N");
+        Director director = new Director("N");
         director.start();
         Funciones dia = new Funciones();
         dia.start();
         
-        ProjectManager pm = new ProjectManager(10,"N");
+        Nintendo.diasParaEntrega.setText(Integer.toString(NintendoStudio.diasRestantesN));
+
+        ProjectManager pm = new ProjectManager(NintendoStudio.diasRestantesN, "N");
         pm.start();
-        
+
         // SPINNER NARRATIVA
         valorSpinnerN = (int) spinnnerNarrativaN.getValue();
         if (valorSpinnerN == 1) {
@@ -243,8 +245,7 @@ public class Nintendo extends javax.swing.JPanel {
                 valorSpinnerIntegradoresN = nuevoValorSpinnerIntegradoresN;
             }
         });
-        
-        
+
     }
 
     public static void actualizarGuionesEnDrive(int nuevoValor) {
@@ -641,12 +642,24 @@ public class Nintendo extends javax.swing.JPanel {
     public static void setEstadoPM(JLabel estadoPM) {
         Nintendo.estadoPM = estadoPM;
     }
-    
+
     public static void actualizarEstadoPM(String estado) {
         estadoPM.setText(estado);
     }
 
- public static void actualizarEstadoDirector(String estado) {
+    public static JLabel getDiasParaEntrega() {
+        return diasParaEntrega;
+    }
+
+    public static void setDiasParaEntrega(JLabel diasParaEntrega) {
+        Nintendo.diasParaEntrega = diasParaEntrega;
+    }
+
+    public static void actualizarDiasParaEntrega(int nuevoValor) {
+        diasParaEntrega.setText(Integer.toString(nuevoValor));
+    }
+
+    public static void actualizarEstadoDirector(String estado) {
         estadoDirector.setText(estado);
     }
 
