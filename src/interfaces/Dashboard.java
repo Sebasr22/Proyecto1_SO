@@ -159,7 +159,7 @@ public class Dashboard extends javax.swing.JPanel {
 
         desarrolladoresRestantesB.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         desarrolladoresRestantesB.setForeground(new java.awt.Color(255, 255, 255));
-        desarrolladoresRestantesB.setText("13");
+        desarrolladoresRestantesB.setText("9");
         jPanel1.add(desarrolladoresRestantesB, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 20, 20));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -274,7 +274,7 @@ public class Dashboard extends javax.swing.JPanel {
 
         desarrolladoresRestantesN.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         desarrolladoresRestantesN.setForeground(new java.awt.Color(255, 255, 255));
-        desarrolladoresRestantesN.setText("13");
+        desarrolladoresRestantesN.setText("10");
         jPanel1.add(desarrolladoresRestantesN, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 20, 20));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 260, 390));
@@ -347,7 +347,8 @@ public class Dashboard extends javax.swing.JPanel {
             reader.close();
         } catch (IOException ex) {
             // Maneja la excepción si ocurre algún error al leer el archivo
-            ex.printStackTrace();
+           ex.printStackTrace(); // Imprime la excepción en la consola
+        System.out.println("Error al cargar valores en el archivo: " + ex.getMessage());
         }
     }
 

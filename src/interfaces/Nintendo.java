@@ -437,7 +437,7 @@ public class Nintendo extends javax.swing.JPanel {
 
         desarrolladoresRestantesN.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         desarrolladoresRestantesN.setForeground(new java.awt.Color(0, 0, 0));
-        desarrolladoresRestantesN.setText("13");
+        desarrolladoresRestantesN.setText("10");
         add(desarrolladoresRestantesN, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 20, 20));
 
         costosOperativosN.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
