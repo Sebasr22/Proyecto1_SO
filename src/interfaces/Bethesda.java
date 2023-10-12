@@ -293,7 +293,7 @@ public class Bethesda extends javax.swing.JPanel {
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        estadoPM = new javax.swing.JLabel();
+        estadoPMB = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         descontadoPM = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -500,10 +500,10 @@ public class Bethesda extends javax.swing.JPanel {
         jLabel24.setText("Descontado = $");
         jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
-        estadoPM.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        estadoPM.setForeground(new java.awt.Color(255, 255, 255));
-        estadoPM.setText("Trabajando");
-        jPanel2.add(estadoPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
+        estadoPMB.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        estadoPMB.setForeground(new java.awt.Color(255, 255, 255));
+        estadoPMB.setText("Trabajando");
+        jPanel2.add(estadoPMB, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
@@ -626,6 +626,18 @@ public class Bethesda extends javax.swing.JPanel {
         Bethesda.DLCEnDriveB = DLCEnDriveB;
     }
 
+    public static JLabel getEstadoPM() {
+        return estadoPMB;
+    }
+
+    public static void setEstadoPM(JLabel estadoPM) {
+        Bethesda.estadoPMB = estadoPM;
+    }
+
+    public static void actualizarEstadoPMB(String estado) {
+        estadoPMB.setText(estado);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel DLCEnDriveB;
     private javax.swing.JLabel FondoBethesda;
@@ -637,7 +649,7 @@ public class Bethesda extends javax.swing.JPanel {
     private javax.swing.JLabel descontadoPM;
     public static javax.swing.JLabel diasParaEntrega;
     private javax.swing.JLabel estadoDirector;
-    private javax.swing.JLabel estadoPM;
+    public static javax.swing.JLabel estadoPMB;
     private javax.swing.JLabel faltasPM;
     public static javax.swing.JLabel ganancia;
     public static javax.swing.JLabel guionesEnDriveB;
