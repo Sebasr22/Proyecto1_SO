@@ -1,4 +1,8 @@
 # Registro de Cambios
+## [1.0.36] - 12/10/2023 (Juandb1507)
+
+-  LLamada a metodo para cargar valores del archivo txt
+
 ## [1.0.35] - 12/10/2023 (Juandb1507)
 
 -  Creación archivo txt
