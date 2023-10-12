@@ -4,7 +4,7 @@ public class ProjectManager extends Thread {
 
     int diasRestantesEntregaJuegos;
     int totalPay;
-    boolean isWatchingStreams;
+   public static boolean isWatchingStreams;
     int sueldoPorHora;
     String studio;
 

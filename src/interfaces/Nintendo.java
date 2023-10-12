@@ -4,6 +4,7 @@
  */
 package interfaces;
 
+import classes.Director;
 import classes.Funciones;
 import classes.NintendoStudio;
 import javax.swing.JLabel;
@@ -22,6 +23,7 @@ public class Nintendo extends javax.swing.JPanel {
 
     public Nintendo() {
         initComponents();
+        Director director = new Director (NintendoStudio.diasRestantesN,"B");
         Funciones dia = new Funciones();
         dia.start();
         // SPINNER NARRATIVA
@@ -319,7 +321,7 @@ public class Nintendo extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Costos Operativos = $ ");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -429,7 +431,7 @@ public class Nintendo extends javax.swing.JPanel {
         costosOperativosN.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         costosOperativosN.setForeground(new java.awt.Color(255, 255, 255));
         costosOperativosN.setText("0");
-        add(costosOperativosN, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 540, 210, -1));
+        add(costosOperativosN, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 530, 210, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 102));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -503,12 +505,12 @@ public class Nintendo extends javax.swing.JPanel {
         jLabel17.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Video Juegos (Con DLC) Generados = ");
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, -1, -1));
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, -1, -1));
 
         juegosDLCGeneradosN.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         juegosDLCGeneradosN.setForeground(new java.awt.Color(0, 0, 0));
         juegosDLCGeneradosN.setText("0");
-        add(juegosDLCGeneradosN, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 510, 120, -1));
+        add(juegosDLCGeneradosN, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 120, -1));
 
         juegosGeneradosN.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         juegosGeneradosN.setForeground(new java.awt.Color(0, 0, 0));
@@ -518,12 +520,12 @@ public class Nintendo extends javax.swing.JPanel {
         ganancia.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         ganancia.setForeground(new java.awt.Color(255, 255, 255));
         ganancia.setText("0");
-        add(ganancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 540, 160, -1));
+        add(ganancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 550, 340, -1));
 
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Ganancia = $");
-        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 540, 130, -1));
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 130, -1));
 
         jLabel21.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(0, 0, 0));
@@ -631,11 +633,11 @@ public class Nintendo extends javax.swing.JPanel {
     public static javax.swing.JLabel SpritesEnDriveN;
     public static javax.swing.JLabel costosOperativosN;
     private javax.swing.JLabel desarrolladoresRestantesN;
-    private javax.swing.JLabel descontadoPM;
+    public static javax.swing.JLabel descontadoPM;
     public static javax.swing.JLabel diasParaEntrega;
-    private javax.swing.JLabel estadoDirector;
+    public static javax.swing.JLabel estadoDirector;
     private javax.swing.JLabel estadoPM;
-    private javax.swing.JLabel faltasPM;
+    public static javax.swing.JLabel faltasPM;
     public static javax.swing.JLabel ganancia;
     public static javax.swing.JLabel guionesEnDriveN;
     private javax.swing.JLabel jLabel1;

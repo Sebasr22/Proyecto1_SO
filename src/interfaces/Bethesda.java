@@ -5,6 +5,7 @@
 package interfaces;
 
 import classes.BethesdaStudio;
+import classes.Director;
 import classes.Funciones;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
@@ -22,7 +23,7 @@ public class Bethesda extends javax.swing.JPanel {
 
     public Bethesda() {
         initComponents();
-
+        Director director = new Director (BethesdaStudio.diasRestantesB,"B");
         Funciones dia = new Funciones();
         dia.start();
 
@@ -451,7 +452,7 @@ public class Bethesda extends javax.swing.JPanel {
         ganancia.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         ganancia.setForeground(new java.awt.Color(255, 255, 255));
         ganancia.setText("0");
-        add(ganancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 530, 470, -1));
+        add(ganancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 540, 470, -1));
 
         juegosGenerados.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         juegosGenerados.setForeground(new java.awt.Color(255, 255, 255));
@@ -634,11 +635,11 @@ public class Bethesda extends javax.swing.JPanel {
     public static javax.swing.JLabel SpritesEnDriveB;
     public static javax.swing.JLabel costosOperativosB;
     private javax.swing.JLabel desarrolladoresRestantesB;
-    private javax.swing.JLabel descontadoPM;
+    public static javax.swing.JLabel descontadoPM;
     public static javax.swing.JLabel diasParaEntrega;
-    private javax.swing.JLabel estadoDirector;
+    public static javax.swing.JLabel estadoDirector;
     private javax.swing.JLabel estadoPM;
-    private javax.swing.JLabel faltasPM;
+    public static javax.swing.JLabel faltasPM;
     public static javax.swing.JLabel ganancia;
     public static javax.swing.JLabel guionesEnDriveB;
     private javax.swing.JLabel jLabel10;
