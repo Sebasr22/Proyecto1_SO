@@ -5,19 +5,135 @@
  */
 package interfaces;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
 /**
  *
  * @author juand
  */
 public class Dashboard extends javax.swing.JPanel {
+ public static int duracionDiasSegundos;
+    public static int diasParaEntrega;
+    public static int narrativaBethesda;
+    public static int nivelesBethesda;
+    public static int dlcsBethesda;
+    public static int sistemasBethesda;
+    public static int spritesBethesda;
+    public static int integradoresBethesda;
+    public static int narrativaNintendo;
+    public static int nivelesNintendo;
+    public static int dlcsNintendo;
+    public static int sistemasNintendo;
+    public static int spritesNintendo;
+    public static int integradoresNintendo;
 
+    /**
     /**
      * Creates new form Dashboard
      */
     public Dashboard() {
         initComponents();
+        
+    }
+public static void cargarValoresDesdeArchivo() {
+        try ( FileReader fileReader = new FileReader("src/assets/valoresIniciales.txt");  Scanner scanner = new Scanner(fileReader)) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] parts = line.split("=");
+                if (parts.length == 2) {
+                    String key = parts[0];
+                    String value = parts[1];
+                    switch (key) {
+                        case "duracionDiasSegundos":
+                            duracionDiasSegundos = Integer.parseInt(value);
+                            break;
+                        case "diasParaEntrega":
+                            diasParaEntrega = Integer.parseInt(value);
+                            break;
+                        case "narrativaBethesda":
+                            narrativaBethesda = Integer.parseInt(value);
+                            break;
+                        case "nivelesBethesda":
+                            nivelesBethesda = Integer.parseInt(value);
+                            break;
+                        case "dlcsBethesda":
+                            dlcsBethesda = Integer.parseInt(value);
+                            break;
+                        case "sistemasBethesda":
+                            sistemasBethesda = Integer.parseInt(value);
+                            break;
+                        case "spritesBethesda":
+                            spritesBethesda = Integer.parseInt(value);
+                            break;
+                        case "integradoresBethesda":
+                            integradoresBethesda = Integer.parseInt(value);
+                            break;
+                        case "narrativaNintendo":
+                            narrativaNintendo = Integer.parseInt(value);
+                            break;
+                        case "nivelesNintendo":
+                            nivelesNintendo = Integer.parseInt(value);
+                            break;
+                        case "dlcsNintendo":
+                            dlcsNintendo = Integer.parseInt(value);
+                            break;
+                        case "sistemasNintendo":
+                            sistemasNintendo = Integer.parseInt(value);
+                            break;
+                        case "spritesNintendo":
+                            spritesNintendo = Integer.parseInt(value);
+                            break;
+                        case "integradoresNintendo":
+                            integradoresNintendo = Integer.parseInt(value);
+                            break;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    private void guardarValoresEnTxt() {
+        try ( FileWriter fileWriter = new FileWriter("src/assets/valoresIniciales.txt")) {
+            fileWriter.write("duracionDiasSegundos=" + spinnerDuracionDias.getValue() + "\n");
+            fileWriter.write("diasParaEntrega=" + spinnerDiasParaEntrega.getValue() + "\n");
+            fileWriter.write("narrativaBethesda=" + spinnnerNarrativaB.getValue() + "\n");
+            fileWriter.write("nivelesBethesda=" + spinnnerNivelB.getValue() + "\n");
+            fileWriter.write("dlcsBethesda=" + spinnerDLCB.getValue() + "\n");
+            fileWriter.write("sistemasBethesda=" + spinnerSistemasB.getValue() + "\n");
+            fileWriter.write("spritesBethesda=" + spinnerSpritesB.getValue() + "\n");
+            fileWriter.write("integradoresBethesda=" + spinnerIntegradoresB.getValue() + "\n");
+            fileWriter.write("narrativaNintendo=" + spinnnerNarrativaN.getValue() + "\n");
+            fileWriter.write("nivelesNintendo=" + spinnnerNivelN.getValue() + "\n");
+            fileWriter.write("dlcsNintendo=" + spinnerDLCN.getValue() + "\n");
+            fileWriter.write("sistemasNintendo=" + spinnerSistemasN.getValue() + "\n");
+            fileWriter.write("spritesNintendo=" + spinnerSpritesN.getValue() + "\n");
+            fileWriter.write("integradoresNintendo=" + spinnerIntegradoresN.getValue() + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void cargarValoresEnSpinners() {
+        spinnerDuracionDias.setValue(duracionDiasSegundos);
+        spinnerDiasParaEntrega.setValue(diasParaEntrega);
+        spinnnerNarrativaB.setValue(narrativaBethesda);
+        spinnnerNivelB.setValue(nivelesBethesda);
+        spinnerDLCB.setValue(dlcsBethesda);
+        spinnerSistemasB.setValue(sistemasBethesda);
+        spinnerSpritesB.setValue(spritesBethesda);
+        spinnerIntegradoresB.setValue(integradoresBethesda);
+        spinnnerNarrativaN.setValue(narrativaNintendo);
+        spinnnerNivelN.setValue(nivelesNintendo);
+        spinnerDLCN.setValue(dlcsNintendo);
+        spinnerSistemasN.setValue(sistemasNintendo);
+        spinnerSpritesN.setValue(spritesNintendo);
+        spinnerIntegradoresN.setValue(integradoresNintendo);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,6 +149,7 @@ public class Dashboard extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -69,8 +186,12 @@ public class Dashboard extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1000, 603));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(spinnerDuracionDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, -1, -1));
-        add(spinnerDiasParaEntrega, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, -1, -1));
+
+        spinnerDuracionDias.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        add(spinnerDuracionDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, 30, -1));
+
+        spinnerDiasParaEntrega.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        add(spinnerDiasParaEntrega, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, 40, -1));
 
         jLabel22.setBackground(new java.awt.Color(255, 255, 255));
         jLabel22.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
@@ -92,6 +213,18 @@ public class Dashboard extends javax.swing.JPanel {
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Días para entrega = ");
         add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, 20));
+
+        jButton1.setBackground(new java.awt.Color(51, 204, 0));
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("GUARDAR");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 80, 30));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Duración del días (segundos) = ");
@@ -237,11 +370,16 @@ public class Dashboard extends javax.swing.JPanel {
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 580));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        guardarValoresEnTxt();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel desarrolladoresRestantesB;
     private javax.swing.JLabel desarrolladoresRestantesN;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

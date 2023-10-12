@@ -1,0 +1,14 @@
+duracionDiasSegundos=1
+diasParaEntrega=6
+narrativaBethesda=1
+nivelesBethesda=1
+dlcsBethesda=1
+sistemasBethesda=1
+spritesBethesda=1
+integradoresBethesda=1
+narrativaNintendo=1
+nivelesNintendo=1
+dlcsNintendo=1
+sistemasNintendo=1
+spritesNintendo=1
+integradoresNintendo=1
