@@ -7,6 +7,7 @@ package interfaces;
 import classes.BethesdaStudio;
 import classes.Director;
 import classes.Funciones;
+import classes.ProjectManager;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
@@ -23,9 +24,13 @@ public class Bethesda extends javax.swing.JPanel {
 
     public Bethesda() {
         initComponents();
-        Director director = new Director (BethesdaStudio.diasRestantesB,"B");
+        Director director = new Director("B");
+        director.start();
         Funciones dia = new Funciones();
         dia.start();
+
+        ProjectManager pm = new ProjectManager(10, "B");
+        pm.start();
 
         //SPINNER NARRATIVA-----------------------------------------------
         // Obtén el valor inicial del JSpinner
@@ -294,7 +299,7 @@ public class Bethesda extends javax.swing.JPanel {
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        estadoPM = new javax.swing.JLabel();
+        estadoPMB = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         descontadoPM = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -413,7 +418,7 @@ public class Bethesda extends javax.swing.JPanel {
 
         estadoDirector.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         estadoDirector.setForeground(new java.awt.Color(255, 255, 255));
-        estadoDirector.setText("Trabajando");
+        estadoDirector.setText("Labores Administrativas");
         add(estadoDirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, -1, -1));
 
         LogoBethesda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/BethesdaLogo.png"))); // NOI18N
@@ -484,7 +489,7 @@ public class Bethesda extends javax.swing.JPanel {
         faltasPM.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         faltasPM.setForeground(new java.awt.Color(255, 255, 255));
         faltasPM.setText("0");
-        jPanel2.add(faltasPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 50, -1));
+        jPanel2.add(faltasPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 40, -1));
 
         jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
@@ -501,15 +506,15 @@ public class Bethesda extends javax.swing.JPanel {
         jLabel24.setText("Descontado = $");
         jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
-        estadoPM.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        estadoPM.setForeground(new java.awt.Color(255, 255, 255));
-        estadoPM.setText("Trabajando");
-        jPanel2.add(estadoPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
+        estadoPMB.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        estadoPMB.setForeground(new java.awt.Color(255, 255, 255));
+        estadoPMB.setText("Trabajando");
+        jPanel2.add(estadoPMB, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("Faltas =");
-        jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
+        jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, -1, -1));
 
         descontadoPM.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         descontadoPM.setForeground(new java.awt.Color(255, 255, 255));
@@ -627,6 +632,62 @@ public class Bethesda extends javax.swing.JPanel {
         Bethesda.DLCEnDriveB = DLCEnDriveB;
     }
 
+    public static JLabel getEstadoPM() {
+        return estadoPMB;
+    }
+
+    public static void setEstadoPM(JLabel estadoPM) {
+        Bethesda.estadoPMB = estadoPM;
+    }
+
+    public static void actualizarEstadoPMB(String estado) {
+        estadoPMB.setText(estado);
+    }
+
+    public static JLabel getDescontadoPM() {
+        return descontadoPM;
+    }
+
+    public static void setDescontadoPM(JLabel descontadoPM) {
+        Bethesda.descontadoPM = descontadoPM;
+    }
+
+    public static JLabel getDiasParaEntrega() {
+        return diasParaEntrega;
+    }
+
+    public static void setDiasParaEntrega(JLabel diasParaEntrega) {
+        Bethesda.diasParaEntrega = diasParaEntrega;
+    }
+
+    public static JLabel getEstadoDirector() {
+        return estadoDirector;
+    }
+    
+
+    public static void setEstadoDirector(JLabel estadoDirector) {
+        Bethesda.estadoDirector = estadoDirector;
+    }
+
+    public static JLabel getFaltasPM() {
+        return faltasPM;
+    }
+
+    public static void setFaltasPM(JLabel faltasPM) {
+        Bethesda.faltasPM = faltasPM;
+    }
+
+    public static JLabel getGanancia() {
+        return ganancia;
+    }
+
+    public static void setGanancia(JLabel ganancia) {
+        Bethesda.ganancia = ganancia;
+    }
+
+      public static void actualizarEstadoDirector(String estado) {
+        estadoDirector.setText(estado);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel DLCEnDriveB;
     private javax.swing.JLabel FondoBethesda;
@@ -638,7 +699,7 @@ public class Bethesda extends javax.swing.JPanel {
     public static javax.swing.JLabel descontadoPM;
     public static javax.swing.JLabel diasParaEntrega;
     public static javax.swing.JLabel estadoDirector;
-    private javax.swing.JLabel estadoPM;
+    public static javax.swing.JLabel estadoPMB;
     public static javax.swing.JLabel faltasPM;
     public static javax.swing.JLabel ganancia;
     public static javax.swing.JLabel guionesEnDriveB;

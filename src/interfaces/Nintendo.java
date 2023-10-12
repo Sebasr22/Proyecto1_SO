@@ -7,6 +7,7 @@ package interfaces;
 import classes.Director;
 import classes.Funciones;
 import classes.NintendoStudio;
+import classes.ProjectManager;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
@@ -23,9 +24,14 @@ public class Nintendo extends javax.swing.JPanel {
 
     public Nintendo() {
         initComponents();
-        Director director = new Director (NintendoStudio.diasRestantesN,"B");
+        Director director = new Director ("N");
+        director.start();
         Funciones dia = new Funciones();
         dia.start();
+        
+        ProjectManager pm = new ProjectManager(10,"N");
+        pm.start();
+        
         // SPINNER NARRATIVA
         valorSpinnerN = (int) spinnnerNarrativaN.getValue();
         if (valorSpinnerN == 1) {
@@ -204,7 +210,7 @@ public class Nintendo extends javax.swing.JPanel {
                 valorSpinnerSpritesN = nuevoValorSpinnerSpritesB;
             }
         });
-        
+
         // SPINNER INTEGRADORES
         valorSpinnerIntegradoresN = (int) spinnerIntegradorN.getValue();
         if (valorSpinnerIntegradoresN == 1) {
@@ -218,7 +224,7 @@ public class Nintendo extends javax.swing.JPanel {
                 int nuevoValorSpinnerIntegradoresN = (int) spinnerIntegradorN.getValue();
 
                 if (nuevoValorSpinnerIntegradoresN > valorSpinnerIntegradoresN) {
-                    
+
                     NintendoStudio.crearIntegrador(NintendoStudio.driveJuegosN, NintendoStudio.driveN, NintendoStudio.driveNivelN, NintendoStudio.driveDLCN, NintendoStudio.driveLogicN, NintendoStudio.driveSpritesN, NintendoStudio.juegosGeneradosN, NintendoStudio.juegosDLCGeneradosN, 2, 2, 1, 4, 4, 2, "N", true);
 
                     int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
@@ -237,6 +243,8 @@ public class Nintendo extends javax.swing.JPanel {
                 valorSpinnerIntegradoresN = nuevoValorSpinnerIntegradoresN;
             }
         });
+        
+        
     }
 
     public static void actualizarGuionesEnDrive(int nuevoValor) {
@@ -440,7 +448,7 @@ public class Nintendo extends javax.swing.JPanel {
         faltasPM.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         faltasPM.setForeground(new java.awt.Color(0, 0, 0));
         faltasPM.setText("0");
-        jPanel2.add(faltasPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 50, -1));
+        jPanel2.add(faltasPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 50, -1));
 
         jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(0, 0, 0));
@@ -465,7 +473,7 @@ public class Nintendo extends javax.swing.JPanel {
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("Faltas =");
-        jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
+        jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
 
         descontadoPM.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         descontadoPM.setForeground(new java.awt.Color(0, 0, 0));
@@ -489,7 +497,7 @@ public class Nintendo extends javax.swing.JPanel {
 
         estadoDirector.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         estadoDirector.setForeground(new java.awt.Color(0, 0, 0));
-        estadoDirector.setText("Trabajando");
+        estadoDirector.setText("Labores Administrativas");
         add(estadoDirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -570,14 +578,14 @@ public class Nintendo extends javax.swing.JPanel {
         Nintendo.juegosGeneradosN = juegosGeneradosN;
     }
 
-        public static void actualizarJuegosGenerados(int nuevoValor) {
+    public static void actualizarJuegosGenerados(int nuevoValor) {
         juegosGeneradosN.setText(Integer.toString(nuevoValor));
     }
 
     public static void actualizarJuegosDLCGenerados(int nuevoValor) {
         juegosDLCGeneradosN.setText(Integer.toString(nuevoValor));
     }
-    
+
     public static JLabel getDLCEnDriveN() {
         return DLCEnDriveN;
     }
@@ -626,6 +634,52 @@ public class Nintendo extends javax.swing.JPanel {
         Nintendo.costosOperativosN = costosOperativosN;
     }
 
+    public static JLabel getEstadoPM() {
+        return estadoPM;
+    }
+
+    public static void setEstadoPM(JLabel estadoPM) {
+        Nintendo.estadoPM = estadoPM;
+    }
+    
+    public static void actualizarEstadoPM(String estado) {
+        estadoPM.setText(estado);
+    }
+ public static void actualizarEstadoDirector(String estado) {
+        estadoDirector.setText(estado);
+    }
+
+    public static JLabel getDescontadoPM() {
+        return descontadoPM;
+    }
+
+    public static void setDescontadoPM(JLabel descontadoPM) {
+        Nintendo.descontadoPM = descontadoPM;
+    }
+
+    public static JLabel getEstadoDirector() {
+        return estadoDirector;
+    }
+
+    public static void setEstadoDirector(JLabel estadoDirector) {
+        Nintendo.estadoDirector = estadoDirector;
+    }
+
+    public static JLabel getFaltasPM() {
+        return faltasPM;
+    }
+
+    public static void setFaltasPM(JLabel faltasPM) {
+        Nintendo.faltasPM = faltasPM;
+    }
+
+    public static JLabel getGanancia() {
+        return ganancia;
+    }
+
+    public static void setGanancia(JLabel ganancia) {
+        Nintendo.ganancia = ganancia;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel DLCEnDriveN;
@@ -636,7 +690,7 @@ public class Nintendo extends javax.swing.JPanel {
     public static javax.swing.JLabel descontadoPM;
     public static javax.swing.JLabel diasParaEntrega;
     public static javax.swing.JLabel estadoDirector;
-    private javax.swing.JLabel estadoPM;
+    public static javax.swing.JLabel estadoPM;
     public static javax.swing.JLabel faltasPM;
     public static javax.swing.JLabel ganancia;
     public static javax.swing.JLabel guionesEnDriveN;

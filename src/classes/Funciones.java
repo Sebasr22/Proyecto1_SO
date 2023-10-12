@@ -30,8 +30,8 @@ public class Funciones extends Thread {
             Thread.sleep(1005);
             Bethesda.costosOperativosB.setText(Integer.toString(BethesdaStudio.totalPayB));
             Nintendo.costosOperativosN.setText(Integer.toString(NintendoStudio.totalPayN));
-            Bethesda.ganancia.setText(Integer.toString(Director.ingresoB-BethesdaStudio.totalPayB));
-            Nintendo.ganancia.setText(Integer.toString(Director.ingresoN-NintendoStudio.totalPayN));
+            Bethesda.ganancia.setText(Integer.toString(Director.ingresoB-BethesdaStudio.totalPayB+Math.abs(Director.descontadoPmB)));
+            Nintendo.ganancia.setText(Integer.toString(Director.ingresoN-NintendoStudio.totalPayN+Math.abs(Director.descontadoPmN)));
         } catch (InterruptedException ex) {
             Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
         }
