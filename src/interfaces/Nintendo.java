@@ -387,23 +387,23 @@ public class Nintendo extends javax.swing.JPanel {
 
         spinnnerNarrativaN.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
         spinnnerNarrativaN.setValue(1);
-        add(spinnnerNarrativaN, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
+        add(spinnnerNarrativaN, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
 
         spinnnerNivelN.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
         spinnnerNivelN.setValue(1);
-        add(spinnnerNivelN, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
+        add(spinnnerNivelN, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
 
         spinnerDLCN.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
-        add(spinnerDLCN, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, -1));
+        add(spinnerDLCN, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
 
         spinnerSistemasN.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
-        add(spinnerSistemasN, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, -1, -1));
+        add(spinnerSistemasN, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, -1));
 
         spinnerSpritesN.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
-        add(spinnerSpritesN, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, -1, -1));
+        add(spinnerSpritesN, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, -1, -1));
 
         spinnerIntegradorN.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
-        add(spinnerIntegradorN, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, -1));
+        add(spinnerIntegradorN, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, -1, -1));
 
         guionesEnDriveN.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         guionesEnDriveN.setForeground(new java.awt.Color(0, 0, 0));
@@ -437,7 +437,7 @@ public class Nintendo extends javax.swing.JPanel {
 
         desarrolladoresRestantesN.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         desarrolladoresRestantesN.setForeground(new java.awt.Color(0, 0, 0));
-        desarrolladoresRestantesN.setText("14");
+        desarrolladoresRestantesN.setText("13");
         add(desarrolladoresRestantesN, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 20, 20));
 
         costosOperativosN.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -542,7 +542,7 @@ public class Nintendo extends javax.swing.JPanel {
         jLabel21.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jLabel21.setText("Integradores =");
-        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -707,11 +707,9 @@ public class Nintendo extends javax.swing.JPanel {
     private javax.swing.JLabel desarrolladoresRestantesN;
     public static javax.swing.JLabel descontadoPM;
     public static javax.swing.JLabel diasParaEntrega;
-
     public static javax.swing.JLabel estadoDirector;
     public static javax.swing.JLabel estadoPM;
     public static javax.swing.JLabel faltasPM;
-
     public static javax.swing.JLabel ganancia;
     public static javax.swing.JLabel guionesEnDriveN;
     private javax.swing.JLabel jLabel1;

@@ -1,11 +1,11 @@
 package classes;
 
+import interfaces.Dashboard;
 import java.util.Random;
 import java.util.concurrent.Semaphore;
 
 public class NintendoStudio {
-    
-    public static int diasRestantesN = 6;
+    public static int diasRestantesN = Dashboard.diasParaEntrega;
     public static int totalPayN = 0;
     public static int ingresoN = 0;
     public static int utilidadN = ingresoN - totalPayN;
@@ -31,9 +31,8 @@ public class NintendoStudio {
     public static Semaphore diasRestantesSem = new Semaphore(diasRestantesN);
 
     final private boolean active = true;
-    private int videojuegosContador;
-    private int dayDuration;
-    private final Semaphore counterMutex = new Semaphore(1);
+    public int dayDuration;
+
 
     int totalDayCounter = 0;
 

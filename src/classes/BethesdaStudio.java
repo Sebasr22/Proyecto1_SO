@@ -1,17 +1,19 @@
 package classes;
 
+import interfaces.Dashboard;
 import java.util.concurrent.Semaphore;
 import java.util.Random;
 
 public class BethesdaStudio {
-
-    public static int diasRestantesB = 6;
+    public static int diasRestantesB = Dashboard.diasParaEntrega;
     public static int totalPayB = 0;
     public static int ingreso = 0;
     public static int utilidad = ingreso - totalPayB;
     public static int juegosGeneradosB = 0;
     public static int juegosDLCGeneradosB = 0;
-
+    public static int dayDuration;
+    public static int daysUntilLaunch;
+    
     // Capacidad de los drive de los desarrolladores
     static int capacidadDriveNB = 25;
     static int capacidadDriveNivelB = 20;
@@ -31,9 +33,6 @@ public class BethesdaStudio {
     public static Semaphore diasRestantesSem = new Semaphore(diasRestantesB);
 
     final private boolean active = true;
-    private int videojuegosContador;
-    private int dayDuration;
-    private final Semaphore counterMutex = new Semaphore(1);
 
     int totalDayCounter = 0;
 
@@ -47,6 +46,7 @@ public class BethesdaStudio {
 
     public BethesdaStudio(int dayDuration, int daysUntilLaunch) {
         this.dayDuration = dayDuration;
+        this.daysUntilLaunch = daysUntilLaunch;
     }
 
     // Lista de desarrolladores

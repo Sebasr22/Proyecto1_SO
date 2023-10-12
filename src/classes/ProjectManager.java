@@ -1,6 +1,7 @@
 package classes;
 
 import interfaces.Bethesda;
+import interfaces.Dashboard;
 import interfaces.Nintendo;
 import java.util.concurrent.Semaphore;
 
@@ -14,10 +15,10 @@ public class ProjectManager extends Thread {
 
     // Tiempos basados en que 1 dia de trabajo (24 horas) son 1000 milisegundos.
     int currentTime = 0;
-    int streamInterval = 21; // 30 minutos en milisegundos
-    int workInterval = 21;   // 30 minutos en milisegundos
-    int totalWorkTime = 666; // 16 horas en milisegundos 
-    int totalDayTime = 1000;  // 24 horas en milisegundos
+    int streamInterval = 21*Dashboard.duracionDiasSegundos; // 30 minutos en milisegundos
+    int workInterval = 21*Dashboard.duracionDiasSegundos;   // 30 minutos en milisegundos
+    int totalWorkTime = 666*Dashboard.duracionDiasSegundos; // 16 horas en milisegundos 
+    int totalDayTime = 1000*Dashboard.duracionDiasSegundos;  // 24 horas en milisegundos
 
     // Estados PM
     String estadoWork = "Trabajando";

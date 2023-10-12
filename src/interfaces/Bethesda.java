@@ -334,7 +334,7 @@ public class Bethesda extends javax.swing.JPanel {
 
         desarrolladoresRestantesB.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         desarrolladoresRestantesB.setForeground(new java.awt.Color(255, 255, 255));
-        desarrolladoresRestantesB.setText("14");
+        desarrolladoresRestantesB.setText("9");
         add(desarrolladoresRestantesB, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 20, 20));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -344,7 +344,7 @@ public class Bethesda extends javax.swing.JPanel {
 
         spinnnerNarrativaB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
         spinnnerNarrativaB.setValue(1);
-        add(spinnnerNarrativaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
+        add(spinnnerNarrativaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -368,7 +368,7 @@ public class Bethesda extends javax.swing.JPanel {
 
         spinnnerNivelB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
         spinnnerNivelB.setValue(1);
-        add(spinnnerNivelB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
+        add(spinnnerNivelB, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
 
         nivelesEnDriveB.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         nivelesEnDriveB.setForeground(new java.awt.Color(255, 255, 255));
@@ -386,7 +386,7 @@ public class Bethesda extends javax.swing.JPanel {
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 60, -1));
 
         spinnerDLCB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
-        add(spinnerDLCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, -1));
+        add(spinnerDLCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -404,7 +404,7 @@ public class Bethesda extends javax.swing.JPanel {
         add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
         spinnerSistemasB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
-        add(spinnerSistemasB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, -1, -1));
+        add(spinnerSistemasB, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, -1));
 
         SistemasEnDriveB.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         SistemasEnDriveB.setForeground(new java.awt.Color(255, 255, 255));
@@ -422,7 +422,7 @@ public class Bethesda extends javax.swing.JPanel {
         add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
         spinnerSpritesB.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11, 1));
-        add(spinnerSpritesB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, -1, -1));
+        add(spinnerSpritesB, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, -1, -1));
 
         estadoDirector.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         estadoDirector.setForeground(new java.awt.Color(255, 255, 255));
@@ -710,11 +710,9 @@ public class Bethesda extends javax.swing.JPanel {
     private javax.swing.JLabel desarrolladoresRestantesB;
     public static javax.swing.JLabel descontadoPM;
     public static javax.swing.JLabel diasParaEntrega;
-
     public static javax.swing.JLabel estadoDirector;
     public static javax.swing.JLabel estadoPMB;
     public static javax.swing.JLabel faltasPM;
-
     public static javax.swing.JLabel ganancia;
     public static javax.swing.JLabel guionesEnDriveB;
     private javax.swing.JLabel jLabel10;

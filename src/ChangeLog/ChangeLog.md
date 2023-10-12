@@ -1,4 +1,10 @@
 # Registro de Cambios
+## [1.0.35] - 12/10/2023 (Juandb1507)
+
+-  Creación archivo txt
+- Escritura y Lectura del archivo (diasParaEntregar y duracionDiasSegundos)
+- Se agregó a los sleep duracionDiasSegundos
+
 
 ## [1.0.34] - 12/10/2023 (Sebasr22)
 
