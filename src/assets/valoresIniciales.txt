@@ -1,5 +1,5 @@
 duracionDiasSegundos=1
-diasParaEntrega=30
+diasParaEntrega=10
 narrativaBethesda=1
 nivelesBethesda=1
 dlcsBethesda=1

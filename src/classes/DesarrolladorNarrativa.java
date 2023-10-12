@@ -6,6 +6,7 @@ package classes;
 
 import java.util.concurrent.Semaphore;
 import interfaces.Bethesda;
+import interfaces.Dashboard;
 import interfaces.Nintendo;
 
 /**
@@ -54,7 +55,7 @@ public class DesarrolladorNarrativa extends Thread {
                 int count = 0;
 
                 while (count <= diasParaGenerar) {
-                    Thread.sleep(1000);
+                    Thread.sleep(1000*Dashboard.duracionDiasSegundos);
                     payDayDesarrolladorNarrativa();
                     count++;
                 }
