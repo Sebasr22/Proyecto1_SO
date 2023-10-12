@@ -23,12 +23,16 @@ public class Bethesda extends javax.swing.JPanel {
     private int valorSpinnerIntegradoresB;
 
     public Bethesda() {
+        
         initComponents();
-        Bethesda.diasParaEntrega.setText(Integer.toString(BethesdaStudio.diasRestantesB));
-        Director director = new Director("B");
+        Bethesda.diasParaEntrega.setText(Integer.toString(BethesdaStudio.diasRestantesSem.availablePermits()));
+        
+        Director director = new Director(BethesdaStudio.diasRestantesSem,"B");
         director.start();
-        ProjectManager pm = new ProjectManager(10, "B");
+        
+        ProjectManager pm = new ProjectManager(BethesdaStudio.diasRestantesSem, "B");
         pm.start();
+        
         Funciones dia = new Funciones();
         dia.start();
 

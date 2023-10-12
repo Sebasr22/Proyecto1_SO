@@ -2,12 +2,13 @@ package classes;
 
 import interfaces.Bethesda;
 import interfaces.Nintendo;
+import java.util.concurrent.Semaphore;
 
 public class ProjectManager extends Thread {
 
-    int diasRestantesEntregaJuegos;
+    Semaphore diasRestantesEntregaJuegos;
     int totalPay;
-   public static boolean isWatchingStreams;
+    public static boolean isWatchingStreams;
     int sueldoPorHora;
     String studio;
 
@@ -22,8 +23,8 @@ public class ProjectManager extends Thread {
     String estadoWork = "Trabajando";
     String estadoStreams = "Viendo streams";
 
-    public ProjectManager(int diasRestantes, String studio) {
-        this.diasRestantesEntregaJuegos = diasRestantes;
+    public ProjectManager(Semaphore diasRestantesEntregaJuegos, String studio) {
+        this.diasRestantesEntregaJuegos = diasRestantesEntregaJuegos;
         this.totalPay = 0;
         this.isWatchingStreams = false;
         this.sueldoPorHora = 20;
@@ -96,17 +97,17 @@ public class ProjectManager extends Thread {
 
     private void changeDaysRemaining() {
         try {
-if ("B".equals(studio)) {
-            // Cambia el contador de días restantes
-            BethesdaStudio.diasRestantesB--;
-            Bethesda.actualizarDiasParaEntregaB(BethesdaStudio.diasRestantesB);
-            currentTime = 0;
-        } else {
-            // Cambia el contador de días restantes
-            NintendoStudio.diasRestantesN--;
-            Nintendo.actualizarDiasParaEntrega(NintendoStudio.diasRestantesN);
-            currentTime = 0;
-        }
+            if ("B".equals(studio)) {
+                // Cambia el contador de días restantes
+                diasRestantesEntregaJuegos.acquire(1);
+                Bethesda.actualizarDiasParaEntregaB(diasRestantesEntregaJuegos.availablePermits());
+                currentTime = 0;
+            } else {
+                // Cambia el contador de días restantes
+                diasRestantesEntregaJuegos.acquire(1);
+                Nintendo.actualizarDiasParaEntrega(diasRestantesEntregaJuegos.availablePermits());
+                currentTime = 0;
+            }
             // Simula el tiempo que lleva cambiar el contador
             Thread.sleep(100); // Tiempo despreciable
         } catch (InterruptedException e) {
