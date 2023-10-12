@@ -42,12 +42,12 @@ public class ProjectManager extends Thread {
                     currentTime += (workInterval + streamInterval);
                 }
 
-                changeDaysRemaining();
-                payDayPM();
-
                 // Simula el paso del tiempo restante 
                 int tiempoRestanteDia = totalDayTime - totalWorkTime;
-                Thread.sleep(tiempoRestanteDia); // 1 segundo
+                Thread.sleep(tiempoRestanteDia);
+
+                changeDaysRemaining();
+                payDayPM();
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
