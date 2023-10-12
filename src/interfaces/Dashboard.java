@@ -39,6 +39,7 @@ public class Dashboard extends javax.swing.JPanel {
      */
     public Dashboard() {
         initComponents();
+        cargarValoresDesdeArchivo();
         guardar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 guardarValoresEnArchivo();
@@ -389,7 +390,83 @@ public class Dashboard extends javax.swing.JPanel {
             ex.printStackTrace();
         }
     }
-
+public static void cargarValoresDesdeArchivoSpinners() {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("src\\assets\\valoresIniciales.txt"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // Divide la línea en partes para extraer el nombre y el valor
+                String[] parts = line.split(" = ");
+                if (parts.length == 2) {
+                    String nombre = parts[0];
+                    int valor = Integer.parseInt(parts[1]);
+                    // Asigna el valor a la variable correspondiente
+                    switch (nombre) {
+                        case "Duración de días (segundos)":
+                         
+                            spinnerDuracionDias.setValue(valor); // Actualiza el Spinner
+                            break;
+                        case "Días para entrega":
+                          
+                            spinnerDiasParaEntrega.setValue(valor); // Actualiza el Spinner
+                            break;
+                        case "Narrativa (Bethesda)":
+                            
+                            spinnnerNarrativaB.setValue(valor); // Actualiza el Spinner
+                            break;
+                        case "Niveles (Bethesda)":
+                           
+                            spinnnerNivelB.setValue(valor); // Actualiza el Spinner
+                            break;
+                        case "DLC's (Bethesda)":
+                           
+                            spinnerDLCB.setValue(valor); // Actualiza el Spinner
+                            break;
+                        case "Sistemas (Bethesda)":
+                           
+                            spinnerSistemasB.setValue(valor); // Actualiza el Spinner
+                            break;
+                        case "Sprites (Bethesda)":
+                            
+                            spinnerSpritesB.setValue(valor); // Actualiza el Spinner
+                            break;
+                        case "Integradores (Bethesda)":
+                            
+                            spinnerIntegradoresB.setValue(valor); // Actualiza el Spinner
+                            break;
+                        case "Narrativa (Nintendo)":
+                            
+                            spinnnerNarrativaN.setValue(valor); // Actualiza el Spinner
+                            break;
+                        case "Niveles (Nintendo)":
+                            
+                            spinnnerNivelN.setValue(valor); // Actualiza el Spinner
+                            break;
+                        case "DLC's (Nintendo)":
+                            
+                            spinnerDLCN.setValue(valor); // Actualiza el Spinner
+                            break;
+                        case "Sistemas (Nintendo)":
+                            
+                            spinnerSistemasN.setValue(valor); // Actualiza el Spinner
+                            break;
+                        case "Sprites (Nintendo)":
+                           
+                            spinnerSpritesN.setValue(valor); // Actualiza el Spinner
+                            break;
+                        case "Integradores (Nintendo)":
+                            
+                            spinnerIntegradoresN.setValue(valor); // Actualiza el Spinner
+                            break;
+                    }
+                }
+            }
+            reader.close();
+        } catch (IOException ex) {
+            // Maneja la excepción si ocurre algún error al leer el archivo
+            ex.printStackTrace();
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel desarrolladoresRestantesB;
