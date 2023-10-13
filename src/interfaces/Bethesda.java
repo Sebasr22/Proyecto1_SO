@@ -338,6 +338,8 @@ public class Bethesda extends javax.swing.JPanel {
         descontadoPM = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         SpritesEnDriveB = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        JuegosTotalesB = new javax.swing.JLabel();
         FondoBethesda = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(720, 603));
@@ -578,6 +580,16 @@ public class Bethesda extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 130, 180));
 
+        jLabel27.setFont(new java.awt.Font("Microsoft Tai Le", 1, 18)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setText("Juegos Generados Totales:");
+        add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 540, -1, -1));
+
+        JuegosTotalesB.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        JuegosTotalesB.setForeground(new java.awt.Color(0, 0, 0));
+        JuegosTotalesB.setText("0");
+        add(JuegosTotalesB, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 540, 60, -1));
+
         FondoBethesda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/BethesdaBackgroundDoom.jpg"))); // NOI18N
         add(FondoBethesda, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, -130, 820, 830));
     }// </editor-fold>//GEN-END:initComponents
@@ -708,6 +720,18 @@ public class Bethesda extends javax.swing.JPanel {
         diasParaEntrega.setText(Integer.toString(nuevoValor));
     }
 
+    public static JLabel getJuegosTotalesB() {
+        return JuegosTotalesB;
+    }
+
+    public static void setJuegosTotalesB(JLabel JuegosTotalesB) {
+        Bethesda.JuegosTotalesB = JuegosTotalesB;
+    }
+
+    public static void actualizarJuegosTotalesB(int nuevoValor) {
+        JuegosTotalesB.setText(Integer.toString(nuevoValor));
+    }
+
     public static JLabel getEstadoDirector() {
         return estadoDirector;
     }
@@ -739,6 +763,7 @@ public class Bethesda extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel DLCEnDriveB;
     private javax.swing.JLabel FondoBethesda;
+    public static javax.swing.JLabel JuegosTotalesB;
     private javax.swing.JLabel LogoBethesda;
     public static javax.swing.JLabel SistemasEnDriveB;
     public static javax.swing.JLabel SpritesEnDriveB;
@@ -769,6 +794,7 @@ public class Bethesda extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel26;
+    public static javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
