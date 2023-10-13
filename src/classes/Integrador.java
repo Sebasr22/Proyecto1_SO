@@ -38,6 +38,8 @@ public class Integrador extends Thread {
     int diasParaGenerar;
     boolean activo;
     Semaphore driveJuegos;
+    public static int juegosGeneradosTotalesB = 0;
+    public static int juegosGeneradosTotalesN = 0;
     int juegosGenerados;
     int juegosDLCGenerados;
     int countJuegos;
@@ -102,7 +104,7 @@ public class Integrador extends Thread {
                 if (DesarrolladorNarrativa.getGuionesSubidosDriveB() >= guionesNecesarios && DesarrolladorNiveles.getNivelesSubidosDriveB() >= nivelesNecesarios && DesarrolladorDLC.getDlcsSubidosDriveB() >= DLCNecesarios && DesarrolladorLogica.getSistemasSubidosDriveB() >= sistemasNecesarios) {
                     try {
                         // Tiempo de armado (2 dias)
-                        Thread.sleep(2000*Dashboard.duracionDiasSegundos);
+                        Thread.sleep(2000 * Dashboard.duracionDiasSegundos);
 
                         // LIBERAR Y ACTUALIZAR VALORES EN LA INTERFAZ
                         // Guiones
@@ -126,9 +128,9 @@ public class Integrador extends Thread {
                         DesarrolladorSprites.setSpritesSubidosDriveB(spritesNecesarios);
 
                         countJuegosDLCGeneradosB++;
+                        juegosGeneradosTotalesB++;
                         Bethesda.actualizarJuegosDLCGenerados(countJuegosDLCGeneradosB);
                         countJuegos = 0; // Se reinicia el contador de juegos para poder contar otra vez la cantidad de juegos necesarios para desarrollar uno con DLC.
-                        System.out.println("SE GENERO UN JUEGOOOOOOOOOOOOOO");
                     } catch (InterruptedException ex) {
                         System.out.println("testttt");
                     }
@@ -139,7 +141,7 @@ public class Integrador extends Thread {
                 if (DesarrolladorNarrativa.getGuionesSubidosDriveB() >= guionesNecesarios && DesarrolladorNiveles.getNivelesSubidosDriveB() >= nivelesNecesarios && DesarrolladorLogica.getSistemasSubidosDriveB() >= sistemasNecesarios && DesarrolladorSprites.getSpritesSubidosDriveB() >= spritesNecesarios) {
                     try {
                         // Tiempo de armado (2 dias)
-                        Thread.sleep(2000*Dashboard.duracionDiasSegundos);
+                        Thread.sleep(2000 * Dashboard.duracionDiasSegundos);
 
                         // LIBERAR Y ACTUALIZAR VALORES EN LA INTERFAZ
                         // Guiones
@@ -159,9 +161,9 @@ public class Integrador extends Thread {
                         DesarrolladorSprites.setSpritesSubidosDriveB(spritesNecesarios);
 
                         countJuegosGeneradosB++;
+                        juegosGeneradosTotalesB++;
                         Bethesda.actualizarJuegosGenerados(countJuegosGeneradosB);
                         countJuegos++;
-                        System.out.println("SE GENERO UN JUEGOIOOOOOOOOOOOOO");
                     } catch (InterruptedException ex) {
                         System.out.println("testttt");
                     }
@@ -169,13 +171,14 @@ public class Integrador extends Thread {
                     System.out.println("No hay recursos suficientes para generar el juego");
                 }
             }
+            Bethesda.actualizarJuegosTotalesB(juegosGeneradosTotalesB);
         } else {
             // NINTENDO
             if (countJuegos == 5) {
                 if (DesarrolladorNarrativa.getGuionesSubidosDriveN() >= guionesNecesarios && DesarrolladorNiveles.getNivelesSubidosDriveN() >= nivelesNecesarios && DesarrolladorDLC.getDlcsSubidosDriveN() >= DLCNecesarios && DesarrolladorLogica.getSistemasSubidosDriveN() >= sistemasNecesarios) {
                     try {
                         // Tiempo de armado (2 dias)
-                        Thread.sleep(2000*Dashboard.duracionDiasSegundos);
+                        Thread.sleep(2000 * Dashboard.duracionDiasSegundos);
 
                         // LIBERAR Y ACTUALIZAR VALORES EN LA INTERFAZ
                         // Guiones
@@ -199,9 +202,9 @@ public class Integrador extends Thread {
                         DesarrolladorSprites.setSpritesSubidosDriveN(spritesNecesarios);
 
                         countJuegosDLCGeneradosN++;
+                        juegosGeneradosTotalesN++;
                         Nintendo.actualizarJuegosDLCGenerados(countJuegosDLCGeneradosN);
                         countJuegos = 0; // Se reinicia el contador de juegos para poder contar otra vez la cantidad de juegos necesarios para desarrollar uno con DLC.
-                        System.out.println("SE GENERO UN JUEGOOOOOOOOOOOOOO");
                     } catch (InterruptedException ex) {
                         System.out.println("testttt");
                     }
@@ -212,7 +215,7 @@ public class Integrador extends Thread {
                 if (DesarrolladorNarrativa.getGuionesSubidosDriveN() >= guionesNecesarios && DesarrolladorNiveles.getNivelesSubidosDriveN() >= nivelesNecesarios && DesarrolladorLogica.getSistemasSubidosDriveN() >= sistemasNecesarios && DesarrolladorSprites.getSpritesSubidosDriveN() >= spritesNecesarios) {
                     try {
                         // Tiempo de armado (2 dias)
-                        Thread.sleep(2000*Dashboard.duracionDiasSegundos);
+                        Thread.sleep(2000 * Dashboard.duracionDiasSegundos);
 
                         // LIBERAR Y ACTUALIZAR VALORES EN LA INTERFAZ
                         // Guiones
@@ -232,9 +235,9 @@ public class Integrador extends Thread {
                         DesarrolladorSprites.setSpritesSubidosDriveN(spritesNecesarios);
 
                         countJuegosGeneradosN++;
+                        juegosGeneradosTotalesN++;
                         Nintendo.actualizarJuegosGenerados(countJuegosGeneradosN);
                         countJuegos++;
-                        System.out.println("SE GENERO UN JUEGOOOOOOOOOOOOOO");
                     } catch (InterruptedException ex) {
                         System.out.println("testttt");
                     }
@@ -242,6 +245,7 @@ public class Integrador extends Thread {
                     System.out.println("No hay recursos suficientes para generar el juego");
                 }
             }
+            Nintendo.actualizarJuegosGeneradosTotalesN(juegosGeneradosTotalesN);
         }
     }
 
@@ -249,7 +253,7 @@ public class Integrador extends Thread {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(1000*Dashboard.duracionDiasSegundos);
+                Thread.sleep(1000 * Dashboard.duracionDiasSegundos);
                 payDayEnsamblador();
                 generarVideoJuego();
             } catch (InterruptedException ex) {
@@ -257,5 +261,4 @@ public class Integrador extends Thread {
             }
         }
     }
-
 }
