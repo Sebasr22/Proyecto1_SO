@@ -23,20 +23,20 @@ public class Nintendo extends javax.swing.JPanel {
     private int valorSpinnerIntegradoresN;
 
     public Nintendo() {
-        
+
         initComponents();
-        
+
         Nintendo.diasParaEntrega.setText(Integer.toString(NintendoStudio.diasRestantesSem.availablePermits()));
-        
+
         Director director = new Director(NintendoStudio.diasRestantesSem, "N");
         director.start();
-        
+
         ProjectManager pm = new ProjectManager(NintendoStudio.diasRestantesSem, "N");
         pm.start();
-        
+
         Funciones dia = new Funciones();
         dia.start();
-        
+
         // SPINNER NARRATIVA
         valorSpinnerN = (int) spinnnerNarrativaN.getValue();
         if (valorSpinnerN == 1) {
@@ -248,7 +248,7 @@ public class Nintendo extends javax.swing.JPanel {
                 valorSpinnerIntegradoresN = nuevoValorSpinnerIntegradoresN;
             }
         });
-    Dashboard.generarGrafico();
+        Dashboard.generarGrafico();
     }
 
     public static void actualizarGuionesEnDrive(int nuevoValor) {
@@ -326,6 +326,8 @@ public class Nintendo extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        JuegosTotalesN = new javax.swing.JLabel();
         mario = new javax.swing.JLabel();
         nintendoBackground = new javax.swing.JLabel();
 
@@ -464,7 +466,7 @@ public class Nintendo extends javax.swing.JPanel {
         jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("Project Manager");
-        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 130, -1));
 
         jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(0, 0, 0));
@@ -569,6 +571,16 @@ public class Nintendo extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/marioMushroom.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, 200, 200));
 
+        jLabel27.setFont(new java.awt.Font("Microsoft Tai Le", 1, 18)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel27.setText("Juegos Generados Totales:");
+        add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 510, -1, -1));
+
+        JuegosTotalesN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        JuegosTotalesN.setForeground(new java.awt.Color(255, 255, 255));
+        JuegosTotalesN.setText("0");
+        add(JuegosTotalesN, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 510, 70, -1));
+
         mario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/mario.png"))); // NOI18N
         mario.setText("jLabel3");
         add(mario, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, -1, -1));
@@ -600,6 +612,18 @@ public class Nintendo extends javax.swing.JPanel {
 
     public static void actualizarJuegosDLCGenerados(int nuevoValor) {
         juegosDLCGeneradosN.setText(Integer.toString(nuevoValor));
+    }
+
+    public static JLabel getJuegosTotalesN() {
+        return JuegosTotalesN;
+    }
+
+    public static void setJuegosTotalesN(JLabel JuegosTotalesN) {
+        Nintendo.JuegosTotalesN = JuegosTotalesN;
+    }
+
+    public static void actualizarJuegosGeneradosTotalesN(int nuevoValor) {
+        JuegosTotalesN.setText(Integer.toString(nuevoValor));
     }
 
     public static JLabel getDLCEnDriveN() {
@@ -713,6 +737,7 @@ public class Nintendo extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel DLCEnDriveN;
+    public static javax.swing.JLabel JuegosTotalesN;
     public static javax.swing.JLabel SistemasEnDriveN;
     public static javax.swing.JLabel SpritesEnDriveN;
     public static javax.swing.JLabel costosOperativosN;
@@ -743,6 +768,7 @@ public class Nintendo extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

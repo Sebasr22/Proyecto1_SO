@@ -62,7 +62,6 @@ public class Director extends Thread {
     public void entregarJuegos() {
 
         if ("B".equals(studio)) {
-            System.out.println("SE ENTREGARON JUEGOS BETHESDA");
             ingresoB += Integrador.countJuegosGeneradosB * 450000;
             ingresoB += Integrador.countJuegosDLCGeneradosB * 900000;
             Integrador.countJuegosGeneradosB = 0;
