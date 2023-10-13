@@ -1,4 +1,9 @@
 # Registro de Cambios
+## [1.0.40] - 12/10/2023 (Juandb1507)
+
+- Lógica para limitar la cantidad de desarrolladores por estudio
+
+
 ## [1.0.39] - 12/10/2023 (Juandb1507)
 
 - Creación clase UtilidadChart
