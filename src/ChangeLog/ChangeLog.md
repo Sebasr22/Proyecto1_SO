@@ -1,4 +1,10 @@
 # Registro de Cambios
+
+## [1.0.41] - 12/10/2023 (Sebasr22)
+
+- Se agregaron juegos totales en ambas empresas.
+- Arreglos finales.
+
 ## [1.0.39] - 12/10/2023 (Juandb1507)
 
 - Creación clase UtilidadChart
