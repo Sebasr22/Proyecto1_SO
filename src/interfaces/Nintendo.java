@@ -23,20 +23,20 @@ public class Nintendo extends javax.swing.JPanel {
     private int valorSpinnerIntegradoresN;
 
     public Nintendo() {
-        
+
         initComponents();
-        
+
         Nintendo.diasParaEntrega.setText(Integer.toString(NintendoStudio.diasRestantesSem.availablePermits()));
-        
+
         Director director = new Director(NintendoStudio.diasRestantesSem, "N");
         director.start();
-        
+
         ProjectManager pm = new ProjectManager(NintendoStudio.diasRestantesSem, "N");
         pm.start();
-        
+
         Funciones dia = new Funciones();
         dia.start();
-        
+
         // SPINNER NARRATIVA
         valorSpinnerN = (int) spinnnerNarrativaN.getValue();
         if (valorSpinnerN == 1) {
@@ -48,16 +48,20 @@ public class Nintendo extends javax.swing.JPanel {
             @Override
             public void stateChanged(ChangeEvent e) {
                 int nuevoValorSpinner = (int) spinnnerNarrativaN.getValue();
-
+                int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesN.getText());
                 if (nuevoValorSpinner > valorSpinnerN) {
-
-                    //FUNCION CREAR DESARROLLADOR NARRATIVA
-                    // Llama a la función para crear un desarrollador de narrativa
-                    NintendoStudio.crearDesarrolladorNarrativa(NintendoStudio.driveN, 0, 4, "N", true);   //MODIFICAR VALORES (LISTOOOO)
-                    // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
-                    int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
-                    valorActual--;
-                    desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                    if (desarrolladoresRestantes > 0) {
+                        //FUNCION CREAR DESARROLLADOR NARRATIVA
+                        // Llama a la función para crear un desarrollador de narrativa
+                        NintendoStudio.crearDesarrolladorNarrativa(NintendoStudio.driveN, 0, 4, "N", true);   //MODIFICAR VALORES (LISTOOOO)
+                        // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
+                        int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
+                        valorActual--;
+                        desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                        valorSpinnerN = nuevoValorSpinner;
+                    } else {
+                        spinnnerNarrativaN.setValue(valorSpinnerN);
+                    }
                 } else if (nuevoValorSpinner < valorSpinnerN) {
                     //FUNCION STOP DESARROLLADOR NARRATIVA
                     NintendoStudio.stopDesarrolladorNarrativaAleatorio();
@@ -65,10 +69,10 @@ public class Nintendo extends javax.swing.JPanel {
                     int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
                     valorActual++;
                     desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                    valorSpinnerN = nuevoValorSpinner;
                 }
 
                 // Actualiza valorSpinner con el nuevo valor del JSpinner
-                valorSpinnerN = nuevoValorSpinner;
             }
         });
         //SPINNER NIVELES-----------------------------------------------
@@ -85,16 +89,21 @@ public class Nintendo extends javax.swing.JPanel {
             public void stateChanged(ChangeEvent e) {
                 // Obtén el nuevo valor del JSpinner
                 int nuevoValorSpinnerLvl = (int) spinnnerNivelN.getValue();
-
+                int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesN.getText());
                 // Compara el nuevo valor del JSpinner con valorSpinner
                 if (nuevoValorSpinnerLvl > valorSpinnerLvl) {
-                    //FUNCION CREAR DESARROLLADOR NARRATIVA
-                    // Llama a la función para crear un desarrollador de nivel
-                    NintendoStudio.crearDesarrolladorNivel(NintendoStudio.driveNivelN, 0, 4, "N", true); // (LISTOOOO Los valores)
-                    // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
-                    int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
-                    valorActual--;
-                    desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                    if (desarrolladoresRestantes > 0) {
+                        //FUNCION CREAR DESARROLLADOR NARRATIVA
+                        // Llama a la función para crear un desarrollador de nivel
+                        NintendoStudio.crearDesarrolladorNivel(NintendoStudio.driveNivelN, 0, 4, "N", true); // (LISTOOOO Los valores)
+                        // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
+                        int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
+                        valorActual--;
+                        desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                        valorSpinnerLvl = nuevoValorSpinnerLvl;
+                    } else {
+                        spinnnerNivelN.setValue(valorSpinnerLvl);
+                    }
                 } else if (nuevoValorSpinnerLvl < valorSpinnerLvl) {
 
                     //FUNCION STOP DESARROLLADOR NIVEL
@@ -103,10 +112,10 @@ public class Nintendo extends javax.swing.JPanel {
                     int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
                     valorActual++;
                     desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                    valorSpinnerLvl = nuevoValorSpinnerLvl;
                 }
 
                 // Actualiza valorSpinner con el nuevo valor del JSpinner
-                valorSpinnerLvl = nuevoValorSpinnerLvl;
             }
         });
 
@@ -124,16 +133,21 @@ public class Nintendo extends javax.swing.JPanel {
             public void stateChanged(ChangeEvent e) {
                 // Obtén el nuevo valor del JSpinner
                 int nuevoValorSpinnerDLCB = (int) spinnerDLCN.getValue();
-
+                int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesN.getText());
                 // Compara el nuevo valor del JSpinner con valorSpinnerDLCB
                 if (nuevoValorSpinnerDLCB > valorSpinnerDLCN) {
-                    //FUNCION CREAR DESARROLLADOR DLC
-                    // Llama a la función para crear un desarrollador de DLC
-                    NintendoStudio.crearDesarrolladorDLC(NintendoStudio.driveDLCN, 0, 2, "N", true); // (LISTOOOO Los valores)
-                    // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
-                    int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
-                    valorActual--;
-                    desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                    if (desarrolladoresRestantes > 0) {
+                        //FUNCION CREAR DESARROLLADOR DLC
+                        // Llama a la función para crear un desarrollador de DLC
+                        NintendoStudio.crearDesarrolladorDLC(NintendoStudio.driveDLCN, 0, 2, "N", true); // (LISTOOOO Los valores)
+                        // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
+                        int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
+                        valorActual--;
+                        desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                        valorSpinnerDLCN = nuevoValorSpinnerDLCB;
+                    } else {
+                        spinnerDLCN.setValue(valorSpinnerDLCN);
+                    }
                 } else if (nuevoValorSpinnerDLCB < valorSpinnerDLCN) {
                     //FUNCION STOP DESARROLLADOR DLC
                     NintendoStudio.stopDesarrolladorDLCAleatorio();
@@ -141,10 +155,9 @@ public class Nintendo extends javax.swing.JPanel {
                     int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
                     valorActual++;
                     desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                    valorSpinnerDLCN = nuevoValorSpinnerDLCB;
                 }
 
-                // Actualiza valorSpinnerDLCB con el nuevo valor del JSpinner
-                valorSpinnerDLCN = nuevoValorSpinnerDLCB;
             }
         });
 
@@ -160,14 +173,18 @@ public class Nintendo extends javax.swing.JPanel {
             public void stateChanged(ChangeEvent e) {
 
                 int nuevoValorSpinnerSistemasB = (int) spinnerSistemasN.getValue();
-
+                int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesN.getText());
                 if (nuevoValorSpinnerSistemasB > valorSpinnerSistemasN) {
+                    if (desarrolladoresRestantes > 0) {
+                        NintendoStudio.crearDesarrolladorLogic(NintendoStudio.driveLogicN, 1, 0, "N", true); // (LISTOOOO Los valores)
 
-                    NintendoStudio.crearDesarrolladorLogic(NintendoStudio.driveLogicN, 1, 0, "N", true); // (LISTOOOO Los valores)
-
-                    int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
-                    valorActual--;
-                    desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                        int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
+                        valorActual--;
+                        desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                        valorSpinnerSistemasN = nuevoValorSpinnerSistemasB;
+                    } else {
+                        spinnerSistemasN.setValue(valorSpinnerSistemasN);
+                    }
 
                 } else if (nuevoValorSpinnerSistemasB < valorSpinnerSistemasN) {
 
@@ -176,9 +193,9 @@ public class Nintendo extends javax.swing.JPanel {
                     int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
                     valorActual++;
                     desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                    valorSpinnerSistemasN = nuevoValorSpinnerSistemasB;
                 }
 
-                valorSpinnerSistemasN = nuevoValorSpinnerSistemasB;
             }
         });
 
@@ -194,14 +211,18 @@ public class Nintendo extends javax.swing.JPanel {
             public void stateChanged(ChangeEvent e) {
 
                 int nuevoValorSpinnerSpritesB = (int) spinnerSpritesN.getValue();
-
+                int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesN.getText());
                 if (nuevoValorSpinnerSpritesB > valorSpinnerSpritesN) {
+                    if (desarrolladoresRestantes > 0) {
+                        NintendoStudio.crearDesarrolladorSprites(NintendoStudio.driveSpritesN, 1, 0, "N", true); // (LISTOOOO Los valores)
 
-                    NintendoStudio.crearDesarrolladorSprites(NintendoStudio.driveSpritesN, 1, 0, "N", true); // (LISTOOOO Los valores)
-
-                    int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
-                    valorActual--;
-                    desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                        int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
+                        valorActual--;
+                        desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                        valorSpinnerSpritesN = nuevoValorSpinnerSpritesB;
+                    } else {
+                        spinnerSpritesN.setValue(valorSpinnerSpritesN);
+                    }
 
                 } else if (nuevoValorSpinnerSpritesB < valorSpinnerSpritesN) {
 
@@ -210,9 +231,9 @@ public class Nintendo extends javax.swing.JPanel {
                     int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
                     valorActual++;
                     desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                    valorSpinnerSpritesN = nuevoValorSpinnerSpritesB;
                 }
 
-                valorSpinnerSpritesN = nuevoValorSpinnerSpritesB;
             }
         });
 
@@ -227,29 +248,35 @@ public class Nintendo extends javax.swing.JPanel {
             public void stateChanged(ChangeEvent e) {
 
                 int nuevoValorSpinnerIntegradoresN = (int) spinnerIntegradorN.getValue();
-
+                int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesN.getText());
                 if (nuevoValorSpinnerIntegradoresN > valorSpinnerIntegradoresN) {
+                    if (desarrolladoresRestantes > 0) {
+                        NintendoStudio.crearIntegrador(NintendoStudio.driveJuegosN, NintendoStudio.driveN, NintendoStudio.driveNivelN, NintendoStudio.driveDLCN, NintendoStudio.driveLogicN, NintendoStudio.driveSpritesN, NintendoStudio.juegosGeneradosN, NintendoStudio.juegosDLCGeneradosN, 2, 2, 1, 4, 4, 2, "N", true);
 
-                    NintendoStudio.crearIntegrador(NintendoStudio.driveJuegosN, NintendoStudio.driveN, NintendoStudio.driveNivelN, NintendoStudio.driveDLCN, NintendoStudio.driveLogicN, NintendoStudio.driveSpritesN, NintendoStudio.juegosGeneradosN, NintendoStudio.juegosDLCGeneradosN, 2, 2, 1, 4, 4, 2, "N", true);
+                        int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
+                        valorActual--;
+                        desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                    valorSpinnerIntegradoresN = nuevoValorSpinnerIntegradoresN;}
+                    else{
+                         spinnerIntegradorN.setValue(valorSpinnerIntegradoresN);
+                    }
 
-                    int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
-                    valorActual--;
-                    desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                    } else if (nuevoValorSpinnerIntegradoresN < valorSpinnerIntegradoresN) {
 
-                } else if (nuevoValorSpinnerIntegradoresN < valorSpinnerIntegradoresN) {
+                        NintendoStudio.stopIntegradorAleatorio();
 
-                    NintendoStudio.stopIntegradorAleatorio();
+                        int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
+                        valorActual++;
+                        desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                    valorSpinnerIntegradoresN = nuevoValorSpinnerIntegradoresN;}
 
-                    int valorActual = Integer.parseInt(desarrolladoresRestantesN.getText());
-                    valorActual++;
-                    desarrolladoresRestantesN.setText(Integer.toString(valorActual));
+                    
                 }
-
-                valorSpinnerIntegradoresN = nuevoValorSpinnerIntegradoresN;
             }
-        });
-    Dashboard.generarGrafico();
-    }
+
+            );
+            Dashboard.generarGrafico (); //Genera el gráfico de utilidad
+        }
 
     public static void actualizarGuionesEnDrive(int nuevoValor) {
         guionesEnDriveN.setText(Integer.toString(nuevoValor));
