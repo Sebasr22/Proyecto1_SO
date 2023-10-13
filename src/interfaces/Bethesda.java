@@ -138,7 +138,7 @@ public class Bethesda extends javax.swing.JPanel {
             public void stateChanged(ChangeEvent e) {
                 // Obtén el nuevo valor del JSpinner
                 int nuevoValorSpinnerDLCB = (int) spinnerDLCB.getValue();
-
+                int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesB.getText());
                 // Compara el nuevo valor del JSpinner con valorSpinnerDLCB
                 if (nuevoValorSpinnerDLCB > valorSpinnerDLCB) {
                     //FUNCION CREAR DESARROLLADOR DLC
@@ -174,7 +174,7 @@ public class Bethesda extends javax.swing.JPanel {
             public void stateChanged(ChangeEvent e) {
 
                 int nuevoValorSpinnerSistemasB = (int) spinnerSistemasB.getValue();
-
+int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesB.getText());
                 if (nuevoValorSpinnerSistemasB > valorSpinnerSistemasB) {
 
                     BethesdaStudio.crearDesarrolladorLogic(BethesdaStudio.driveLogicB, 1, 0, "B", true);
