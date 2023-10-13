@@ -57,7 +57,8 @@ public class Bethesda extends javax.swing.JPanel {
                 int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesB.getText());
 
                 // Compara el nuevo valor del JSpinner con valorSpinner
-                if (nuevoValorSpinner > valorSpinnerN && desarrolladoresRestantes > 0) {
+                if (nuevoValorSpinner > valorSpinnerN) {
+                    if(desarrolladoresRestantes > 0){
                     //FUNCION CREAR DESARROLLADOR NARRATIVA
                     // Llama a la función para crear un desarrollador de narrativa
                     BethesdaStudio.crearDesarrolladorNarrativa(BethesdaStudio.driveNB, 0, 4, "B", true);
@@ -65,7 +66,10 @@ public class Bethesda extends javax.swing.JPanel {
                     int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
                     valorActual--;
                     desarrolladoresRestantesB.setText(Integer.toString(valorActual));
-                } else if (nuevoValorSpinner < valorSpinnerN) {
+                    }else{
+                    spinnnerNarrativaB.setValue(valorSpinnerN);
+                }}
+                else if (nuevoValorSpinner < valorSpinnerN) {
                     //FUNCION STOP DESARROLLADOR NARRATIVA
                     BethesdaStudio.stopDesarrolladorNarrativaAleatorio();
                     // Suma 1 a desarrolladoresRestantesB si el nuevo valor es menor
@@ -73,7 +77,6 @@ public class Bethesda extends javax.swing.JPanel {
                     valorActual++;
                     desarrolladoresRestantesB.setText(Integer.toString(valorActual));
                 }
-
                 // Actualiza valorSpinner con el nuevo valor del JSpinner
                 valorSpinnerN = nuevoValorSpinner;
             }
