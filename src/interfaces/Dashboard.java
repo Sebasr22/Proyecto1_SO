@@ -5,6 +5,7 @@
  */
 package interfaces;
 
+import classes.UtilidadChart;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -37,7 +38,7 @@ public class Dashboard extends javax.swing.JPanel {
     public Dashboard() {
         initComponents();
         cargarValoresDesdeArchivo();
-        cargarValoresEnSpinners();
+        cargarValoresEnSpinners(); 
         
     }
 public static void cargarValoresDesdeArchivo() {
@@ -136,6 +137,10 @@ public static void cargarValoresDesdeArchivo() {
         spinnerSpritesN.setValue(spritesNintendo);
         spinnerIntegradoresN.setValue(integradoresNintendo);
     }
+    public static void generarGrafico(){
+        UtilidadChart chart = new UtilidadChart(); // Crea una instancia de UtilidadChart
+        chartPanel.add(chart); // Agrega el gráfico a chartPanel
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -147,9 +152,9 @@ public static void cargarValoresDesdeArchivo() {
 
         spinnerDuracionDias = new javax.swing.JSpinner();
         spinnerDiasParaEntrega = new javax.swing.JSpinner();
+        chartPanel = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -190,10 +195,11 @@ public static void cargarValoresDesdeArchivo() {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         spinnerDuracionDias.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        add(spinnerDuracionDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, 30, -1));
+        add(spinnerDuracionDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 30, -1));
 
         spinnerDiasParaEntrega.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        add(spinnerDiasParaEntrega, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, 40, -1));
+        add(spinnerDiasParaEntrega, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 40, -1));
+        add(chartPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 430, 410));
 
         jLabel22.setBackground(new java.awt.Color(255, 255, 255));
         jLabel22.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
@@ -204,17 +210,12 @@ public static void cargarValoresDesdeArchivo() {
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Valores Iniciales");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, -1, -1));
-
-        jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("Duración del días (segundos) = ");
-        add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, -1));
 
         jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Días para entrega = ");
-        add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, 20));
+        add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, 20));
 
         jButton1.setBackground(new java.awt.Color(51, 204, 0));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -229,8 +230,9 @@ public static void cargarValoresDesdeArchivo() {
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 80, 30));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Duración del días (segundos) = ");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -248,7 +250,7 @@ public static void cargarValoresDesdeArchivo() {
 
         desarrolladoresRestantesB.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         desarrolladoresRestantesB.setForeground(new java.awt.Color(255, 255, 255));
-        desarrolladoresRestantesB.setText("14");
+        desarrolladoresRestantesB.setText("9");
         jPanel1.add(desarrolladoresRestantesB, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 20, 20));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -363,10 +365,10 @@ public static void cargarValoresDesdeArchivo() {
 
         desarrolladoresRestantesN.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         desarrolladoresRestantesN.setForeground(new java.awt.Color(255, 255, 255));
-        desarrolladoresRestantesN.setText("14");
+        desarrolladoresRestantesN.setText("12");
         jPanel1.add(desarrolladoresRestantesN, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 20, 20));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 260, 390));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 280, 410));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dashboard_background.png"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 580));
@@ -379,6 +381,7 @@ public static void cargarValoresDesdeArchivo() {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
+    public static javax.swing.JPanel chartPanel;
     private javax.swing.JLabel desarrolladoresRestantesB;
     private javax.swing.JLabel desarrolladoresRestantesN;
     private javax.swing.JButton jButton1;
@@ -395,7 +398,6 @@ public static void cargarValoresDesdeArchivo() {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
