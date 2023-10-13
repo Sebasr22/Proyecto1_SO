@@ -1,4 +1,8 @@
 # Registro de Cambios
+## [1.0.39] - 12/10/2023 (Juandb1507)
+
+- Creación clase UtilidadChart
+- Se añadió el gráfico de utilidad de las empresas al dashboard
 
 ## [1.0.38] - 12/10/2023 (Sebasr22)
 
