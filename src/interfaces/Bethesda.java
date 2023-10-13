@@ -96,20 +96,18 @@ public class Bethesda extends javax.swing.JPanel {
                 // Compara el nuevo valor del JSpinner con valorSpinner
                 if (nuevoValorSpinnerLvl > valorSpinnerLvl) {
                     if (desarrolladoresRestantes > 0) {
-                    //FUNCION CREAR DESARROLLADOR NARRATIVA
-                    // Llama a la función para crear un desarrollador de nivel
-                    BethesdaStudio.crearDesarrolladorNivel(BethesdaStudio.driveNivelB, 0, 3, "B", true);
-                    // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
-                    int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
-                    valorActual--;
-                    desarrolladoresRestantesB.setText(Integer.toString(valorActual));
-                    valorSpinnerN = nuevoValorSpinnerLvl;}
-                    else {
+                     
+                        // Llama a la función para crear un desarrollador de nivel
+                        BethesdaStudio.crearDesarrolladorNivel(BethesdaStudio.driveNivelB, 0, 3, "B", true);
+                        // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
+                        int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
+                        valorActual--;
+                        desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                        valorSpinnerLvl = nuevoValorSpinnerLvl;
+                    } else {
                         spinnnerNivelB.setValue(valorSpinnerLvl);
                     }
-                } 
-                
-                else if (nuevoValorSpinnerLvl < valorSpinnerLvl) {
+                } else if (nuevoValorSpinnerLvl < valorSpinnerLvl) {
 
                     //FUNCION STOP DESARROLLADOR NIVEL
                     BethesdaStudio.stopDesarrolladorNivelAleatorio();
@@ -117,10 +115,10 @@ public class Bethesda extends javax.swing.JPanel {
                     int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
                     valorActual++;
                     desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                    valorSpinnerLvl = nuevoValorSpinnerLvl;
                 }
 
                 // Actualiza valorSpinner con el nuevo valor del JSpinner
-                
             }
         });
 
@@ -141,13 +139,18 @@ public class Bethesda extends javax.swing.JPanel {
                 int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesB.getText());
                 // Compara el nuevo valor del JSpinner con valorSpinnerDLCB
                 if (nuevoValorSpinnerDLCB > valorSpinnerDLCB) {
-                    //FUNCION CREAR DESARROLLADOR DLC
-                    // Llama a la función para crear un desarrollador de DLC
-                    BethesdaStudio.crearDesarrolladorDLC(BethesdaStudio.driveDLCB, 0, 2, "B", true);
-                    // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
-                    int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
-                    valorActual--;
-                    desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                    if (desarrolladoresRestantes > 0) {
+                        //FUNCION CREAR DESARROLLADOR DLC
+                        // Llama a la función para crear un desarrollador de DLC
+                        BethesdaStudio.crearDesarrolladorDLC(BethesdaStudio.driveDLCB, 0, 2, "B", true);
+                        // Resta 1 a desarrolladoresRestantesB si el nuevo valor es mayor
+                        int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
+                        valorActual--;
+                        desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                        valorSpinnerDLCB = nuevoValorSpinnerDLCB;
+                    } else {
+                        spinnerDLCB.setValue(valorSpinnerDLCB);
+                    }
                 } else if (nuevoValorSpinnerDLCB < valorSpinnerDLCB) {
                     //FUNCION STOP DESARROLLADOR DLC
                     BethesdaStudio.stopDesarrolladorDLCAleatorio();
@@ -155,10 +158,10 @@ public class Bethesda extends javax.swing.JPanel {
                     int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
                     valorActual++;
                     desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                    valorSpinnerDLCB = nuevoValorSpinnerDLCB;
                 }
 
                 // Actualiza valorSpinnerDLCB con el nuevo valor del JSpinner
-                valorSpinnerDLCB = nuevoValorSpinnerDLCB;
             }
         });
 
@@ -174,14 +177,18 @@ public class Bethesda extends javax.swing.JPanel {
             public void stateChanged(ChangeEvent e) {
 
                 int nuevoValorSpinnerSistemasB = (int) spinnerSistemasB.getValue();
-int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesB.getText());
+                int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesB.getText());
                 if (nuevoValorSpinnerSistemasB > valorSpinnerSistemasB) {
+                    if (desarrolladoresRestantes > 0) {
+                        BethesdaStudio.crearDesarrolladorLogic(BethesdaStudio.driveLogicB, 1, 0, "B", true);
 
-                    BethesdaStudio.crearDesarrolladorLogic(BethesdaStudio.driveLogicB, 1, 0, "B", true);
-
-                    int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
-                    valorActual--;
-                    desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                        int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
+                        valorActual--;
+                        desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                        valorSpinnerSistemasB = nuevoValorSpinnerSistemasB;
+                    } else {
+                        spinnerSistemasB.setValue(valorSpinnerSistemasB);
+                    }
 
                 } else if (nuevoValorSpinnerSistemasB < valorSpinnerSistemasB) {
 
@@ -190,9 +197,9 @@ int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesB.getTex
                     int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
                     valorActual++;
                     desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                    valorSpinnerSistemasB = nuevoValorSpinnerSistemasB;
                 }
 
-                valorSpinnerSistemasB = nuevoValorSpinnerSistemasB;
             }
         });
 
@@ -208,14 +215,18 @@ int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesB.getTex
             public void stateChanged(ChangeEvent e) {
 
                 int nuevoValorSpinnerSpritesB = (int) spinnerSpritesB.getValue();
-
+                int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesB.getText());
                 if (nuevoValorSpinnerSpritesB > valorSpinnerSpritesB) {
+                    if (desarrolladoresRestantes > 0) {
+                        BethesdaStudio.crearDesarrolladorSprites(BethesdaStudio.driveSpritesB, 1, 0, "B", true);
 
-                    BethesdaStudio.crearDesarrolladorSprites(BethesdaStudio.driveSpritesB, 1, 0, "B", true);
-
-                    int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
-                    valorActual--;
-                    desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                        int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
+                        valorActual--;
+                        desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                        valorSpinnerSpritesB = nuevoValorSpinnerSpritesB;
+                    } else {
+                        spinnerSpritesB.setValue(valorSpinnerSpritesB);
+                    }
 
                 } else if (nuevoValorSpinnerSpritesB < valorSpinnerSpritesB) {
 
@@ -224,9 +235,9 @@ int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesB.getTex
                     int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
                     valorActual++;
                     desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                    valorSpinnerSpritesB = nuevoValorSpinnerSpritesB;
                 }
 
-                valorSpinnerSpritesB = nuevoValorSpinnerSpritesB;
             }
         });
 
@@ -241,14 +252,18 @@ int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesB.getTex
             public void stateChanged(ChangeEvent e) {
 
                 int nuevoValorSpinnerIntegradoresB = (int) spinnerIntegradoresB.getValue();
-
+                int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesB.getText());
                 if (nuevoValorSpinnerIntegradoresB > valorSpinnerIntegradoresB) {
+                    if (desarrolladoresRestantes > 0) {
+                        BethesdaStudio.crearIntegrador(BethesdaStudio.driveJuegosB, BethesdaStudio.driveNB, BethesdaStudio.driveNivelB, BethesdaStudio.driveDLCB, BethesdaStudio.driveLogicB, BethesdaStudio.driveSpritesB, BethesdaStudio.juegosGeneradosB, BethesdaStudio.juegosDLCGeneradosB, 2, 2, 3, 4, 6, 5, "B", true);
 
-                    BethesdaStudio.crearIntegrador(BethesdaStudio.driveJuegosB, BethesdaStudio.driveNB, BethesdaStudio.driveNivelB, BethesdaStudio.driveDLCB, BethesdaStudio.driveLogicB, BethesdaStudio.driveSpritesB, BethesdaStudio.juegosGeneradosB, BethesdaStudio.juegosDLCGeneradosB, 2, 2, 3, 4, 6, 5, "B", true);
-
-                    int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
-                    valorActual--;
-                    desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                        int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
+                        valorActual--;
+                        desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                        valorSpinnerIntegradoresB = nuevoValorSpinnerIntegradoresB;
+                    } else {
+                        spinnerIntegradoresB.setValue(valorSpinnerIntegradoresB);
+                    }
 
                 } else if (nuevoValorSpinnerIntegradoresB < valorSpinnerIntegradoresB) {
 
@@ -257,9 +272,9 @@ int desarrolladoresRestantes = Integer.parseInt(desarrolladoresRestantesB.getTex
                     int valorActual = Integer.parseInt(desarrolladoresRestantesB.getText());
                     valorActual++;
                     desarrolladoresRestantesB.setText(Integer.toString(valorActual));
+                    valorSpinnerIntegradoresB = nuevoValorSpinnerIntegradoresB;
                 }
 
-                valorSpinnerIntegradoresB = nuevoValorSpinnerIntegradoresB;
             }
         });
 
